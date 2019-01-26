@@ -12,4 +12,5 @@ class Listing < ApplicationRecord
   validates :timestamps, presence: true
 
   belongs_to :user
+  has_one :amenity
 end
