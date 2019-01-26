@@ -9,6 +9,7 @@ class Listing < ApplicationRecord
   validates :date_available, presence: true
   validates :lease_length, presence: true
   validates :sq_ft, presence: true
+
   validates :timestamps, presence: true
 
   belongs_to :user
