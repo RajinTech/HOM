@@ -1,6 +1,6 @@
-class CreateListingsTable < ActiveRecord::Migration[5.2]
+class CreateListings < ActiveRecord::Migration[5.2]
   def change
-    create_table :listings_tables do |t|
+    create_table :listings do |t|
       t.string :street, null: false
       t.string :unit
       t.string :city, null: false
@@ -12,15 +12,6 @@ class CreateListingsTable < ActiveRecord::Migration[5.2]
       t.string :date_available, null: false
       t.string :lease_length, null: false
       t.string :sq_ft, null: false
-      t.string :type
-      t.string :zoning
-      t.string :school_district
-      t.string :heating
-      t.string :cooling
-      t.boolean :pets
-      t.boolean :hud
-      t.boolean :parking
-      t.string :amenities
 
       t.timestamps null: false
       t.belongs_to :user
