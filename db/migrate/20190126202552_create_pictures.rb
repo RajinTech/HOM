@@ -3,7 +3,7 @@ class CreatePictures < ActiveRecord::Migration[5.2]
     create_table :pictures do |t|
       t.string :image
 
-      belongs_to :listing
+      t.belongs_to :listing
 
       t.timestamps null: false
 
