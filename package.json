@@ -16,12 +16,8 @@
     "react": "~15.4.2",
     "react-addons-test-utils": "15.6.2",
     "react-dom": "~15.4.2",
-<<<<<<< HEAD
-    "react-router": "~3.2.0",
-=======
     "react-router": "^3.2.1",
     "react-router-dom": "^4.3.1",
->>>>>>> c741ebd6653235f76fbd461a86fe7d20ad584de2
     "redbox-react": "1.6.0"
   },
   "devDependencies": {
