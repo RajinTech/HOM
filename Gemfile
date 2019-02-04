@@ -57,5 +57,8 @@ gem 'database_cleaner', group: [:development, :test]
 gem 'valid_attribute', group: [:development, :test]
 gem 'shoulda-matchers', group: [:development, :test], require: false
 gem 'devise'
+gem 'dotenv-rails', group: [:development, :test]
+gem 'carrierwave', '~>1.0'
+gem "fog-aws"
 gem 'foundation-rails', '~> 5.0'
 gem 'webpacker', '~> 3.3'
