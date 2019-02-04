@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import MapContainer from './MapContainer'
+
 
 class ListingShowContainer extends Component {
   constructor(props) {
@@ -11,6 +13,7 @@ class ListingShowContainer extends Component {
     return(
       <div>
         Listings Show Container
+        <MapContainer/>
       </div>
     )
   }
