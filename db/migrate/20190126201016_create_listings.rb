@@ -11,7 +11,7 @@ class CreateListings < ActiveRecord::Migration[5.2]
       t.string :rent, null: false
       t.string :date_available, null: false
       t.string :lease_length, null: false
-      t.string :sq_ft, null: false
+      t.integer :sq_ft, null: false
 
       t.timestamps null: false
       t.belongs_to :user
