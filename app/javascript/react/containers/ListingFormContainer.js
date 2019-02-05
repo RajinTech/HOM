@@ -19,7 +19,7 @@ class ListingFormContainer extends Component {
       rent: "",
       sq_ft: "",
       date_available: "",
-      lease_length: "12",
+      lease_length: "12"
     }
     this.handleStreetChange = this.handleStreetChange.bind(this)
     this.handleUnitChange = this.handleUnitChange.bind(this)
@@ -98,9 +98,9 @@ class ListingFormContainer extends Component {
     let formPayload = {
       listing: this.state
     };
-    console.log(formPayload);
 
-    fetch('/listings', {
+
+    fetch('/api/v1/listings', {
       credentials: 'same-origin',
       method: 'POST',
       body: JSON.stringify(formPayload),

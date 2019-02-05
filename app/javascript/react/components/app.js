@@ -13,8 +13,9 @@ const App = props => {
 
    <Router history={browserHistory}>
      <Route path='/' component={NavBar} >
-       <IndexRoute component={ListingFormContainer} />
-       <Route path="listings/:id" component={ListingShowContainer}/>
+       <IndexRoute component={ListingIndexContainer} />
+       <Route path="listings/new" component={ListingFormContainer}/>
+     <Route path="listings/:id" component={ListingShowContainer}/>
      </Route>
    </Router>
  )
