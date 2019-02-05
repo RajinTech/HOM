@@ -55,14 +55,15 @@ class ListingIndexContainer extends Component {
       )
     })
     return(
-      <div>
-      
-        <div>
+      <div classname="row">
+
+        <div classname="row">
         {listings}
       </div>
         hello from listing index
-
+<div className="row">
       <MapContainer/>
+  </div>
       </div>
     )
   }
