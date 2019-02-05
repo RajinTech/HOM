@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(version: 2019_01_26_202552) do
   enable_extension "plpgsql"
 
   create_table "amenities", force: :cascade do |t|
-    t.string "type", null: false
-    t.string "parking_spaces", null: false
-    t.boolean "pets", null: false
+    t.string "building_style", null: false
+    t.integer "parking_spaces", null: false
+    t.boolean "pets"
     t.string "zoning"
     t.string "school_district"
     t.string "heating"
