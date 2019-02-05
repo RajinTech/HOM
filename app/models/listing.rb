@@ -8,8 +8,6 @@ class Listing < ApplicationRecord
   validates :rent, presence: true
   validates :date_available, presence: true
   validates :lease_length, presence: true
-  validates :sq_ft, presence: true
-  validates :timestamps, presence: true
 
   belongs_to :user
   has_one :amenity

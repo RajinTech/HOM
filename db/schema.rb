@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_26_202552) do
+ActiveRecord::Schema.define(version: 2019_02_05_004118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "amenities", force: :cascade do |t|
-    t.string "type", null: false
-    t.string "parking_spaces", null: false
-    t.boolean "pets", null: false
+    t.string "building_style", null: false
+    t.integer "parking_spaces", null: false
+    t.boolean "pets"
     t.string "zoning"
     t.string "school_district"
     t.string "heating"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2019_01_26_202552) do
     t.string "rent", null: false
     t.string "date_available", null: false
     t.string "lease_length", null: false
-    t.string "sq_ft", null: false
+    t.integer "sq_ft", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 2019_01_26_202552) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "profile_photo"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

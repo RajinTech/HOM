@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+#
 user_list = [
   [ "germany@gmail.com", "germany", "germany" ],
   [ "france@gmail.com", "france", "france" ],
@@ -12,8 +13,8 @@ user_list = [
   [ "netherlands@gmail.com", "netherlands", "netherlands" ]
 ]
 user_list.each do |email, password, password_confirmation|
-  User.create( email: email, password: password, password_confirmation: password_confirmation )
-
+  User.create!( email: email, password: password, password_confirmation: password_confirmation )
+end
 
 listings_list = [
   [ "14 Washington St", "", "Oneonta", "NY", "13820", 4, 2, 850, "01/01/2020", 12, 1500, 1 ],
@@ -30,7 +31,21 @@ listings_list = [
   [ "659 Lishakill Rd", "4", "Schenectady", "NY", "12212", 3, 1, 850, "01/01/2020", 12, 1500, 1 ],
 ]
 listings_list.each do |street, unit, city, state, zip, bedrooms, bathrooms, rent, date_available, lease_length, sq_ft, user_id|
-  Listing.create( street: street, unit: unit, city: city, state: state, zip: zip, bedrooms: bedrooms, bathrooms: bathrooms, rent: rent, date_available: date_available, lease_length: lease_length, sq_ft: sq_ft, user_id: user_id )
+  Listing.create!(
+    street: street,
+    unit: unit,
+    city: city,
+    state: state,
+    zip: zip,
+    bedrooms: bedrooms,
+    bathrooms: bathrooms,
+    rent: rent,
+    date_available: date_available,
+    lease_length: lease_length,
+    sq_ft: sq_ft,
+    user_id: user_id
+  )
+end
 
 amenities_list = [
   [ "duplex", 0, false, "residential", "Center", "electric", "central air", false, false, 1 ],
@@ -47,5 +62,17 @@ amenities_list = [
   [ "multi-family", 2, false, "residential", "Niskayuna", "gas", "central air", false, false, 12 ]
 
 ]
-amenities_list.each do |type, parking_spaces, pets, zoning, school_district, heating, cooling, hud, smoking, listing_id|
-  Amenity.create( type: type, parking_spaces: parking_spaces, pets: pets, zoning: zoning, school_district: school_district, heating: heating, cooling: cooling, hud: hud, smoking: smoking, listing_id: listing_id )
+amenities_list.each do |building_style, parking_spaces, pets, zoning, school_district, heating, cooling, hud, smoking, listing_id|
+  Amenity.create!(
+    building_style: building_style,
+    parking_spaces: parking_spaces,
+    pets: pets,
+    zoning: zoning,
+    school_district: school_district,
+    heating: heating,
+    cooling: cooling,
+    hud: hud,
+    smoking: smoking,
+    listing_id: listing_id
+  )
+end

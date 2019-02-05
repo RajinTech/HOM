@@ -113,7 +113,7 @@ export class CurrentLocation extends React.Component {
      const style = Object.assign({}, mapStyles.map);
     return (
       <div>
-        <div style={style} ref="map">
+        <div style={style} ref="map" className="panel callout radius">
           Loading map...
         </div>
         {this.renderChildren()}
