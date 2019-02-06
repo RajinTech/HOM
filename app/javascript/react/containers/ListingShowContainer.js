@@ -76,7 +76,10 @@ render(){
             zip={this.state.listing.zip}
           />
         </div>
-        <div><MapContainer/></div>
+        <div>
+          <MapContainer
+          />
+        </div>
   </div>
   )
 }}

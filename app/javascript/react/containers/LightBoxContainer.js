@@ -24,7 +24,8 @@ class GalleryTile extends Component {
 
     return (
       <div>
-        <button type="button" onClick={() => this.setState({ isOpen: true })}>
+        <button type="button" className= "button round"
+          onClick={() => this.setState({ isOpen: true })}>
           Open Lightbox
         </button>
 
