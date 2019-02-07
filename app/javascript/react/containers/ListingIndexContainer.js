@@ -36,6 +36,7 @@ class ListingIndexContainer extends Component {
   render(){
     let listings = this.state.listings.map((listing) => {
       return (
+
         <ListingTile
           key={listing.id}
           bathrooms={listing.bathrooms}
@@ -52,19 +53,16 @@ class ListingIndexContainer extends Component {
           userid={listing.user_id}
           zip={listing.zip}
         />
+
       )
     })
     return(
-      <div classname="row">
-
-        <div classname="row">
+        <div className="column">
         {listings}
-      </div>
-        hello from listing index
-<div className="row">
-      <MapContainer/>
-  </div>
-      </div>
+      <div className="row">
+            <MapContainer/>
+        </div>
+        </div>
     )
   }
 }

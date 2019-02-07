@@ -1,0 +1,163 @@
+@import '_colors';
+
+.row-one {
+  margin-top: 2rem;
+}
+
+a {
+  color: inherit;
+}
+
+a:hover {
+  color: inherit;
+}
+
+.new-podcast {
+  background-color: $turquoise-blue;
+  color: $mine-shaft;
+  margin: 8px;
+  margin-top: 0px;
+  margin-bottom: 2rem;
+  border: 2px white solid;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 10px;
+}
+
+.small-x {
+  width: 80%
+}
+
+.new-podcast:hover {
+  background-color: $mustard;
+  color: $mine-shaft;
+}
+.amenity-tile {
+  height: 250px;
+  border-radius: 6px;
+  border: 3px #461500 solid;
+  background-color: #FFF5F0;
+  animation-name: slide-right;
+  animation-duration: 0.5s;
+}
+.amenity-tile:hover{
+  border: 5px #FF8100 solid;
+  animation: emerge 4s ease-in-out infinite alternate;
+  -webkit-animation: emerge 4s ease-in-out infinite alternate;
+}
+
+.content-tile:hover{
+  border: 5px #FF8100 solid;
+  animation: emerge 2s ease-in-out ;
+  -webkit-animation: flip-out 2s ease-in-out ;
+  animation-fill-mode: forwards;
+
+
+}
+// .trigger {
+//   height: 200px;
+//   width: 200px;
+//   border: 1px solid #999;
+//   margin-top: -185px;
+// }
+
+.content-tile {
+  transform: scale(0.5);
+  height: 200px;
+  width: 200px;
+  border-radius: 6px;
+  border: 4px #461500 solid;
+  background-color: #FFF5F0;
+  animation-name: emerge-start;
+  animation-duration: 0.5s;
+  margin-top: -185px;
+}
+.tile-micro-backer {
+  transform: scale(0.1);
+  height: 195px;
+  border-radius: 6px;
+  border: 4px #461500 solid;
+  background-color: #FFF5F0;
+  animation-name: emerge-start;
+  animation-duration: 0.5s;
+}
+.tile-micro-backer:hover{
+  border: 5px #FF8100 solid;
+  animation: emerge 2s ease-in-out infinite alternate;
+  -webkit-animation: emerge 2s ease-in-out infinite alternate;
+}
+
+.content-tile h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.content-tile h2 {
+  font-size: 1.1rem;
+}
+
+.content-tile a {
+  padding: 1px 4px;
+  margin-left: -4px;
+  border-radius: 6px;
+  color: $rose;
+}
+
+.content-tile a:hover {
+  background-color: $cream-brulee;
+}
+
+.show-header {
+  border-radius: 12px;
+  background-color: $quarter-pearl-lusta;
+}
+
+.show-header h1 {
+  font-weight: bold;
+  color: $turquoise-blue;
+}
+
+.reviews-header {
+  font-size: 3rem;
+  color: $mustard;
+  font-weight: bold;
+}
+
+.new-review {
+  background-color: $turquoise-blue;
+  color: $mine-shaft;
+  margin-bottom: 1rem;
+  border: 2px white solid;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 10px;
+}
+
+.new-review:hover {
+  background-color: $mustard;
+  color: $mine-shaft;
+}
+
+.bar {
+  height: 1px;
+  background-color: $rose;
+  margin-bottom: 1rem;
+  margin-top: 1.4rem;
+}
+
+.review {
+  border-radius: 12px;
+  background-color: $quarter-pearl-lusta;
+}
+
+.avg-rating {
+  color: $turquoise-blue;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.hom-image {
+  background-color: #FF9427
+}

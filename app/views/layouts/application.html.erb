@@ -23,7 +23,7 @@
         <%- if current_user -%>
 
             <li class="active picture"><img src="<%= current_user.profile_photo %>" width="50" height="50" /></li>
-            
+
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
         <%- else -%>
           <li><%= link_to 'Sign Up', new_user_registration_path %></li>
@@ -38,8 +38,10 @@
       <%= value %>
     </div>
   <%- end -%>
+  <div classname="hom-image">
+    <%= yield %>
+  </div>
 
-  <%= yield %>
 
   <%= javascript_include_tag 'application' %>
 

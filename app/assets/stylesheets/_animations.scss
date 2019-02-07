@@ -1,0 +1,74 @@
+@keyframes slide-right {
+  from { width: 1px }
+  to { width: 100% }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes emerge {
+  0% {
+    transform: scale(0.5);
+    -webkit-transform: scale(0.5)
+  }
+  100% {
+    transform:scale(1.25);
+    -webkit-transform: scale(1.25);
+  }
+}
+@keyframes emerge-start {
+  from {
+    transform: scale(0);
+    -webkit-transform: scale(0)
+  }
+  to {
+    transform:scale(0.5);
+    -webkit-transform: scale(0.5);
+  }
+}
+@keyframes emerge-rollout {
+  from {
+    transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+    transform: rotate(0deg), translate(0px);
+    -webkit-transform: rotate(0deg), translate(0px);
+
+
+  }
+  to {
+    transform:scale(1.25);
+    -webkit-transform: scale(1.25);
+    transform: rotate(180deg), translate(500px);
+    -webkit-transform: rotate(180deg), translate(500px);
+
+  }
+}
+
+@keyframes spin-rollout {
+  from {
+    transform: scale(0.5) rotate(0deg) translate(0px);
+    -webkit-transform: scale(0.5) rotate(0deg) translate(0px);
+
+
+  }
+  to {
+    transform: scale(1.75) rotate(360deg) translate(350px);
+    -webkit-transform: scale(1.75) rotate(360deg) translate(350px);
+
+  }
+}
+@keyframes flip-out {
+  from {
+    transform: scale(0.5)  rotateY(0deg) rotate(0deg) translate(0px);
+    -webkit-transform: scale(0.5) rotateY(0deg) rotate(0deg) translate(0px);
+
+
+  }
+  to {
+    transform: scale(1.75)  rotateY(360deg) rotate(360deg) translate(350px);
+    -webkit-transform: scale(1.75)  rotateY(360deg) rotate(360deg) translate(350px);
+
+  }
+}
