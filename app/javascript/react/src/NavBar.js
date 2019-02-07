@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router'
+import { Link, browserHistory } from 'react-router'
 import BackButton from './BackButton'
 import ForwardButton from './ForwardButton'
 
@@ -7,14 +7,22 @@ import ForwardButton from './ForwardButton'
 const NavBar = props => {
   return(
     <div>
-      <div className="navbar">
-      <BackButton />
-        <Link to='/'> HOME </Link>
-        <Link to='/'>All Listings</Link>
-      <ForwardButton/>
-      </div>
+      <div>
+      <button
+        className="button-nav"
+        onClick={browserHistory.goBack}>
+        Back</button>
+      <button
+        className="button-nav" to='/'>
+        HOME </button>
+      <button
+        className="button-nav" to='/listings'>
+        All Listings</button>
+      <button
+        className="button-nav" onClick={browserHistory.goForward}>
+        Forward</button>
+        </div>
       <div className="content">
-        <h1 className="page-title">Listings</h1>
         {props.children}
       </div>
     </div>

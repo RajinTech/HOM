@@ -3,7 +3,7 @@ import { browserHistory } from 'react-router'
 
 const BackButton = () => {
   return(
-    <div className="button sml radius: 50 radius">
+    <div className="button-nav">
       <button onClick={browserHistory.goBack}>Back</button>
     </div>
   )

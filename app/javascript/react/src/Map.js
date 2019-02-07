@@ -4,8 +4,8 @@ import ReactDOM from 'react-dom';
 const mapStyles = {
   map: {
     position: 'absolute',
-    width: '75%',
-    height: '75%',
+    width: '100%',
+    height: '100%',
 
   }
 };
@@ -113,7 +113,7 @@ export class CurrentLocation extends React.Component {
      const style = Object.assign({}, mapStyles.map);
     return (
       <div>
-        <div style={style} ref="map" className="panel callout radius">
+        <div style={style} ref="map">
           Loading map...
         </div>
         {this.renderChildren()}

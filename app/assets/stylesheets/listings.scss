@@ -11,27 +11,37 @@ a {
 a:hover {
   color: inherit;
 }
+.background-oh {
+  background-color: #FF8100;
+}
+//Butttons
+.nav-box {
+  left: 40%;
+}
 
-.new-podcast {
-  background-color: $turquoise-blue;
-  color: $mine-shaft;
-  margin: 8px;
-  margin-top: 0px;
-  margin-bottom: 2rem;
-  border: 2px white solid;
-  border-radius: 6px;
+.button-nav{
+  background-color: #FFF5F0;
+  border: 2px #461500 solid;
+  border-radius: 3px;
+  color: #461500;
+  padding: 15px 32px;
+  width: 150px;
   text-align: center;
-  font-size: 1.5rem;
-  padding: 10px;
+  text-decoration: none;
+  float: left;
+  font-size: 10px;
+  transform: skewX(-10deg);
 }
 
-.small-x {
-  width: 80%
+.button-nav:hover {
+  background-color: #461500;
+  border: 4px #DB4100 solid;
+  animation: emerge-nav 1s ease-in-out infinite alternate;
 }
-
-.new-podcast:hover {
-  background-color: $mustard;
-  color: $mine-shaft;
+.center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
 }
 .amenity-tile {
   height: 250px;
@@ -48,12 +58,10 @@ a:hover {
 }
 
 .content-tile:hover{
-  border: 5px #FF8100 solid;
-  animation: emerge 2s ease-in-out ;
-  -webkit-animation: flip-out 2s ease-in-out ;
+  border: 5px #DB4100 solid;
+  animation: flip-out 1s ease-in-out ;
+  -webkit-animation: flip-out 1s ease-in-out ;
   animation-fill-mode: forwards;
-
-
 }
 // .trigger {
 //   height: 200px;
@@ -72,6 +80,34 @@ a:hover {
   animation-name: emerge-start;
   animation-duration: 0.5s;
   margin-top: -185px;
+  // transform: skewX(10deg);
+}
+.listings-box {
+  position: absolute;
+  top: 36%;
+  transform: skewX(-10deg);
+  left: -3%;
+}
+
+.map-box {
+  position: absolute;
+  border: 4px #461500 solid;
+  top: 23%;
+  left: 14%;
+  height: 60%;
+  width: 30%;
+  transform: skewX(-10deg);
+}
+
+.map-box:hover {
+  border: 5px #DB4100 solid;
+
+}
+.padding-for-index {
+  padding: 15px;
+  background-color: #FF8100;
+  height: 100%;
+  width:auto;
 }
 .tile-micro-backer {
   transform: scale(0.1);
@@ -88,76 +124,15 @@ a:hover {
   -webkit-animation: emerge 2s ease-in-out infinite alternate;
 }
 
-.content-tile h1 {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
 
-.content-tile h2 {
-  font-size: 1.1rem;
-}
 
-.content-tile a {
-  padding: 1px 4px;
-  margin-left: -4px;
-  border-radius: 6px;
-  color: $rose;
-}
 
-.content-tile a:hover {
-  background-color: $cream-brulee;
-}
 
-.show-header {
-  border-radius: 12px;
-  background-color: $quarter-pearl-lusta;
-}
 
-.show-header h1 {
-  font-weight: bold;
-  color: $turquoise-blue;
-}
 
-.reviews-header {
-  font-size: 3rem;
-  color: $mustard;
-  font-weight: bold;
-}
 
-.new-review {
-  background-color: $turquoise-blue;
-  color: $mine-shaft;
-  margin-bottom: 1rem;
-  border: 2px white solid;
-  border-radius: 6px;
-  text-align: center;
-  font-size: 1.5rem;
-  padding: 10px;
-}
 
-.new-review:hover {
-  background-color: $mustard;
-  color: $mine-shaft;
-}
-
-.bar {
-  height: 1px;
-  background-color: $rose;
-  margin-bottom: 1rem;
-  margin-top: 1.4rem;
-}
-
-.review {
-  border-radius: 12px;
-  background-color: $quarter-pearl-lusta;
-}
-
-.avg-rating {
-  color: $turquoise-blue;
-  font-size: 2rem;
-  font-weight: bold;
-}
 
 .hom-image {
-  background-color: #FF9427
+  background-color: #FF9427;
 }

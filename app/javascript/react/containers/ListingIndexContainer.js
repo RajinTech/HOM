@@ -57,11 +57,18 @@ class ListingIndexContainer extends Component {
       )
     })
     return(
-        <div className="column">
+        <div className="padding-for-index">
+          <div className="listings-box">
+            <h2>Listings</h2>
         {listings}
+      </div>
       <div className="row">
-            <MapContainer/>
+
+      <div className="map-box">
+
+          <MapContainer className="center"/>
         </div>
+      </div>
         </div>
     )
   }

@@ -18,6 +18,15 @@
     -webkit-transform: scale(1.25);
   }
 }
+@keyframes emerge-nav {
+  0% {
+    transform: scale(1) skewX(-10deg);
+  }
+
+  100% {
+    transform:scale(1.5) skewX(-10deg);
+  }
+}
 @keyframes emerge-start {
   from {
     transform: scale(0);
@@ -59,6 +68,8 @@
 
   }
 }
+$randomnumber: random(300);
+
 @keyframes flip-out {
   from {
     transform: scale(0.5)  rotateY(0deg) rotate(0deg) translate(0px);
@@ -67,8 +78,89 @@
 
   }
   to {
-    transform: scale(1.75)  rotateY(360deg) rotate(360deg) translate(350px);
-    -webkit-transform: scale(1.75)  rotateY(360deg) rotate(360deg) translate(350px);
+    transform: scale(1.5)  rotateY(360deg) rotate(360deg) translate(350px);
+    -webkit-transform: scale(1.5)  rotateY(360deg) rotate(360deg) translate(350px);
+
+  }
+}
+
+@keyframes flip-out-extreme {
+  0% {
+    transform:
+    scale(0.5)
+    rotateY(0deg)
+    rotate(0deg)
+    translate(0px);
+
+    -webkit-transform:
+    scale(0.5)
+    rotateY(0deg)
+    rotate(0deg)
+    translate(0px);
+  }
+  // 25% {
+  //   transform:
+  //   scale(1)
+  //   rotateY(0deg)
+  //   rotate(360deg)
+  //   translateY(-200px)
+  //   translateX(0px);
+  //
+  //   -webkit-transform:
+  //   scale(1)
+  //   rotateY(0deg)
+  //   rotate(360deg)
+  //   translateY(-200px)
+  //   translateX(100px);
+  //
+  //
+  // }
+  // 50% {
+  //   transform:
+  //   scale(1.5)
+  //   rotateY(0deg)
+  //   rotate(720deg)
+  //   translateY(+400px)
+  //   translateX(100px);
+  //
+  //   -webkit-transform:
+  //   scale(1.5)
+  //   rotateY(0deg)
+  //   rotate(720deg)
+  //   translateY(+400px)
+  //   translateX(100px);
+  //
+  //
+  // }
+  // 75% {
+  //   transform:
+  //   scale(1.65)
+  //   rotateY(0deg)
+  //   rotate(900deg)
+  //   translateY(+200px)
+  //   translateX(-100px);
+  //
+  //   -webkit-transform:
+  //   scale(1.65)
+  //   rotateY(0deg)
+  //   rotate(1080deg)
+  //   translateY(+200px)
+  //   translateX(-100px);
+  //
+  //
+  // }
+  100% {
+    transform:
+    scale(1.75)
+    rotateY(360deg)
+    rotate(360deg)
+    translate(350px);
+
+    -webkit-transform:
+    scale(1.75)
+    rotateY(360deg)
+    rotate(1080deg)
+    translate(350px);
 
   }
 }

@@ -31,7 +31,6 @@ export class MapContainer extends Component {
   render() {
     return (
       <div>
-        <h4>map area</h4>
       <CurrentLocation
         centerAroundCurrentLocation
         google={this.props.google}
