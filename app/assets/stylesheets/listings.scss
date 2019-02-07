@@ -33,14 +33,59 @@ a:hover {
   background-color: $mustard;
   color: $mine-shaft;
 }
+.amenity-tile {
+  height: 250px;
+  border-radius: 6px;
+  border: 3px #461500 solid;
+  background-color: #FFF5F0;
+  animation-name: slide-right;
+  animation-duration: 0.5s;
+}
+.amenity-tile:hover{
+  border: 5px #FF8100 solid;
+  animation: emerge 4s ease-in-out infinite alternate;
+  -webkit-animation: emerge 4s ease-in-out infinite alternate;
+}
+
+.content-tile:hover{
+  border: 5px #FF8100 solid;
+  animation: emerge 2s ease-in-out ;
+  -webkit-animation: flip-out 2s ease-in-out ;
+  animation-fill-mode: forwards;
+
+
+}
+// .trigger {
+//   height: 200px;
+//   width: 200px;
+//   border: 1px solid #999;
+//   margin-top: -185px;
+// }
 
 .content-tile {
-  height: 128px;
+  transform: scale(0.5);
+  height: 200px;
+  width: 200px;
   border-radius: 6px;
-  border: 2px $mustard solid;
-  background-color: $quarter-pearl-lusta;
-  animation-name: fade-in;
+  border: 4px #461500 solid;
+  background-color: #FFF5F0;
+  animation-name: emerge-start;
   animation-duration: 0.5s;
+  margin-top: -185px;
+}
+.tile-micro-backer {
+  transform: scale(0.1);
+  height: 195px;
+  border-radius: 6px;
+  border: 4px #461500 solid;
+  background-color: #FFF5F0;
+  animation-name: emerge-start;
+  animation-duration: 0.5s;
+}
+.tile-micro-backer:hover{
+  border: 5px #FF8100 solid;
+  animation: emerge 2s ease-in-out infinite alternate;
+  -webkit-animation: emerge 2s ease-in-out infinite alternate;
 }
 
 .content-tile h1 {
@@ -111,4 +156,8 @@ a:hover {
   color: $turquoise-blue;
   font-size: 2rem;
   font-weight: bold;
+}
+
+.hom-image {
+  background-color: #FF9427
 }

@@ -59,7 +59,8 @@ render(){
   </div>
 
   <div className="small-12 column">
-    <ListingTile
+    <div className="content-tile">
+      <ListingTile
             key={this.state.listing.id}
             bathrooms={this.state.listing.bathrooms}
             bedrooms={this.state.listing.bedrooms}
@@ -75,6 +76,7 @@ render(){
             userid={this.state.listing.user_id}
             zip={this.state.listing.zip}
           />
+          </div>
         </div>
         <div>
           <MapContainer

@@ -6,7 +6,7 @@ const AmenityTile = (props) => {
 
   return (
     <div className="small-12 medium-6 large-4 columns">
-      <div className="panel content-tile">
+      <div className="panel amenity-tile">
         <h5>Building {props.buildingstyle}</h5>
         <h5>Heating {props.heating}</h5>
         <h5>Cooling {props.cooling}</h5>
