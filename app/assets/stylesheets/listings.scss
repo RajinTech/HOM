@@ -132,9 +132,7 @@ a:hover {
 
 }
 
-
-
-.map-box {
+.photo-box {
   position: absolute;
   border: 4px #461500 solid;
   top: 28%;
@@ -144,6 +142,48 @@ a:hover {
   transform: skewX(-10deg);
 }
 
+.box-show{
+  position:absolute;
+}
+.map-box {
+  position: absolute;
+  border: 4px #461500 solid;
+  top: 28%;
+  left: 15%;
+  height: 60%;
+  width: 30%;
+  transform: skewX(-10deg);
+}
+.image-box-show{
+  transform: scale(0.15);
+}
+.console{
+  border: 5px #461500 solid;
+
+}
+.amenity-show{
+  transform: scale(0.2);
+
+}
+.listing-show{
+  transform: scale(0.2);
+
+}
+.picturestrip{
+border: 5px #461500 solid;
+}
+.map-box-show{
+  border: 3px #DB4100 solid;
+
+}
+.stats-show{
+border: 5px #461500 solid;
+
+}
+.overhang{
+  border: 5px #461500 solid;
+
+}
 .map-box:hover {
   border: 5px #DB4100 solid;
 
