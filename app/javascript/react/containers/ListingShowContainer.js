@@ -40,7 +40,7 @@ class ListingShowContainer extends Component {
 
 render(){
   return(
-    <div className="row">
+    <div className="row padding-for-index">
       <h1>{this.state.amenities.building_style}</h1>
     <div className="small-12 column">
       <GalleryTile/>
@@ -78,7 +78,7 @@ render(){
           />
           </div>
         </div>
-        <div>
+        <div className="map-box">
           <MapContainer
           />
         </div>

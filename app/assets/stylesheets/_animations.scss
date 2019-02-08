@@ -74,8 +74,6 @@ $randomnumber: random(300);
   from {
     transform: scale(0.5)  rotateY(0deg) rotate(0deg) translate(0px);
     -webkit-transform: scale(0.5) rotateY(0deg) rotate(0deg) translate(0px);
-
-
   }
   to {
     transform: scale(1.5)  rotateY(360deg) rotate(360deg) translate(35px);

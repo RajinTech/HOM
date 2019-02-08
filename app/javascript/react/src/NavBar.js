@@ -7,7 +7,7 @@ import ForwardButton from './ForwardButton'
 const NavBar = props => {
   return(
     <div>
-      <div>
+      <div className="nav-bar-set">
       <button
         className="button-nav"
         onClick={browserHistory.goBack}>

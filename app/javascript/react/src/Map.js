@@ -6,7 +6,6 @@ const mapStyles = {
     position: 'absolute',
     width: '100%',
     height: '100%',
-
   }
 };
 
@@ -23,8 +22,6 @@ export class CurrentLocation extends React.Component {
     };
 
   }
-
-
 
   componentDidUpdate(prevProps, prevState) {
       if (prevProps.google !== this.props.google) {
@@ -113,7 +110,7 @@ export class CurrentLocation extends React.Component {
      const style = Object.assign({}, mapStyles.map);
     return (
       <div>
-        <div style={style} ref="map">
+        <div className="map-style" ref="map">
           Loading map...
         </div>
         {this.renderChildren()}

@@ -5,8 +5,9 @@ const ListingTile = (props) => {
 
 
   return (
-
-      <div className="content-tile">
+    <div>
+    <a href="/listings/${props.id}">
+      <div className="content-tile-index">
         <h5>{props.street} {props.unit}</h5>
         <h6>{props.city}, {props.state} {props.zip}</h6>
         <h6>Bed: {props.bedrooms}</h6>
@@ -14,7 +15,8 @@ const ListingTile = (props) => {
         <h6>rent: {props.rent}</h6>
         <h6>sqft: {props.sqft}</h6>
       </div>
-
+      </a>
+    </div>
   )
 }
 
