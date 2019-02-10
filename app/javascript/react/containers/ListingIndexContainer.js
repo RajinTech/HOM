@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import ListingTile from '../components/ListingTile'
 import ScrollTile from '../components/ScrollTile'
-import MapContainer from './MapContainer'
+import Map from '../components/Map'
+
 
 
 class ListingIndexContainer extends Component {
@@ -18,8 +19,6 @@ class ListingIndexContainer extends Component {
       this.onHoverLeaveHandler = this.onHoverLeaveHandler.bind(this)
   }
 
-
-
   onHoverEnterHandler(event) {
 
   let listings_show = this.state.listings_show;
@@ -34,17 +33,14 @@ class ListingIndexContainer extends Component {
   console.log(listings_show)
 
   this.setState({ listings_show: listings_show.push(listing_from_holder) })
-
   this.setState({ listings_holder: listings_holder.push(listing_from_show) })
-
 
   console.log("new listings holders state:");
   console.log(listings_holder);
   console.log("new listings show state:");
   console.log(listings_show)
-
-
   }
+
   onHoverLeaveHandler(event) {
   }
 
@@ -73,12 +69,9 @@ class ListingIndexContainer extends Component {
         listing
       )
     })
-
     this.state.listings_show = this.state.listings_holder.splice(1, 13);
-
     let listings_display = this.state.listings_show.map((listing) => {
       return (
-
         <ListingTile
           key={listing.id}
           bathrooms={listing.bathrooms}
@@ -104,14 +97,11 @@ class ListingIndexContainer extends Component {
             <h2></h2>
           </div>
           {listings_display}
-
       </div>
       <div className="row">
         <div className="scroll-down"><a>O</a></div>
-
       <div className="map-box">
-
-          <MapContainer className="center"/>
+        <Map/>
         </div>
       </div>
         </div>
@@ -120,8 +110,3 @@ class ListingIndexContainer extends Component {
 }
 
 export default ListingIndexContainer
-// <div><ScrollTile
-//   onHoverEnterHandler={this.onHoverEnterHandler}
-//   onHoverLeaveHandler={this.onHoverLeaveHandler}
-//   onClick={this.onHoverEnterHandler}
-//   /></div>

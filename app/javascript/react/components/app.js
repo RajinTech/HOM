@@ -1,7 +1,6 @@
 import React from 'react'
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 import ListingIndexContainer from '../containers/ListingIndexContainer'
-import MapContainer from '../containers/MapContainer'
 import ListingShowContainer from '../containers/ListingShowContainer'
 import ListingFormContainer from '../containers/ListingFormContainer'
 import NavBar from '../src/NavBar';

@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import MapContainer from './MapContainer'
 import ListingTile from '../components/ListingTile'
 import GalleryTile from './LightBoxContainer'
 import AmenityTile from '../components/AmenitiesTile'
+
 
 class ListingShowContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
       amenities: [],
-      listings: [],
       listing: []
     }
 }
@@ -55,8 +54,7 @@ render(){
         </div>
         <div className="small-4 medium-4 column map-box-show">
           <div className="map-box"><h1>mapshow</h1><h1>mapshow</h1><h1>mapshow</h1><h1>mapshow</h1>
-            <MapContainer
-            />
+
           </div>
         </div>
           <div className="small-5 medium-8 column stats-show">
