@@ -109,15 +109,11 @@ a:hover {
   animation-duration: 0.5s;
 
 }
+
 .nav-bar-set {
   position:absolute;
   left: 5px;
 
-}
-.map-style {
-  position: absolute;
-  width: 100%;
-  height: 100%;
 }
 
 .triangle-right {
@@ -141,6 +137,17 @@ a:hover {
   width: 30%;
   transform: skewX(-10deg);
 }
+.photo-box-show {
+  position: absolute;
+  border: 4px #FFF5F0 solid;
+  border-radius: 3px;
+  height: 60%;
+  width: 60%;
+
+}
+.photo-box-show:hover {
+  border: 4px #DB4100 solid;
+}
 
 .box-show{
   position:absolute;
@@ -148,15 +155,26 @@ a:hover {
 .map-box {
   position: absolute;
   border: 4px #461500 solid;
+  border-radius: 3px;
   top: 28%;
   left: 15%;
   height: 60%;
   width: 30%;
   transform: skewX(-10deg);
 }
+.map-style {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.map-box-show{
+  border: 3px #DB4100 solid;
+  }
+
 .image-box-show{
   transform: scale(0.15);
 }
+
 .console{
   border: 5px #461500 solid;
 
@@ -172,10 +190,8 @@ a:hover {
 .picturestrip{
 border: 5px #461500 solid;
 }
-.map-box-show{
-  border: 3px #DB4100 solid;
 
-}
+
 .stats-show{
 border: 5px #461500 solid;
 

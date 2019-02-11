@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import ListingTile from '../components/ListingTile'
 import GalleryTile from './LightBoxContainer'
 import AmenityTile from '../components/AmenitiesTile'
+import Map from '../components/Map'
 
 
 class ListingShowContainer extends Component {
@@ -54,7 +55,9 @@ render(){
         </div>
         <div className="small-4 medium-4 column map-box-show">
           <div className="map-box"><h1>mapshow</h1><h1>mapshow</h1><h1>mapshow</h1><h1>mapshow</h1>
-
+          <Map
+            listingsall={this.state.listing}
+          />
           </div>
         </div>
           <div className="small-5 medium-8 column stats-show">
