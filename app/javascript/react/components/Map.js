@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import {withScriptjs, withGoogleMap, Marker, GoogleMap} from "react-google-maps";
 
-
 const InitialMap = withGoogleMap(props => {
-
   return(
     <GoogleMap
       ref={props.onMapLoad}
@@ -23,7 +21,6 @@ class Map extends Component {
   }
 
   render() {
-
     return (
       <div>
         <InitialMap

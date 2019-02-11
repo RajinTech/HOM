@@ -30,39 +30,41 @@ class ListingIndexContainer extends Component {
     })
     .then((response) => response.json())
     .then((responseData) => {
-      this.setState({ listings_all: responseData[0] });
+      this.setState({ listings_all: responseData });
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   render(){
     let listings_display = this.state.listings_all.map((listing) => {
+      console.log(listing);
       return (
         <ListingTile
           key={listing.id}
           city={listing.city}
-          id={listing.id}
           state={listing.state}
           street={listing.street}
           unit={listing.unit}
-          userid={listing.user_id}
-          pic={listing.zip}
+          zip={listing.zip}
+          bed={listing.features.bedrooms}
+          bath={listing.features.bathrooms}
+          sqft={listing.features.sq_ft}
+          rent={listing.features.rent}
+          pic={listing.pictures}
         />
     )
   })
     return(
-        <div className="padding-for-index">
+        <div className="">
             <div className="listings-box">
-              <div className="listing-text">
+              <div className="listing-text">ß
             <h2></h2>
           </div>
           {listings_display}
       </div>
       <div className="row">
-        <div className="scroll-down"><a>O</a></div>
       <div>
         <div>
-            <div><h1>hi</h1></div>
             <Map
               listingsall={this.state.listings_all}
             />

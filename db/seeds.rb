@@ -101,7 +101,7 @@ picture_list = [
 ]
 
 12.times do |n|
-  picture_list.each do |image, listing_id|
+  shuffle(picture_list).each do |image, listing_id|
    Picture.create!(image: image, listing_id: n+1)
   end
 end

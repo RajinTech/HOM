@@ -1,30 +1,9 @@
 class Api::V1::ListingsController < ApiController
 
-  def picturesfirst
-    Listing.all.map do |listing|
-    listing.pictures.first
-  end
-  end
-
-  def alllistings
-    Listing.all
-  end
-
-  def attatchpics
-    alllistings.each do |listing|
-      picturesfirst.each do |picture|
-        if picture.listing_id == listing.id
-          listing[:zip] = picture.image
-        end
-      end
-    end
-  end
-
   def index
-     render json: [attatchpics
-       ]
-
+     render json: Listing.all
   end
+
   def create
     @listing = Listing.new(listing_params)
     @listing.user = current_user
