@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_05_004118) do
+ActiveRecord::Schema.define(version: 2019_02_09_200021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,18 +31,30 @@ ActiveRecord::Schema.define(version: 2019_02_05_004118) do
     t.index ["listing_id"], name: "index_amenities_on_listing_id"
   end
 
+  create_table "features", force: :cascade do |t|
+    t.string "bedrooms", default: "", null: false
+    t.string "bathrooms", default: "", null: false
+    t.string "rent", default: "", null: false
+    t.string "date_available", default: "", null: false
+    t.string "lease_length", default: "", null: false
+    t.integer "sq_ft"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "listing_id"
+    t.index ["listing_id"], name: "index_features_on_listing_id"
+  end
+
   create_table "listings", force: :cascade do |t|
     t.string "street", null: false
-    t.string "unit"
+    t.string "unit", default: "", null: false
     t.string "city", null: false
     t.string "state", null: false
     t.string "zip", null: false
-    t.string "bedrooms", null: false
-    t.string "bathrooms", null: false
-    t.string "rent", null: false
-    t.string "date_available", null: false
-    t.string "lease_length", null: false
-    t.integer "sq_ft", null: false
+    t.string "pics"
+    t.string "amen"
+    t.string "feat"
+    t.decimal "latitude"
+    t.decimal "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
@@ -58,8 +70,11 @@ ActiveRecord::Schema.define(version: 2019_02_05_004118) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "first_name", default: "", null: false
+    t.string "last_name", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "role", default: "tenant", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

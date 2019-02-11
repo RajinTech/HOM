@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import MapContainer from './MapContainer'
 import ListingTile from '../components/ListingTile'
 import GalleryTile from './LightBoxContainer'
 import AmenityTile from '../components/AmenitiesTile'
+import Map from '../components/Map'
+
 
 class ListingShowContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
       amenities: [],
-      listings: [],
       listing: []
     }
 }
@@ -40,27 +40,26 @@ class ListingShowContainer extends Component {
 
 render(){
   return(
-    <div className="row box-show">
-       <div className="row">
-        <div className="small-8 medium-8 large-8 column"><h5>blank1</h5>
+    <div className="flex-row">
+
+       <div className="flex-row">
+        <div className="flex-column"><h5>blank1</h5>
         </div>
-        <div className="small-8 medium-4 large-4 column console"><h1>console</h1>
+        <div className="flex-column console"><h1>console</h1>
         </div>
       </div>
-      <div className="row">
-        <div className="small-2 medium-2 large-2 column picturestrip">
+
+      <div className="flex-row">
+        <div className="flex-column picturestrip">
           <div className="image-box-show"><h5>imageshow</h5>
             <img className="photo-box" src="https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-05+at+8.12.46+PM.png"></img>
           </div>
         </div>
-        <div className="small-4 medium-4 column map-box-show">
-          <div className="map-box"><h1>mapshow</h1><h1>mapshow</h1><h1>mapshow</h1><h1>mapshow</h1>
-            <MapContainer
-            />
-          </div>
-        </div>
-          <div className="small-5 medium-8 column stats-show">
-            <div className="row amenity-show"><h5>statsshow</h5>
+          <Map
+            listingsall={this.state.listing}
+          />
+          <div className="flex-column stats-show">
+            <div className="amenity-show"><h5>statsshow</h5>
               <AmenityTile
                   buildingstyle={this.state.amenities.building_style}
                   heating={this.state.amenities.heating}
@@ -72,7 +71,8 @@ render(){
                   zoning={this.state.amenities.zoning}
               />
             </div>
-            <div className="row listing-show"><h5>contenttile</h5>
+
+            <div className="listing-show"><h5>contenttile</h5>
               <ListingTile
                     key={this.state.listing.id}
                     bathrooms={this.state.listing.bathrooms}
@@ -91,7 +91,7 @@ render(){
                   />
                 </div>
             </div>
-        <div className="small-2 medium-2 large-2 column overhang"><h5>overhang</h5>
+        <div className="flex-column overhang"><h5>overhang</h5>
         </div>
       </div>
     </div>

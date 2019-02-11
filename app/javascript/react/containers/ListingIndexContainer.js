@@ -2,53 +2,22 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import ListingTile from '../components/ListingTile'
 import ScrollTile from '../components/ScrollTile'
-import MapContainer from './MapContainer'
+import Map from '../components/Map'
+import ImageTile from '../components/ImageTile'
 
 
 class ListingIndexContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      listings: [],
       listings_all: [],
       listings_holder: [],
-      listings_show: []
+      listings_show: [],
+      first_pictures:[]
     }
-      this.onHoverEnterHandler = this.onHoverEnterHandler.bind(this)
-      this.onHoverLeaveHandler = this.onHoverLeaveHandler.bind(this)
   }
-
-
-
-  onHoverEnterHandler(event) {
-
-  let listings_show = this.state.listings_show;
-  let listings_holder = this.state.listings_holder;
-  let listing_from_holder = listings_holder.splice(0, 1)[0];
-  let listing_from_show = listings_show.splice(0, 1)[0];
-
-  console.log("you hit it! ");
-  console.log('OG listing_holder state:');
-  console.log(listings_holder);
-  console.log("OGlistings show state:");
-  console.log(listings_show)
-
-  this.setState({ listings_show: listings_show.push(listing_from_holder) })
-
-  this.setState({ listings_holder: listings_holder.push(listing_from_show) })
-
-
-  console.log("new listings holders state:");
-  console.log(listings_holder);
-  console.log("new listings show state:");
-  console.log(listings_show)
-
-
-  }
-  onHoverLeaveHandler(event) {
-  }
-
-  componentDidMount() {
+//FETCH
+  componentWillMount() {
   fetch(`/api/v1/listings.json`)
     .then(response => {
       if (response.ok) {
@@ -64,54 +33,42 @@ class ListingIndexContainer extends Component {
       this.setState({ listings_all: responseData });
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
-
-}
+  }
 
   render(){
-    this.state.listings_holder = this.state.listings_all.map((listing) => {
-      return(
-        listing
-      )
-    })
-
-    this.state.listings_show = this.state.listings_holder.splice(1, 13);
-
-    let listings_display = this.state.listings_show.map((listing) => {
+    let listings_display = this.state.listings_all.map((listing) => {
+      console.log(listing);
       return (
-
         <ListingTile
           key={listing.id}
-          bathrooms={listing.bathrooms}
-          bedrooms={listing.bedrooms}
           city={listing.city}
-          dateavailable={listing.date_available}
-          id={listing.id}
-          leaselength={listing.lease_length}
-          rent={listing.rent}
-          sqft={listing.sq_ft}
           state={listing.state}
           street={listing.street}
           unit={listing.unit}
-          userid={listing.user_id}
           zip={listing.zip}
+          bed={listing.features.bedrooms}
+          bath={listing.features.bathrooms}
+          sqft={listing.features.sq_ft}
+          rent={listing.features.rent}
+          pic={listing.pictures}
         />
-      )
-    })
+    )
+  })
     return(
-        <div className="padding-for-index">
+        <div className="">
             <div className="listings-box">
-              <div className="listing-text">
+              <div className="listing-text">ß
             <h2></h2>
           </div>
           {listings_display}
-
       </div>
       <div className="row">
-        <div className="scroll-down"><a>O</a></div>
-
-      <div className="map-box">
-
-          <MapContainer className="center"/>
+      <div>
+        <div>
+            <Map
+              listingsall={this.state.listings_all}
+            />
+            </div>
         </div>
       </div>
         </div>
@@ -120,8 +77,3 @@ class ListingIndexContainer extends Component {
 }
 
 export default ListingIndexContainer
-// <div><ScrollTile
-//   onHoverEnterHandler={this.onHoverEnterHandler}
-//   onHoverLeaveHandler={this.onHoverLeaveHandler}
-//   onClick={this.onHoverEnterHandler}
-//   /></div>
