@@ -3,7 +3,7 @@
 <head>
   <title>HOM</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3xclbYAVZm44VYEIxFfTbV-y6OBIu5dQ"></script>
+   <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV["MAPS_API_KEY"]%>"></script>
   <%= stylesheet_link_tag 'application', media: 'all' %>
 
     <%= javascript_include_tag "vendor/modernizr" %>

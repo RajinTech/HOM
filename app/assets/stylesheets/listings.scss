@@ -57,16 +57,19 @@ body {
 }
 .amenity-tile {
   height: 250px;
+  width: 250px;
   border-radius: 6px;
   border: 3px #301312 solid;
   background-color: #FFF5F0;
-  animation-name: slide-right;
+  animation-name: emerge-start;
   animation-duration: 0.5s;
+
+  transform: scale(0.5) skew(-10deg) translate(850px);
 }
 .amenity-tile:hover{
   border: 5px #FF8100 solid;
   animation: emerge 4s ease-in-out infinite alternate;
-  -webkit-animation: emerge 4s ease-in-out infinite alternate;
+  -webkit-animation: emerge;
 }
 .anchoring-box{
   position: absolute;
@@ -98,11 +101,36 @@ body {
   animation-fill-mode: forwards;
 }
 
+.content-tile-show {
+  transform: scale(0.5);
+  height: 200px;
+  width: 200px;
+  top: 88%;
+  left: 14%;
+  border-radius: 6px;
+  border: 4px #301312 solid;
+  background-color: #FFF5F0;
+  animation-name: emerge-start;
+  animation-duration: 0.5s;
+  margin-top: -185px;
+}
+.content-tile-show:hover{
+  border: 5px #CA7735 solid;
+  animation: flip-out 1s ease-in-out ;
+  -webkit-animation: flip-out 1s ease-in-out ;
+  animation-fill-mode: forwards;
+}
 .listing-text {
   top: 800px;
 }
 
 .listings-box {
+  position:absolute;
+  transform: skewX(-10deg) translate(0px) translateY(0px);
+  top: 49%;
+  left: -3%;
+}
+.listings-show {
   position:absolute;
   transform: skewX(-10deg) translate(0px) translateY(0px);
   top: 49%;
@@ -195,14 +223,9 @@ body {
   top: 100px;
 
 }
-.amenity-show{
-  transform: scale(0.2);
 
-}
-.listing-show{
-  transform: scale(0.2);
 
-}
+
 .picturestrip{
 border: 5px #301312 solid;
 }

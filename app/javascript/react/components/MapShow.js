@@ -14,34 +14,32 @@ const InitialMap = withGoogleMap(props => {
     )
   });
 
-class Map extends Component {
+class MapShow extends Component {
   constructor(props){
     super(props);
     this.state = {}
   }
 
   render() {
-    console.log(this.props);
+    console.log(this.props.id);
     console.log(this.state);
     return (
       <div>
         <InitialMap
           containerElement={<div className="map-box" />}
           mapElement={<div style={{ height: `100%` }} />}
+          center={{ lat: parseFloat(this.props.listingsall.latitude), lng: parseFloat(this.props.listingsall.longitude) }}
+
         >
-          {this.props.listingsall.map(listing => {
-            return(
-              <Marker
-              key={listing.id}
-              title={listing.street}
-              position={{ lat: parseFloat(listing.latitude), lng: parseFloat(listing.longitude) }}
-              />
-            )
-          })}
+        <Marker
+        key={this.props.listingsall.id}
+        title={this.props.listingsall.street}
+        position={{ lat: parseFloat(this.props.listingsall.latitude), lng: parseFloat(this.props.listingsall.longitude) }}
+        />
 
       </InitialMap>
       </div>
     );
   }
 }
-export default Map;
+export default MapShow;
