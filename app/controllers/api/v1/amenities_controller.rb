@@ -5,7 +5,6 @@ class Api::V1::AmenitiesController < ApiController
   def create
     @amenity = Amenity.new(amenity_params)
     @amenity.user = current_user
-    binding.pry
     if @amenity.save
       render json: { amenity: @amenity }
     else

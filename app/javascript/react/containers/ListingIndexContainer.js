@@ -37,10 +37,10 @@ class ListingIndexContainer extends Component {
 
   render(){
     let listings_display = this.state.listings_all.map((listing) => {
-      console.log(listing);
       return (
         <ListingTile
           key={listing.id}
+          id={listing.id}
           city={listing.city}
           state={listing.state}
           street={listing.street}

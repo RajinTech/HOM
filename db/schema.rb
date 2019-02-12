@@ -50,9 +50,6 @@ ActiveRecord::Schema.define(version: 2019_02_09_200021) do
     t.string "city", null: false
     t.string "state", null: false
     t.string "zip", null: false
-    t.string "pics"
-    t.string "amen"
-    t.string "feat"
     t.decimal "latitude"
     t.decimal "longitude"
     t.datetime "created_at", null: false

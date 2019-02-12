@@ -10,14 +10,12 @@ class ListingShowContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      amenities: [],
       listing: []
     }
-}
+  }
 
   componentDidMount() {
-
-    fetch(`/api/v1/amenities/${this.props.params.id}`)
+    fetch(`/api/v1/listings/${this.props.params.id}`)
       .then(response => {
         if (response.ok) {
           return response;
@@ -29,75 +27,65 @@ class ListingShowContainer extends Component {
       })
       .then((response) => response.json())
       .then((responseData) => {
-        this.setState({ amenities: responseData[0] });
-        this.setState({ listing: responseData[1] });
-        console.log(this.state.amenities.building_style);
-        console.log(this.state.listing);
+        this.setState({ listing: responseData})
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
 
 render(){
+  let listing_info = this.state.listing[0].map((listing) =>{
+    return(
+      <div>
+
+      <Map
+       key={listing.id}
+       lat={listing.latitude}
+       lon={listing.longitude}
+
+     />
+         <AmenityTile
+           key={listing.id}
+           building_style={listing.amenities.building_style}
+           cooling={listing.amenities.cooling}
+           heating={listing.amenities.heating}
+           hud={listing.amenities.hud}
+           parking_spaces={listing.amenities.parking_spaces}
+           pets={listing.amenities.pets}
+           school_district={listing.amenities.school_district}
+           smoking={listing.amenities.smoking}
+           zoning={listing.amenities.zoning}
+         />
+
+         <ListingTile
+           key={listing.id}
+           bathrooms={listing.features.bathrooms}
+           bedrooms={listing.features.bedrooms}
+           dateavailable={listing.features.date_available}
+           id={listing.features.id}
+           leaselength={listing.features.lease_length}
+           rent={listing.features.rent}
+           sqft={listing.features.sq_ft}
+           street={listing.street}
+           unit={listing.unit}
+           city={listing.city}
+           state={listing.state}
+           zip={listing.zip}
+             />
+           </div>
+
+    )
+  })
+
   return(
-    <div className="flex-row">
-
-       <div className="flex-row">
-        <div className="flex-column"><h5>blank1</h5>
-        </div>
-        <div className="flex-column console"><h1>console</h1>
-        </div>
-      </div>
-
-      <div className="flex-row">
+        <div>
         <div className="flex-column picturestrip">
           <div className="image-box-show"><h5>imageshow</h5>
-            <img className="photo-box" src="https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-05+at+8.12.46+PM.png"></img>
           </div>
         </div>
-          <Map
-            listingsall={this.state.listing}
-          />
-          <div className="flex-column stats-show">
-            <div className="amenity-show"><h5>statsshow</h5>
-              <AmenityTile
-                  buildingstyle={this.state.amenities.building_style}
-                  heating={this.state.amenities.heating}
-                  cooling={this.state.amenities.cooling}
-                  hud={this.state.amenities.hud}
-                  pets={this.state.amenities.pets}
-                  schooldistrict={this.state.amenities.school_district}
-                  smoking={this.state.amenities.smoking}
-                  zoning={this.state.amenities.zoning}
-              />
-            </div>
+         {listing_info}
 
-            <div className="listing-show"><h5>contenttile</h5>
-              <ListingTile
-                    key={this.state.listing.id}
-                    bathrooms={this.state.listing.bathrooms}
-                    bedrooms={this.state.listing.bedrooms}
-                    city={this.state.listing.city}
-                    dateavailable={this.state.listing.date_available}
-                    id={this.state.listing.id}
-                    leaselength={this.state.listing.lease_length}
-                    rent={this.state.listing.rent}
-                    sqft={this.state.listing.sq_ft}
-                    state={this.state.listing.state}
-                    street={this.state.listing.street}
-                    unit={this.state.listing.unit}
-                    userid={this.state.listing.user_id}
-                    zip={this.state.listing.zip}
-                  />
-                </div>
-            </div>
-        <div className="flex-column overhang"><h5>overhang</h5>
-        </div>
-      </div>
-    </div>
-
-
-
+              </div>
   )
 }}
 

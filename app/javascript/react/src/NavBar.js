@@ -12,12 +12,16 @@ const NavBar = props => {
         className="button-nav"
         onClick={browserHistory.goBack}>
         Back</button>
+      <a href='/listings/new'>
       <button
-        className="button-nav" to='/'>
-        HOME </button>
+        className="button-nav" >
+        New Listing </button>
+    </a>
+    <a  href='/listings'>
       <button
-        className="button-nav" to='/listings'>
+        className="button-nav">
         All Listings</button>
+    </a>
       <button
         className="button-nav" onClick={browserHistory.goForward}>
         Forward</button>

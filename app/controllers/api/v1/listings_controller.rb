@@ -15,7 +15,7 @@ class Api::V1::ListingsController < ApiController
   end
 
   def show
-    render json: Listing.find(params["id"]), serializer: ListingShowSerializer
+    render json: Listing.find(params["id"])
   end
 
   private
