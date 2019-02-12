@@ -111,8 +111,6 @@ class ListingFormContainer extends Component {
     })
       .then(response => {
         if (response.ok) {
-          console.log("payload");
-          console.log(formPayload);
           return response;
         } else {
           let errorMessage = `${response.status} (${response.statusText})`,

@@ -34,48 +34,7 @@ class ListingShowContainer extends Component {
 
 
 render(){
-  let listing_info = this.state.listing[0].map((listing) =>{
-    return(
-      <div>
-
-      <Map
-       key={listing.id}
-       lat={listing.latitude}
-       lon={listing.longitude}
-
-     />
-         <AmenityTile
-           key={listing.id}
-           building_style={listing.amenities.building_style}
-           cooling={listing.amenities.cooling}
-           heating={listing.amenities.heating}
-           hud={listing.amenities.hud}
-           parking_spaces={listing.amenities.parking_spaces}
-           pets={listing.amenities.pets}
-           school_district={listing.amenities.school_district}
-           smoking={listing.amenities.smoking}
-           zoning={listing.amenities.zoning}
-         />
-
-         <ListingTile
-           key={listing.id}
-           bathrooms={listing.features.bathrooms}
-           bedrooms={listing.features.bedrooms}
-           dateavailable={listing.features.date_available}
-           id={listing.features.id}
-           leaselength={listing.features.lease_length}
-           rent={listing.features.rent}
-           sqft={listing.features.sq_ft}
-           street={listing.street}
-           unit={listing.unit}
-           city={listing.city}
-           state={listing.state}
-           zip={listing.zip}
-             />
-           </div>
-
-    )
-  })
+  let listing = this.state.listing
 
   return(
         <div>
@@ -83,8 +42,40 @@ render(){
           <div className="image-box-show"><h5>imageshow</h5>
           </div>
         </div>
-         {listing_info}
+        <Map
+         key={listing.id}
+         lat={listing.latitude}
+         lon={listing.longitude}
 
+       />
+           <AmenityTile
+             key={listing.id}
+             buildingstyle={listing.amenities.building_style}
+             cooling={listing.amenities.cooling}
+             heating={listing.amenities.heating}
+             hud={listing.amenities.hud}
+             parkingspaces={listing.amenities.parking_spaces}
+             pets={listing.amenities.pets}
+             school_district={listing.amenities.school_district}
+             smoking={listing.amenities.smoking}
+             zoning={listing.amenities.zoning}
+           />
+
+           <ListingTile
+             key={listing.id}
+             bathrooms={listing.features.bathrooms}
+             bedrooms={listing.features.bedrooms}
+             dateavailable={listing.features.date_available}
+             id={listing.features.id}
+             leaselength={listing.features.lease_length}
+             rent={listing.features.rent}
+             sqft={listing.features.sq_ft}
+             street={listing.street}
+             unit={listing.unit}
+             city={listing.city}
+             state={listing.state}
+             zip={listing.zip}
+               />
               </div>
   )
 }}
