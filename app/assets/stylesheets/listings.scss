@@ -35,9 +35,14 @@ body {
 .hexagon {
   width: 100px;
   height: 55px;
-  background: red;
+  background: #FFF5F0;
+  border-radius: 4px;
   position: relative;
-  transform: translate(400px);
+  transform: translate(618px) translateY(-200px);
+}
+.hexagon:hover{
+    border-bottom: 25px solid #CA7735;
+    border-top: 25px solid #CA7735;
 }
 .hexagon:before {
   content: "";
@@ -48,7 +53,8 @@ body {
   height: 0;
   border-left: 50px solid transparent;
   border-right: 50px solid transparent;
-  border-bottom: 25px solid red;
+  border-bottom: 25px solid #301312;
+  border-radius: 4px;
 }
 .hexagon:after {
   content: "";
@@ -59,7 +65,7 @@ body {
   height: 0;
   border-left: 50px solid transparent;
   border-right: 50px solid transparent;
-  border-top: 25px solid red;
+  border-top: 25px solid #301312;
 }
 .button-nav{
   background-color: #FFF5F0;

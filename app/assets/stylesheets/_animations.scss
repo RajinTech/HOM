@@ -134,3 +134,66 @@ $randomnumber: random(300);
 
   }
 }
+
+@keyframes listing-show {
+  0% {
+    transform:
+    scale(0.25)
+    translate(660px)
+    rotate(70deg)
+    translateY(1400px);
+
+
+    -webkit-transform:
+    scale(0.25)
+    translate(660px)
+    rotate(70deg)
+    translateY(1400px);
+  }
+
+  100% {
+    transform:
+    scale(1.75)
+    translate(0px)
+    rotate(0deg)
+    translateY(0deg);
+
+    -webkit-transform:
+    scale(1.75)
+    translate(0px)
+    rotate(0deg)
+    translateY(0deg);
+
+  }
+}
+@keyframes d15 {
+  0% {
+    transform:
+    scale(0.25)
+    translate(660px)
+    rotate(70deg)
+    translateY(1400px);
+
+
+    -webkit-transform:
+    scale(0.25)
+    translate(660px)
+    rotate(70deg)
+    translateY(1400px);
+  }
+
+  100% {
+    transform:
+    scale(1.75)
+    translate(0px)
+    rotate(0deg)
+    translateY(0deg);
+
+    -webkit-transform:
+    scale(1.75)
+    translate(0px)
+    rotate(0deg)
+    translateY(0deg);
+
+  }
+}
