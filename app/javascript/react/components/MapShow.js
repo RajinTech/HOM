@@ -21,8 +21,6 @@ class MapShow extends Component {
   }
 
   render() {
-    console.log(this.props.id);
-    console.log(this.state);
     return (
       <div>
         <InitialMap

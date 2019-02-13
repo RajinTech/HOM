@@ -31,6 +31,36 @@ body {
 .title-hover:hover{
   color: #CA7735;
 }
+
+.hexagon {
+  width: 100px;
+  height: 55px;
+  background: red;
+  position: relative;
+  transform: translate(400px);
+}
+.hexagon:before {
+  content: "";
+  position: absolute;
+  top: -25px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 25px solid red;
+}
+.hexagon:after {
+  content: "";
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 25px solid red;
+}
 .button-nav{
   background-color: #FFF5F0;
   border: 2px #301312 solid;
@@ -59,17 +89,16 @@ body {
   height: 250px;
   width: 250px;
   border-radius: 6px;
-  border: 3px #301312 solid;
+  border: 5px #301312 solid;
   background-color: #FFF5F0;
   animation-name: emerge-start;
   animation-duration: 0.5s;
-
-  transform: scale(0.5) skew(-10deg) translate(850px);
+  transform: scale(0.395) skew(-10deg) translate(-140px) translateY(-369px);
 }
 .amenity-tile:hover{
   border: 5px #FF8100 solid;
-  animation: emerge 4s ease-in-out infinite alternate;
-  -webkit-animation: emerge;
+  animation: amenity-push 4s ease-in-out infinite alternate;
+  -webkit-animation: amenity-push;
 }
 .anchoring-box{
   position: absolute;
@@ -81,6 +110,7 @@ body {
   border: 1px solid #999;
   margin-top: -185px;
 }
+
 .content-tile-index {
   transform: scale(0.5);
   height: 200px;
@@ -102,7 +132,7 @@ body {
 }
 
 .content-tile-show {
-  transform: scale(0.5);
+  transform: scale(0.5) translate(-45px) translateY(-200px) skew(-10deg);
   height: 200px;
   width: 200px;
   top: 88%;
@@ -113,6 +143,7 @@ body {
   animation-name: emerge-start;
   animation-duration: 0.5s;
   margin-top: -185px;
+
 }
 .content-tile-show:hover{
   border: 5px #CA7735 solid;
@@ -120,10 +151,45 @@ body {
   -webkit-animation: flip-out 1s ease-in-out ;
   animation-fill-mode: forwards;
 }
+.image-container{
+  height: 50%;
+  width: 25%;
+  transform: skew(-10deg)translateY(150px);
+
+}
+.image-show {
+  background-size: cover;
+  transform: scale(0.5);
+  height: 200px;
+  width: 300px;
+  border-radius: 6px;
+  border: 4px #301312 solid;
+  background-color: #FFF5F0;
+  animation-name: emerge-start;
+  animation-duration: 0.5s;
+  margin-top: -185px;
+  overflow: hidden;
+
+
+
+}
+.image-show:hover{
+  border: 5px #CA7735 solid;
+  animation: flip-out 1s ease-in-out ;
+  -webkit-animation: flip-out 1s ease-in-out ;
+  animation-fill-mode: forwards;
+}
+
+.picturestrip{
+  transform: skew(-10deg);
+  height: 200px;
+  width: 225px;
+  border: 3px white solid;
+
+}
 .listing-text {
   top: 800px;
 }
-
 .listings-box {
   position:absolute;
   transform: skewX(-10deg) translate(0px) translateY(0px);
@@ -193,7 +259,6 @@ body {
 
 .arrows {
 
-
 }
 .map-box {
   position: absolute;
@@ -214,9 +279,7 @@ body {
   border: 3px #CA7735 solid;
   }
 
-.image-box-show{
-  transform: scale(0.15);
-}
+
 
 .console{
   border: 5px #301312 solid;
@@ -224,11 +287,6 @@ body {
 
 }
 
-
-
-.picturestrip{
-border: 5px #301312 solid;
-}
 
 
 .stats-show{
@@ -276,14 +334,6 @@ border: 5px #301312 solid;
   width: 100%;
   height: 100px;
 }
-
-
-
-
-
-
-
-
 
 .hom-image {
   background-color: #FF9427;

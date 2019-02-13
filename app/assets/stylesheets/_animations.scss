@@ -112,3 +112,25 @@ $randomnumber: random(300);
 
   }
 }
+@keyframes amenity-push {
+  0% {
+    transform:
+    scale(0.5)
+    translate(0px);
+
+    -webkit-transform:
+    scale(0.5)
+    translate(0px);
+  }
+
+  100% {
+    transform:
+    scale(1.75)
+    translate(350px);
+
+    -webkit-transform:
+    scale(1.75)
+    translate(350px);
+
+  }
+}
