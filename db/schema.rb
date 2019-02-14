@@ -50,9 +50,6 @@ ActiveRecord::Schema.define(version: 2019_02_09_200021) do
     t.string "city", null: false
     t.string "state", null: false
     t.string "zip", null: false
-    t.string "pics"
-    t.string "amen"
-    t.string "feat"
     t.decimal "latitude"
     t.decimal "longitude"
     t.datetime "created_at", null: false
@@ -70,8 +67,8 @@ ActiveRecord::Schema.define(version: 2019_02_09_200021) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "first_name", default: "", null: false
-    t.string "last_name", default: "", null: false
+    t.string "first_name"
+    t.string "last_name"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "role", default: "tenant", null: false

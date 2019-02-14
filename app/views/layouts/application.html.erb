@@ -3,7 +3,7 @@
 <head>
   <title>HOM</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3xclbYAVZm44VYEIxFfTbV-y6OBIu5dQ"></script>
+   <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV["MAPS_API_KEY"]%>"></script>
   <%= stylesheet_link_tag 'application', media: 'all' %>
 
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -13,11 +13,18 @@
 <body className="background-oh">
 
   <nav class="top-bar">
+    <div className="arrows">
+      <h3>>>></h3>
+    </div>
     <ul class="title-area title-hover">
       <li class="name">
-        <h1><a href="/">HOM</a></h1>
+
+        <h1 className="HOM-style"><li><%= link_to 'HOM', root_path %></li></h1>
       </li>
     </ul>
+    <div className="arrows">
+      <h3>>>></h3>
+    </div>
 
     <section class="top-bar-section">
       <ul class="right">
@@ -26,12 +33,18 @@
             <li class="active picture"><img src="<%= current_user.profile_photo %>" width="50" height="50" /></li>
 
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+
+
         <%- else -%>
           <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+
           <li><%= link_to 'Sign In', new_user_session_path %></li>
         <%- end -%>
       </ul>
     </section>
+    <div className="arrows">
+      <h3>>>></h3>
+    </div>
   </nav>
 
   <%- flash.each do |key, value| -%>

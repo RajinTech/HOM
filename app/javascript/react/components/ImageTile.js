@@ -3,10 +3,8 @@ import { Link } from 'react-router';
 
 const ImageTile = (props) => {
   return (
-    <div>
-    <a href="/listings/${props.id}">
-      <div><image src="{props.pic}"></image></div>
-      </a>
+    <div className="image-show">
+      <img src={props.pic}></img>
     </div>
   )
 }

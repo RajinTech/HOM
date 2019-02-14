@@ -78,7 +78,6 @@ end
 
 picture_list = [
   [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-05+at+8.12.46+PM.png",  "1" ],
-  [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-05+at+8.13.12+PM.png",  "1" ],
   [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-05+at+8.16.24+PM.png",  "1" ],
   [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-05+at+8.16.35+PM.png",  "1" ],
   [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-05+at+8.16.44+PM.png",  "1" ],
@@ -97,11 +96,47 @@ picture_list = [
   [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-05+at+8.19.15+PM.png",  "1" ],
   [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-05+at+8.19.27+PM.png",  "1" ],
   [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-05+at+8.19.36+PM.png",  "1" ],
+  [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.09.06+AM.png",  "1" ],
+  [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.09.01+AM.png",  "1" ],
+  [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.08.55+AM.png",  "1" ],
+  [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.08.48+AM.png",  "1" ],
+  [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.08.40+AM.png",  "1" ],
+  [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.08.02+AM.png",  "1" ],
+  [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.07.39+AM.png",  "1" ],
+  [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.07.05+AM.png",  "1" ],
+  [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.06.47+AM.png",  "1" ],
+  [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.06.40+AM.png",  "1" ],
+  [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.06.32+AM.png",  "1" ],
+  [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.06.24+AM.png",  "1" ],
+  [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.05.55+AM.png",  "1" ],
+  [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.05.47+AM.png",  "1" ],
+  [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.05.40+AM.png",  "1" ],
+  [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.05.32+AM.png",  "1" ],
+  [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.05.25+AM.png",  "1" ],
+  [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.05.18+AM.png",  "1" ],
+  [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.04.56+AM.png",  "1" ],
+  [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.04.49+AM.png",  "1" ],
+  [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.04.41+AM.png",  "1" ],
+  [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.04.31+AM.png",  "1" ],
+  [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.04.23+AM.png",  "1" ],
+  [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.04.13+AM.png",  "1" ],
+  [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.04.04+AM.png",  "1" ],
+  [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.03.35+AM.png",  "1" ],
+  [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.03.28+AM.png",  "1" ],
+  [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.03.19+AM.png",  "1" ],
+  [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.03.09+AM.png",  "1" ],
+  [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.03.03+AM.png",  "1" ],
+  [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.02.53+AM.png",  "1" ],
+  [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.02.29+AM.png",  "1" ],
+  [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.02.19+AM.png",  "1" ],
+  [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.02.10+AM.png",  "1" ],
+  [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.02.04+AM.png",  "1" ],
+  [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.01.57+AM.png",  "1" ],
   [ "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-05+at+8.19.50+PM.png",  "1" ]
 ]
 
 12.times do |n|
-  shuffle(picture_list).each do |image, listing_id|
+  picture_list.shuffle.each do |image, listing_id|
    Picture.create!(image: image, listing_id: n+1)
   end
 end

@@ -96,57 +96,7 @@ $randomnumber: random(300);
     rotate(0deg)
     translate(0px);
   }
-  // 25% {
-  //   transform:
-  //   scale(1)
-  //   rotateY(0deg)
-  //   rotate(360deg)
-  //   translateY(-200px)
-  //   translateX(0px);
-  //
-  //   -webkit-transform:
-  //   scale(1)
-  //   rotateY(0deg)
-  //   rotate(360deg)
-  //   translateY(-200px)
-  //   translateX(100px);
-  //
-  //
-  // }
-  // 50% {
-  //   transform:
-  //   scale(1.5)
-  //   rotateY(0deg)
-  //   rotate(720deg)
-  //   translateY(+400px)
-  //   translateX(100px);
-  //
-  //   -webkit-transform:
-  //   scale(1.5)
-  //   rotateY(0deg)
-  //   rotate(720deg)
-  //   translateY(+400px)
-  //   translateX(100px);
-  //
-  //
-  // }
-  // 75% {
-  //   transform:
-  //   scale(1.65)
-  //   rotateY(0deg)
-  //   rotate(900deg)
-  //   translateY(+200px)
-  //   translateX(-100px);
-  //
-  //   -webkit-transform:
-  //   scale(1.65)
-  //   rotateY(0deg)
-  //   rotate(1080deg)
-  //   translateY(+200px)
-  //   translateX(-100px);
-  //
-  //
-  // }
+
   100% {
     transform:
     scale(1.75)
@@ -159,6 +109,91 @@ $randomnumber: random(300);
     rotateY(360deg)
     rotate(1080deg)
     translate(350px);
+
+  }
+}
+@keyframes amenity-push {
+  0% {
+    transform:
+    scale(0.5)
+    translate(0px);
+
+    -webkit-transform:
+    scale(0.5)
+    translate(0px);
+  }
+
+  100% {
+    transform:
+    scale(1.75)
+    translate(350px);
+
+    -webkit-transform:
+    scale(1.75)
+    translate(350px);
+
+  }
+}
+
+@keyframes listing-show {
+  0% {
+    transform:
+    scale(0.25)
+    translate(660px)
+    rotate(70deg)
+    translateY(1400px);
+
+
+    -webkit-transform:
+    scale(0.25)
+    translate(660px)
+    rotate(70deg)
+    translateY(1400px);
+  }
+
+  100% {
+    transform:
+    scale(1.75)
+    translate(0px)
+    rotate(0deg)
+    translateY(0deg);
+
+    -webkit-transform:
+    scale(1.75)
+    translate(0px)
+    rotate(0deg)
+    translateY(0deg);
+
+  }
+}
+@keyframes d15 {
+  0% {
+    transform:
+    scale(0.25)
+    translate(660px)
+    rotate(70deg)
+    translateY(1400px);
+
+
+    -webkit-transform:
+    scale(0.25)
+    translate(660px)
+    rotate(70deg)
+    translateY(1400px);
+  }
+
+  100% {
+    transform:
+    scale(1.75)
+    translate(0px)
+    rotate(0deg)
+    translateY(0deg);
+
+    -webkit-transform:
+    scale(1.75)
+    translate(0px)
+    rotate(0deg)
+    translateY(0deg);
 
   }
 }
