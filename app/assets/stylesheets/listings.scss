@@ -21,9 +21,19 @@ body {
 .background-oh {
   background-color: #FF8100;
 }
+.profile-photo-uploader{
+  transform: translate(200px);
+}
 //Butttons
 .nav-box {
   left: 40%;
+}
+.new-listing{
+  border: 20px transparent solid;
+}
+.fieldset-user {
+  width: 60%;
+
 }
 .title-hover{
 
@@ -207,6 +217,12 @@ body {
   transform: skewX(-10deg) translate(0px) translateY(0px);
   top: 49%;
   left: -3%;
+}
+.listing:hover {
+  animation: listing-show 2s ease-in-out ;
+  -webkit-animation: listing-show 2s ease-in-out ;
+  animation-fill-mode: forwards;
+
 }
 .scroll-down{
   transform: scale(0.75) scaleX(2) scaleY(4) SkewY(-70deg);

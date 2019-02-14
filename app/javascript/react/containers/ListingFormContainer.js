@@ -130,7 +130,7 @@ class ListingFormContainer extends Component {
     return(
 
 
-      <div className="row">
+      <div className="row new-listing">
         <div className="row-one"></div>
         <div className="form-header">Add a New Listing</div>
 
@@ -197,87 +197,6 @@ class ListingFormContainer extends Component {
         </div>
       </fieldset>
 
-      <fieldset><legend>Attributes</legend>
-        <div className="row">
-          <div className="small-4 columns">
-            <div className="datetext">
-              <TextTile
-                label="Rent"
-                name="rent"
-                onChange={this.handleRentChange}
-                value={this.state.rent}
-              />
-            </div>
-          </div>
-
-          <div className="small-4 columns">
-            <div className="datetext">
-              <TextTile
-                label="Sqft"
-                name="sq_ft"
-                onChange={this.handleSqFtChange}
-                value={this.state.sq_ft}
-              />
-            </div>
-          </div>
-
-          <div className="small-4 columns">
-            <div className="datetext">
-              <DateField
-                label="Date Available"
-                name="date_available"
-                onChange={this.handleDateAvailableChange}
-                value={this.state.date_available}
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="small-4 columns">
-            <RangeField
-              label="Bedrooms"
-              name="bedrooms"
-              onChange={this.handleBedroomChange}
-              value={this.state.bedrooms}
-              max="5"
-            />
-            <div>
-              <h5>{this.state.bedrooms} Bedrooms</h5>
-            </div>
-          </div>
-
-          <div className="small-4 columns">
-            <div className="datetext">
-              <RangeField
-                label="Bathrooms"
-                name="bathrooms"
-                onChange={this.handleBathroomChange}
-                value={this.state.bathrooms}
-                max="5"
-              />
-              <div>
-                <h5>{this.state.bathrooms}  Bathrooms</h5>
-              </div>
-            </div>
-          </div>
-
-          <div className="small-4 columns">
-            <div className="datetext">
-              <RangeField
-                label="Lease Length"
-                name="lease_length"
-                onChange={this.handleLeaseLengthChange}
-                value={this.state.lease_length}
-                max="12"
-                />
-                <div>
-                  <h5>{this.state.lease_length} Months</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-        </fieldset>
 
         <input className="button round form-submit" type="submit" value="Submit New Listing"/>
         </form>
@@ -288,3 +207,84 @@ class ListingFormContainer extends Component {
 }
 
 export default ListingFormContainer
+// <fieldset><legend>Attributes</legend>
+//   <div className="row">
+//     <div className="small-4 columns">
+//       <div className="datetext">
+//         <TextTile
+//           label="Rent"
+//           name="rent"
+//           onChange={this.handleRentChange}
+//           value={this.state.rent}
+//         />
+//       </div>
+//     </div>
+//
+//     <div className="small-4 columns">
+//       <div className="datetext">
+//         <TextTile
+//           label="Sqft"
+//           name="sq_ft"
+//           onChange={this.handleSqFtChange}
+//           value={this.state.sq_ft}
+//         />
+//       </div>
+//     </div>
+//
+//     <div className="small-4 columns">
+//       <div className="datetext">
+//         <DateField
+//           label="Date Available"
+//           name="date_available"
+//           onChange={this.handleDateAvailableChange}
+//           value={this.state.date_available}
+//         />
+//       </div>
+//     </div>
+//   </div>
+//
+//   <div className="row">
+//     <div className="small-4 columns">
+//       <RangeField
+//         label="Bedrooms"
+//         name="bedrooms"
+//         onChange={this.handleBedroomChange}
+//         value={this.state.bedrooms}
+//         max="5"
+//       />
+//       <div>
+//         <h5>{this.state.bedrooms} Bedrooms</h5>
+//       </div>
+//     </div>
+//
+//     <div className="small-4 columns">
+//       <div className="datetext">
+//         <RangeField
+//           label="Bathrooms"
+//           name="bathrooms"
+//           onChange={this.handleBathroomChange}
+//           value={this.state.bathrooms}
+//           max="5"
+//         />
+//         <div>
+//           <h5>{this.state.bathrooms}  Bathrooms</h5>
+//         </div>
+//       </div>
+//     </div>
+//
+//     <div className="small-4 columns">
+//       <div className="datetext">
+//         <RangeField
+//           label="Lease Length"
+//           name="lease_length"
+//           onChange={this.handleLeaseLengthChange}
+//           value={this.state.lease_length}
+//           max="12"
+//           />
+//           <div>
+//             <h5>{this.state.lease_length} Months</h5>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   </fieldset>
