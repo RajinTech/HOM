@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import ListingShow from '../components/ListingShowTile'
-import GalleryTile from './LightBoxContainer'
 import AmenityTile from '../components/AmenitiesTile'
 import MapShow from '../components/MapShow'
 import ImageTile from '../components/ImageTile'
