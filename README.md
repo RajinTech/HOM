@@ -5,3 +5,5 @@ An app for managing real estate related tasks
   Allows a user to post a listing
   Allows a user to view a listing
   Allows a user to edit/delete a listing
+
+Is not responsive, Works best with Macbook Air on a particular zoom level
