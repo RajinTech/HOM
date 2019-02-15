@@ -13,7 +13,7 @@ const AmenityTile = (props) => {
 
 
   return (
-      <div className="panel amenity-tile">
+      <div className="amenity-tile">
         <h5>Heating: {props.heating}</h5>
         <h5>Cooling: {props.cooling}</h5>
         <h5>HUD: {tf(props.hud)}</h5>

@@ -13,7 +13,8 @@ class ListingShowContainer extends Component {
       listing: [],
       amenities: {},
       features: {},
-      pictures: []
+      pictures: [],
+
     }
     this.roledex = this.roledex.bind(this)
   }
@@ -23,6 +24,7 @@ class ListingShowContainer extends Component {
     holder.unshift(pergatory)
     this.setState({ pictures: holder})
   }
+
   componentDidMount() {
     fetch(`/api/v1/listings/${this.props.params.id}`)
       .then(response => {
@@ -44,14 +46,12 @@ class ListingShowContainer extends Component {
 
 render(){
 
-  console.log("pics");
-  console.log(this.state.pictures);
-
   let picture_gallery = this.state.pictures.map((picture) => {
     return( picture.image
         )
       })
   let listing = this.state.listing
+  let view_window = this.state.viewer
 
   return(
     <div >
@@ -60,6 +60,8 @@ render(){
 
   </div>
        <div className="sidewinder-box">
+         <div className="sidewinder"><img src={picture_gallery[0]}></img></div>
+
         <div className="sidewinder d-10"><img src={picture_gallery[0]}></img></div>
       <div className="sidewinder d-9"><img src={picture_gallery[1]}></img></div>
     <div className="sidewinder d-8"><img src={picture_gallery[2]}></img></div>
@@ -90,6 +92,11 @@ render(){
 
       </div>
       <div className="hexagon" onMouseMove={this.roledex}></div>
+      <div className="rectangle" onClick={this.roledex}><h5>Back Flip</h5></div>
+      <div className="rectangle2" onClick={this.roledex}><h5>Front Flip</h5></div>
+      <div className="rectangle3" onClick={this.roledex}><h5>Back Flip</h5></div>
+
+
         <MapShow
          listingsall={this.state.listing}
         />

@@ -1,25 +1,40 @@
 import React, { Component } from 'react';
 import TextTile from '../components/TextTile';
-import RangeField from '../components/RangeField';
-import RangeField2 from '../components/RangeField2';
-import DateField from '../components/DateField';
 import { browserHistory } from 'react-router'
+import RangeField from '../components/RangeField';
+import DateField from '../components/DateField';
+import FeatureFormContainer from './FeatureFormContainer'
 
 class ListingFormContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      street: "",
-      unit: "",
-      city: "",
-      state: "",
-      zip: "",
-      bedrooms: "3",
-      bathrooms: "2",
-      rent: "",
-      sq_ft: "",
-      date_available: "",
-      lease_length: "12"
+      location: {
+        street: "123 Main st ",
+        unit: "",
+        city: "Oneonta",
+        state: "NY",
+        zip: "13820"},
+      features:{
+        bedrooms: "3",
+        bathrooms: "2",
+        rent: "1000",
+        sq_ft: "1000",
+        date_available: "2019-02-01",
+        lease_length: "12"},
+      amenities: {
+        building_style: "Duplex",
+        parking_spaces: "2",
+        pets: false,
+        zoning: "Residential",
+        school_district: "",
+        heating: "Gas",
+        cooling: "Central Air",
+        hud: false,
+        smoking: false},
+      pictures: {
+      image: "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.06.47+AM.png"}
+
     }
     this.handleStreetChange = this.handleStreetChange.bind(this)
     this.handleUnitChange = this.handleUnitChange.bind(this)
@@ -32,6 +47,19 @@ class ListingFormContainer extends Component {
     this.handleSqFtChange = this.handleSqFtChange.bind(this)
     this.handleDateAvailableChange = this.handleDateAvailableChange.bind(this)
     this.handleLeaseLengthChange = this.handleLeaseLengthChange.bind(this)
+
+    this.handleBuildingStyleChange = this.handleBuildingStyleChange.bind(this)
+    this.handleParkingSpacesChange = this.handleParkingSpacesChange.bind(this)
+    this.handlePetsChange = this.handlePetsChange.bind(this)
+    this.handleZoningChange = this.handleZoningChange.bind(this)
+    this.handleSchoolDistrictChange = this.handleSchoolDistrictChange.bind(this)
+    this.handleHeatingChange = this.handleHeatingChange.bind(this)
+    this.handleCoolingChange = this.handleCoolingChange.bind(this)
+    this.handleHudChange = this.handleHudChange.bind(this)
+    this.handleSmokingChange = this.handleSmokingChange.bind(this)
+    this.handlePictureChange = this.handlePictureChange.bind(this)
+
+
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
@@ -59,7 +87,6 @@ class ListingFormContainer extends Component {
     let newZip = event.target.value
     this.setState({ zip: newZip })
   }
-
   handleBedroomChange(event) {
     let newBedroom = event.target.value
     this.setState({ bedrooms: newBedroom })
@@ -90,16 +117,61 @@ class ListingFormContainer extends Component {
     this.setState({ lease_length: newLeaseLength })
   }
 
+  handleBuildingStyleChange(event) {
+    let newBuildingStyle = event.target.value
+    this.setState({ building_style: newBuildingStyle })
+  }
 
+  handleParkingSpacesChange(event) {
+    let newParkingSpaces = event.target.value
+    this.setState({ parking_spaces: newParkingSpaces })
+  }
+
+  handlePetsChange(event) {
+    let newPets = event.target.value
+    this.setState({ pets: newPets })
+  }
+
+  handleZoningChange(event) {
+    let newZoning = event.target.value
+    this.setState({ zoning: newZoning })
+  }
+
+  handleSchoolDistrictChange(event) {
+    let newSchoolDistrict = event.target.value
+    this.setState({ school_district: newSchoolDistrict })
+  }
+
+  handleHeatingChange(event) {
+    let newHeating = event.target.value
+    this.setState({ heating: newHeating })
+  }
+
+  handleCoolingChange(event) {
+    let newCooling = event.target.value
+    this.setState({ cooling: newCooling })
+  }
+
+  handleHudChange(event) {
+    let newHud = event.target.value
+    this.setState({ hud: newHud })
+  }
+
+  handleSmokingChange(event) {
+    let newSmoking = event.target.value
+    this.setState({ smoking: newSmoking })
+  }
+
+  handlePictureChange(event) {
+    let newPicture = event.target.value
+    this.setState({ image: newPicture })
+  }
 
 
   handleSubmit(event){
     event.preventDefault();
-    let formPayload = {
-      listing: this.state
-    };
-
-
+    let formPayload = this.state;
+    console.log(formPayload);
     fetch('/api/v1/listings', {
       credentials: 'same-origin',
       method: 'POST',
@@ -126,10 +198,8 @@ class ListingFormContainer extends Component {
   }
 
   render(){
-    console.log(this.state);
+
     return(
-
-
       <div className="row new-listing">
         <div className="row-one"></div>
         <div className="form-header">Add a New Listing</div>
@@ -196,10 +266,92 @@ class ListingFormContainer extends Component {
           </div>
         </div>
       </fieldset>
+      <fieldset><legend>Features</legend>
+        <div className="row">
+          <div className="small-4 columns">
+            <div className="datetext">
+              <TextTile
+                label="Rent"
+                name="rent"
+                onChange={this.handleRentChange}
+                value={this.state.rent}
+              />
+            </div>
+          </div>
 
+          <div className="small-4 columns">
+            <div className="datetext">
+              <TextTile
+                label="Sqft"
+                name="sq_ft"
+                onChange={this.handleSqFtChange}
+                value={this.state.sq_ft}
+              />
+            </div>
+          </div>
 
+          <div className="small-4 columns">
+            <div className="datetext">
+              <DateField
+                label="Date Available"
+                name="date_available"
+                onChange={this.handleDateAvailableChange}
+                value={this.state.date_available}
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="small-4 columns">
+            <RangeField
+              label="Bedrooms"
+              name="bedrooms"
+              onChange={this.handleBedroomChange}
+              value={this.state.bedrooms}
+              max="5"
+            />
+            <div>
+              <h5>{this.state.bedrooms} Bedrooms</h5>
+            </div>
+          </div>
+
+          <div className="small-4 columns">
+            <div className="datetext">
+              <RangeField
+                label="Bathrooms"
+                name="bathrooms"
+                onChange={this.handleBathroomChange}
+                value={this.state.bathrooms}
+                max="5"
+              />
+              <div>
+                <h5>{this.state.bathrooms}  Bathrooms</h5>
+              </div>
+            </div>
+          </div>
+
+          <div className="small-4 columns">
+            <div className="datetext">
+              <RangeField
+                label="Lease Length"
+                name="lease_length"
+                onChange={this.handleLeaseLengthChange}
+                value={this.state.lease_length}
+                max="12"
+                />
+                <div>
+                  <h5>{this.state.lease_length} Months</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
         <input className="button round form-submit" type="submit" value="Submit New Listing"/>
-        </form>
+    </form>
+
+
+
       </div>
 
     )
@@ -207,84 +359,3 @@ class ListingFormContainer extends Component {
 }
 
 export default ListingFormContainer
-// <fieldset><legend>Attributes</legend>
-//   <div className="row">
-//     <div className="small-4 columns">
-//       <div className="datetext">
-//         <TextTile
-//           label="Rent"
-//           name="rent"
-//           onChange={this.handleRentChange}
-//           value={this.state.rent}
-//         />
-//       </div>
-//     </div>
-//
-//     <div className="small-4 columns">
-//       <div className="datetext">
-//         <TextTile
-//           label="Sqft"
-//           name="sq_ft"
-//           onChange={this.handleSqFtChange}
-//           value={this.state.sq_ft}
-//         />
-//       </div>
-//     </div>
-//
-//     <div className="small-4 columns">
-//       <div className="datetext">
-//         <DateField
-//           label="Date Available"
-//           name="date_available"
-//           onChange={this.handleDateAvailableChange}
-//           value={this.state.date_available}
-//         />
-//       </div>
-//     </div>
-//   </div>
-//
-//   <div className="row">
-//     <div className="small-4 columns">
-//       <RangeField
-//         label="Bedrooms"
-//         name="bedrooms"
-//         onChange={this.handleBedroomChange}
-//         value={this.state.bedrooms}
-//         max="5"
-//       />
-//       <div>
-//         <h5>{this.state.bedrooms} Bedrooms</h5>
-//       </div>
-//     </div>
-//
-//     <div className="small-4 columns">
-//       <div className="datetext">
-//         <RangeField
-//           label="Bathrooms"
-//           name="bathrooms"
-//           onChange={this.handleBathroomChange}
-//           value={this.state.bathrooms}
-//           max="5"
-//         />
-//         <div>
-//           <h5>{this.state.bathrooms}  Bathrooms</h5>
-//         </div>
-//       </div>
-//     </div>
-//
-//     <div className="small-4 columns">
-//       <div className="datetext">
-//         <RangeField
-//           label="Lease Length"
-//           name="lease_length"
-//           onChange={this.handleLeaseLengthChange}
-//           value={this.state.lease_length}
-//           max="12"
-//           />
-//           <div>
-//             <h5>{this.state.lease_length} Months</h5>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   </fieldset>

@@ -3,7 +3,6 @@
   height: 200px;
   width: 300px;
   right: -50%;
-  border: 3px #301312 solid;
   transform: scale(1.25) skew(-10deg) translate(405px) translateY(107px);
 }
 
@@ -109,7 +108,7 @@
 .d15{
   transform: scale(0.25) translate(660px) rotate(70deg) translateY(1400px);
 }
-.d15:hover {
+.d1:hover {
   animation: d15 1s ease-in-out ;
   -webkit-animation: d15 1s ease-in-out ;
   animation-fill-mode: forwards;
