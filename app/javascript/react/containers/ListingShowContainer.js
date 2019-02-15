@@ -91,10 +91,10 @@ render(){
 
 
       </div>
-      <div className="hexagon" onMouseMove={this.roledex}></div>
-      <div className="rectangle" onClick={this.roledex}><h5>Back Flip</h5></div>
-      <div className="rectangle2" onClick={this.roledex}><h5>Front Flip</h5></div>
-      <div className="rectangle3" onClick={this.roledex}><h5>Back Flip</h5></div>
+      <div className="circle" onMouseMove={this.roledex}><h5 className="spinme"></h5></div>
+      <div className="rectangle" onClick={this.roledex}><h5></h5></div>
+      <div className="rectangle2" onClick={this.roledex}><h5></h5></div>
+
 
 
         <MapShow
@@ -129,6 +129,7 @@ render(){
          state={listing.state}
          zip={listing.zip}
            />
+         <div className="spinme"><h9>Spin me</h9></div>
 
 
        </div>

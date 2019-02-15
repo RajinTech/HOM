@@ -43,21 +43,27 @@ body {
 }
 .rectangle {
   width: 100px;
-  height: 45px;
+  height: 25px;
   background: #FFF5F0;
   border-radius: 4px;
   border: 2px #301312 solid;
   position: relative;
-  transform: skew(-10deg) translate(141px) translateY(-202px);
+  transform: skew(-10deg) translate(453px) translateY(-256px);
+  text-align: center;
 }
 .rectangle2 {
   width: 100px;
-  height: 45px;
+  height: 25px;
   background: #FFF5F0;
   border-radius: 4px;
   border: 2px #301312 solid;
   position: relative;
-  transform: skew(-10deg) translate(235px) translateY(-247px);
+  transform: skew(-10deg) translate(449px) translateY(-255px);
+  text-align: center;
+  box-shadow:inset 0px 0px 0px 1px transparent;
+  line-height: 100px;
+  display: inline-block;
+
 }
 .rectangle3 {
   width: 100px;
@@ -66,7 +72,8 @@ body {
   border-radius: 4px;
   border: 2px #301312 solid;
   position: relative;
-  transform: skew(-10deg) translate(0px) translateY(-202px);
+  transform: skew(-10deg) translate(329px) translateY(-335px);
+
 }
 .rectangle4 {
   width: 100px;
@@ -75,41 +82,23 @@ body {
   border-radius: 4px;
   border: 2px #301312 solid;
   position: relative;
-  transform: skew(-10deg) translate(235px) translateY(-247px);
+  transform: skew(-10deg) translate(423px) translateY(-380px);
 }
-
-.hexagon {
+.spinme{
+  transform: translateX(636px) translateY(-688px);
+}
+.circle {
   width: 100px;
-  height: 55px;
+  height: 100px;
   background: #FFF5F0;
-  border-radius: 4px;
+  border: #301312 transparent;
+  box-shadow:inset 0px 0px 0px 3px #301312;
+  border-radius: 50%;
   position: relative;
   transform: translate(618px) translateY(-200px);
+  text-align: center;
 }
 
-.hexagon:before {
-  content: "";
-  position: absolute;
-  top: -25px;
-  left: 0;
-  width: 0;
-  height: 0;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  border-bottom: 25px solid #301312;
-  border-radius: 4px;
-}
-.hexagon:after {
-  content: "";
-  position: absolute;
-  bottom: -25px;
-  left: 0;
-  width: 0;
-  height: 0;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  border-top: 25px solid #301312;
-}
 .button-nav{
   background-color: #FFF5F0;
   border: 2px #301312 solid;
@@ -142,7 +131,7 @@ body {
   background-color: #FFF5F0;
   animation-name: emerge-start;
   animation-duration: 0.5s;
-  transform: scale(0.395) skew(-10deg) translate(-358px) translateY(-776px);
+  transform: scale(0.395) skew(-10deg) translate(-397px) translateY(-1005px);
 }
 
 .anchoring-box{
@@ -177,7 +166,7 @@ body {
 }
 
 .content-tile-show {
-  transform: scale(0.5) translate(-30px) translateY(-541px) skew(-10deg);
+  transform: scale(0.5) translate(-27px) translateY(-729px) skew(-10deg);
   height: 200px;
   width: 200px;
   top: 88%;

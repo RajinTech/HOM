@@ -14,13 +14,13 @@ const AmenityTile = (props) => {
 
   return (
       <div className="amenity-tile">
-        <h5>Heating: {props.heating}</h5>
-        <h5>Cooling: {props.cooling}</h5>
-        <h5>HUD: {tf(props.hud)}</h5>
-        <h5>Pets: {tf(props.pets)}</h5>
-      <h5>Smoking: {tf(props.smoking)}</h5>
-        <h5>School District: {props.schooldistrict}</h5>
-        <h5>Zoning: {props.zoning}</h5>
+        <h3>-Heating: {props.heating}</h3>
+        <h3>-Cooling: {props.cooling}</h3>
+        <h3>-HUD: {tf(props.hud)}</h3>
+        <h3>-Pets: {tf(props.pets)}</h3>
+      <h3>-Smoking: {tf(props.smoking)}</h3>
+        <h3>-School District: {props.schooldistrict}</h3>
+        <h3>-Zoning: {props.zoning}</h3>
       </div>
   )
 }
