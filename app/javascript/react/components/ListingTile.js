@@ -12,10 +12,10 @@ const ListingTile = (props) => {
 
         <div className="flex-column">
 
-        <h8> Bed: {props.bed}</h8>
-      <h8> Bath: {props.bath}</h8>
-    <h8> Sq Ft: {props.sqft}</h8>
-  <h8> Rent: ${props.rent}</h8>
+        <h8> <b>Bed:</b> {props.bed}</h8>
+      <h8> <b>Bath:</b>  {props.bath}</h8>
+    <h8> <b>Sq Ft:</b>  {props.sqft}</h8>
+  <h8> <b>Rent:</b>  ${props.rent}</h8>
   </div>
         <img className=" photo-box-show" src={props.pic}></img>
       </div>

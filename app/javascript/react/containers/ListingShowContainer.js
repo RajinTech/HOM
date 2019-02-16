@@ -130,6 +130,9 @@ render(){
          zip={listing.zip}
            />
          <div className="spinme"><h9>Spin me</h9></div>
+         <div className="upme"><h9 onClick={this.roledex}>Up</h9></div>
+         <div className="downme" ><h9 onClick={this.roledex}>Down</h9></div>
+
 
 
        </div>

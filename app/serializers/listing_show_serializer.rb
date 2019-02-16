@@ -1,5 +1,6 @@
 class ListingShowSerializer < ActiveModel::Serializer
   attributes :id, :street, :unit, :city, :state, :zip, :longitude, :latitude, :pictures, :amenities, :features
+  
   def pictures
     object.pictures
   end

@@ -4,6 +4,7 @@ const TextTile = (props) => {
   return (
       <label>{props.label}
         <input
+          className="input-slant"
           type="text"
           onChange={props.onChange}
           name={props.name}

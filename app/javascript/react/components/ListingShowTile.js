@@ -7,13 +7,13 @@ const ListingShow = (props) => {
     <div>
       <Link to={`/listings/${props.id}`}>
       <div className="content-tile-show">
-        <h5>-{props.street} {props.unit}</h5>
-          <h6>-{props.city}, {props.state}{props.zip}</h6>
+        <h5><b>{props.street} {props.unit}</b></h5>
+          <h6><b>{props.city}, {props.state}{props.zip}</b></h6>
         <div className="flex-column">
-        <h6> -Bed: {props.bed}</h6>
-      <h6> -Bath: {props.bath}</h6>
-    <h6> -Sq Ft: {props.sqft}</h6>
-  <h6> -Rent: ${props.rent}</h6>
+        <h6> <b>Bed:</b> {props.bed}</h6>
+      <h6> <b>Bath:</b> {props.bath}</h6>
+    <h6> <b>Sq Ft:</b> {props.sqft}</h6>
+  <h6> <b>Rent:</b> ${props.rent}</h6>
   </div>
       </div>
       </Link>

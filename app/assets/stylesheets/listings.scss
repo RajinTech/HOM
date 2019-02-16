@@ -14,15 +14,30 @@ a:hover {
 body {
 
   background-image: url("https://s3.amazonaws.com/hom-development/LA_background_orange.jpg");
- background-repeat: no-repeat;
+ background-repeat:repeat-y;
  background-position: right;
  background-size: cover;
+ //background-blend-mode:difference;
+   //background-blend-mode:luminosity;
+}
+input[type=radio] {
+opacity: 50%;
+color: blue;
+border: 2px red solid;
+
+fieldset legend{
+  font-size: 2rem;
+  color: #301312;
+  font-weight: bold;
+  font-family: monospace;
+}
+
 }
 .background-oh {
   background-color: #FF8100;
 }
 .profile-photo-uploader{
-  transform: translate(200px);
+    transform: translate(308px) translateY(-82px);
 }
 //Butttons
 .nav-box {
@@ -30,10 +45,109 @@ body {
 }
 .new-listing{
   border: 20px transparent solid;
+  width: 65%;
 }
 .fieldset-user {
   width: 60%;
+  background: #f2f2f2;
+  transform: translate(150px);
+  border: 3px solid #301312;
+  border-radius: 10px
 
+
+}
+input[type="text"]{
+  transform: skew(-10deg);
+background-color: #FFF5F0;
+border-style: solid;
+border-width: 2px;
+border-color: #301312;
+border-radius: 3px;
+box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+color: rgba(0, 0, 0, 0.75);
+display: block;
+font-family: inherit;
+font-size: 0.875rem;
+height: 2.3125rem;
+margin: 0 0 1rem 0;
+padding: 0.5rem;
+width: 100%;
+
+}
+input[type="email"]{
+  transform: skew(-10deg);
+background-color: #FFF5F0;
+border-style: solid;
+border-width: 2px;
+border-color: #301312;
+border-radius: 3px;
+box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+color: rgba(0, 0, 0, 0.75);
+display: block;
+font-family: inherit;
+font-size: 0.875rem;
+height: 2.3125rem;
+margin: 0 0 1rem 0;
+padding: 0.5rem;
+width: 100%;
+
+}
+input[type="password"]{
+  transform: skew(-10deg);
+background-color: #FFF5F0;
+border-style: solid;
+border-width: 2px;
+border-color: #301312;
+border-radius: 3px;
+box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+color: rgba(0, 0, 0, 0.75);
+display: block;
+font-family: inherit;
+font-size: 0.875rem;
+height: 2.3125rem;
+margin: 0 0 1rem 0;
+padding: 0.5rem;
+width: 100%;
+
+}
+input[type="submit"]{
+      transform: translateY(157px) translate(-115px) skew(-10deg) scale(1);
+      font-size: 2rem;
+      border-radius: 3px;
+      color: #301312;
+      font-weight: bold;
+      font-family: monospace;
+      color: #FFF5F0;
+      background-color: #301312;
+      border: 4px #CA7735 solid;
+
+}
+input[type="file"] {
+  transform: translateY(-25px) translate(-141px) skew(-10deg) scale(0.4);
+  font-size: 2rem;
+  border-radius: 3px;
+  color: #301312;
+  font-weight: bold;
+  font-family: monospace;
+  color: #FFF5F0;
+  background-color: #301312;
+  border: 4px #CA7735 solid;
+    width: 84%;
+}
+.signupfield{
+  background-color:#FFF5F0;
+}
+.signuptext {
+  font-size: 2rem;
+  color: #301312;
+  font-weight: bold;
+  font-family: monospace;
+  border-radius: 4px;
+  border: 3px solid #301312;
+  background-color: #FFF5F0;
+  color: #301312;
+  font-size: 1.5rem;
+  transform: skew(-10deg) scale(0.6) translate(202px);
 }
 .title-hover{
 
@@ -63,6 +177,7 @@ body {
   box-shadow:inset 0px 0px 0px 1px transparent;
   line-height: 100px;
   display: inline-block;
+  padding-bottom: 3px
 
 }
 .rectangle3 {
@@ -85,7 +200,15 @@ body {
   transform: skew(-10deg) translate(423px) translateY(-380px);
 }
 .spinme{
-  transform: translateX(636px) translateY(-688px);
+      transform: scale(0.5) translateX(832px) translateY(-1362px);
+}
+.upme{
+      transform: scale(0.6) translateX(585px) translateY(-1166px);
+    }
+
+.downme{
+        transform: scale(0.6) translateX(571px) translateY(-1164px);
+
 }
 .circle {
   width: 100px;
@@ -100,6 +223,10 @@ body {
 }
 
 .button-nav{
+  font-size: 10rem;
+  color: #301312;
+  font-weight: bold;
+  font-family: monospace;
   background-color: #FFF5F0;
   border: 2px #301312 solid;
   border-radius: 3px;
@@ -131,6 +258,7 @@ body {
   background-color: #FFF5F0;
   animation-name: emerge-start;
   animation-duration: 0.5s;
+  padding-left: 10px;
   transform: scale(0.395) skew(-10deg) translate(-397px) translateY(-1005px);
 }
 
@@ -177,6 +305,8 @@ body {
   animation-name: emerge-start;
   animation-duration: 0.5s;
   margin-top: -185px;
+  padding-left: 10px;
+
 
 }
 

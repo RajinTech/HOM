@@ -1,41 +1,66 @@
-import React, { Component } from 'react';
+  import React, { Component } from 'react';
 import TextTile from '../components/TextTile';
 import { browserHistory } from 'react-router'
 import RangeField from '../components/RangeField';
 import DateField from '../components/DateField';
 import FeatureFormContainer from './FeatureFormContainer'
+import RadioField from '../components/RadioField'
+import RadioFieldBool from '../components/RadioFieldBool'
 
 class ListingFormContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      location: {
-        street: "123 Main st ",
-        unit: "",
-        city: "Oneonta",
-        state: "NY",
-        zip: "13820"},
-      features:{
-        bedrooms: "3",
-        bathrooms: "2",
-        rent: "1000",
-        sq_ft: "1000",
-        date_available: "2019-02-01",
-        lease_length: "12"},
-      amenities: {
-        building_style: "Duplex",
-        parking_spaces: "2",
-        pets: false,
-        zoning: "Residential",
-        school_district: "",
-        heating: "Gas",
-        cooling: "Central Air",
-        hud: false,
-        smoking: false},
-      pictures: {
-      image: "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.06.47+AM.png"}
-
+      street: "123 Main st ",
+      unit: "",
+      city: "Oneonta",
+      state: "NY",
+      zip: "13820",
+      bedrooms: "3",
+      bathrooms: "2",
+      rent: "1000",
+      sq_ft: "1000",
+      date_available: "2019-02-01",
+      lease_length: "12",
+      building_style: "Duplex",
+      parking_spaces: "2",
+      pets: false,
+      zoning: "Residential",
+      school_district: "",
+      heating: "Gas",
+      cooling: "Central Air",
+      hud: false,
+      smoking: false,
+      image: "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.06.47+AM.png"
     }
+    // this.state = {
+    //   location: {
+    //     street: "123 Main st ",
+    //     unit: "",
+    //     city: "Oneonta",
+    //     state: "NY",
+    //     zip: "13820"},
+    //   features:{
+    //     bedrooms: "3",
+    //     bathrooms: "2",
+    //     rent: "1000",
+    //     sq_ft: "1000",
+    //     date_available: "2019-02-01",
+    //     lease_length: "12"},
+    //   amenities: {
+    //     building_style: "Duplex",
+    //     parking_spaces: "2",
+    //     pets: false,
+    //     zoning: "Residential",
+    //     school_district: "",
+    //     heating: "Gas",
+    //     cooling: "Central Air",
+    //     hud: false,
+    //     smoking: false},
+    //   pictures: {
+    //   image: "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.06.47+AM.png"}
+    //
+    // }
     this.handleStreetChange = this.handleStreetChange.bind(this)
     this.handleUnitChange = this.handleUnitChange.bind(this)
     this.handleCityChange = this.handleCityChange.bind(this)
@@ -108,8 +133,13 @@ class ListingFormContainer extends Component {
   }
 
   handleDateAvailableChange(event) {
+
     let newDateAvailable = event.target.value
-    this.setState({ date_available: newDateAvailable })
+    this.setState({
+      features:{
+        date_available: newDateAvailable,
+      }
+    })
   }
 
   handleLeaseLengthChange(event) {
@@ -192,12 +222,13 @@ class ListingFormContainer extends Component {
       })
       .then(response => response.json())
       .then(body => {
-        browserHistory.push(``);
+        browserHistory.push(`/listings/1`);
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   render(){
+    console.log(this.state)
 
     return(
       <div className="row new-listing">
@@ -347,7 +378,124 @@ class ListingFormContainer extends Component {
             </div>
           </div>
         </fieldset>
-        <input className="button round form-submit" type="submit" value="Submit New Listing"/>
+          <fieldset><legend>Houseing Restrictions</legend>
+            <div className="small-4 columns">
+              <div className="datetext">
+                <RadioFieldBool
+                  label="Hud"
+                  name="hud"
+                  onChange={this.handleHudChange}
+                  value={this.state.hud}
+
+                />
+              </div>
+            </div>
+
+            <div className="small-4 columns">
+              <div className="datetext">
+                <RadioFieldBool
+                  label="Smoking"
+                  name="smoking"
+                  onChange={this.handleSmokingChange}
+                  value={this.state.smoking}
+                  />
+                </div>
+              </div>
+
+
+            <div className="small-4 columns">
+              <div className="datetext">
+                <RadioFieldBool
+                  label="Pets"
+                  name="pets"
+                  onChange={this.handlePetsChange}
+                  value={this.state.pets}
+                />
+              </div>
+            </div>
+            </fieldset>
+            <fieldset><legend>Building Specs</legend>
+
+            <div className="small-4 columns">
+              <RadioField
+                label="Zoning"
+                name="zoning"
+                option1="Comercial"
+                option2="Residential"
+                onChange={this.handlezoningChange}
+                value={this.state.zoning}
+              />
+
+            </div>
+
+              <div className="small-4 columns">
+                <div className="datetext">
+                  <RadioField
+                    label="Buidling Style"
+                    name="building_style"
+                    option1="House"
+                    option2="Duplex"
+                    onChange={this.handleBuildingStyleChange}
+                    value={this.state.building_style}
+                  />
+                </div>
+              </div>
+
+              <div className="small-4 columns">
+                <div className="datetext">
+                  <RadioField
+                    label="Parking Spaces"
+                    name="parking_spaces"
+                    option1="1"
+                    option2="2"
+                    onChange={this.handleParkingSpacesChange}
+                    value={this.state.parking_spaces}
+                  />
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset><legend>Living Specs</legend>
+              <div className="small-4 columns">
+                <div className="datetext">
+                  <TextTile
+                    label="School District"
+                    name="school_district"
+                    onChange={this.handleSchoolDistrictChange}
+                    value={this.state.school_district}
+
+                  />
+                </div>
+              </div>
+              <div className="small-4 columns">
+                <RadioField
+                  label="Cooling"
+                  name="cooling"
+                  option1="Central Air"
+                  option2="None"
+                  onChange={this.handleCoolingChange}
+                  value={this.state.cooling}
+                />
+
+              </div>
+
+
+
+              <div className="small-4 columns">
+                <div className="datetext">
+                  <RadioField
+                    label="Heating"
+                    name="heating"
+                    option1="Gas"
+                    option2="Oil"
+                    onChange={this.handleHeatingChange}
+                    value={this.state.heating}
+                    />
+                  </div>
+                </div>
+            </fieldset>
+
+        <input className="button form-submit" type="submit" value="Submit New Listing"/>
     </form>
 
 
