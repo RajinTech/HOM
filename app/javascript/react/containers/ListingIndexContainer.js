@@ -91,15 +91,23 @@ class ListingIndexContainer extends Component {
         </div>
       </div>
       <h6 className="glide">Hover to reveal listing Click to View Details</h6>
-      <div className="triangle-up" onClick={this.roledexforward}><h5></h5></div>
-      <div className="triangle-down" onClick={this.roledexback}><h5></h5></div>
-      <div className="circle2" onClick={this.roledexforward}><h5></h5></div>
-      <div className="circle3" onClick={this.roledexback}><h5></h5></div>
-      <div className="circle4" onClick={this.roledexback}><h5></h5></div>
-      <div className="circle5" onMouseMove={this.roledexforward}><h5></h5></div>
-        <div className="spinme2"><h9>Spin me</h9></div>
-        <div className="upme"><h9 onClick={this.roledexforward}>Up</h9></div>
-        <div className="downme" ><h9 onClick={this.roledexback}>Down</h9></div>
+
+      <div className=" tooltip move0">
+                <div className="triangle-up" onClick={this.roledexforward}><h5></h5>
+                <div className="circle2" onClick={this.roledexforward}><h5></h5></div></div>
+                <div className="circle3" onClick={this.roledexback}><h5></h5></div>
+                  <div className="triangle-down" onClick={this.roledexback}><h5></h5></div>
+                  <div className="circle5" onMouseMove={this.roledexforward}><h5></h5></div>
+
+              <span className="tooltiptext">Click up or down, or Roll top ball Scroll</span>
+            </div>
+
+
+
+
+        <div className="spinme2" onMouseMove={this.roledexforward}><h9>Spin me</h9></div>
+        <div className="upme2"><h9 onClick={this.roledexforward}>Up</h9></div>
+
 
         </div>
     )

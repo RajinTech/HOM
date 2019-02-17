@@ -1383,7 +1383,7 @@ $include-html-global-classes: $include-html-classes;
 // $has-tip-cursor-type: help;
 
 // $tooltip-padding: rem-calc(12);
-// $tooltip-bg: $oil;
+ $tooltip-bg: transparent;
 // $tooltip-font-size: rem-calc(14);
 // $tooltip-font-weight: $font-weight-normal;
 // $tooltip-font-color: $white;
@@ -1396,6 +1396,7 @@ $include-html-global-classes: $include-html-classes;
 // $tooltip-rounded: $global-rounded;
 // $tooltip-pip-size: 5px;
 // $tooltip-max-width: 300px;
+ $tooltip-max-height: 70px;
 
 // 34. Top Bar
 // - - - - - - - - - - - - - - - - - - - - - - - - -

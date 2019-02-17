@@ -190,9 +190,8 @@ input[type="file"] {
   border-left: 50px solid transparent;
   border-right: 51px solid transparent;
   border-bottom: 121px solid #FFF5F0;
-  transform: translate(-20px) translateY(6px) scale(0.6);
+  transform: translate(-50px) translateY(-18px) scale(0.6);
 }
-
 .triangle-down {
   width: 0;
       height: 0;
@@ -200,7 +199,7 @@ input[type="file"] {
       border-left: 39px solid transparent;
       border-right: 39px solid transparent;
       border-top: 209px solid #FFF5F0;
-      transform: translate(-8px) translateY(-54px) scale(0.6);
+    transform: translate(-39px) translateY(-183px) scale(0.6);
 
 }
 .rectangle {
@@ -247,6 +246,7 @@ input[type="file"] {
 
 }
 .circle5 {
+  position: absolute;
   width: 100px;
   height: 100px;
   background: #FFF5F0;
@@ -254,9 +254,16 @@ input[type="file"] {
   border-radius: 50%;
   border: 5px #CA7735 solid;
   position: relative;
-  transform: translateY(-317px) translate(16px) scale(0.65);
+  z-index: 4;
+  transform: translateY(-475px) translate(-49px) scale(0.5);
 }
+.circle5:hover{
+  transform: translateY(-475px) translate(-49px) scale(0.55);
+}
+
 .circle4 {
+  position:absolute;
+  position: absolute;
   width: 100px;
   height: 100px;
   background: #FFF5F0;
@@ -264,9 +271,11 @@ input[type="file"] {
   border: 10px #CA7735 solid;
   border-radius: 50%;
   position: relative;
-  transform: translateY(-421px) translate(-19px) scale(0.1);
+  z-index: 3;
+  transform: translateY(-163px) translate(-21px) scale(0.1);
 }
 .circle3 {
+  position: absolute;
   width: 100px;
   height: 100px;
   background: #FFF5F0;
@@ -274,17 +283,25 @@ input[type="file"] {
   border: 7px #CA7735 solid;
   border-radius: 50%;
   position: relative;
-  transform: translateY(-347px) translate(-19px) scale(0.2);
+  z-index: 4;
+  transform: translateY(-69px) translate(-50px) scale(0.3);
 }
+.circle3:active{
+  transform: translateY(-69px) translate(-50px) scale(0.4);
+}
+
 .circle2 {
-    width: 100px;
-    height: 100px;
-    background: #FFF5F0;
-    box-shadow: inset 0px 0px 0px 7px #301312;
-    border: 7px #CA7735 solid;
-    border-radius: 50%;
-    position: relative;
-    transform: translateY(-299px)translate(-19px) scale(0.3);
+  width: 100px;
+  height: 100px;
+  background: #FFF5F0;
+  box-shadow: inset 0px 0px 0px 7px #301312;
+  border: 7px #CA7735 solid;
+  border-radius: 50%;
+  position: relative;
+  transform: translateY(27px) translate(-49px) scale(0.4);
+}
+.circle2:active{
+  transform: translateY(27px) translate(-49px) scale(0.5);
 }
 .circle {
   width: 100px;
@@ -311,6 +328,13 @@ input[type="file"] {
   font-weight: bold;
   font-family: monospace;
 }
+.upme2{
+  transform: scale(0.4) translateX(-649px) translateY(-1768px)skew(-10deg);
+  font-size: 2rem;
+  color: #301312;
+  font-weight: bold;
+  font-family: monospace;
+    }
 .upme{
   transform: scale(0.4) translateX(635px) translateY(-1804px);
   font-size: 2rem;
@@ -395,6 +419,7 @@ input[type="file"] {
   width: 200px;
   top: 88%;
   left: 14%;
+  padding: 2px;
   border-radius: 6px;
   border: 4px #301312 solid;
   background-color: #FFF5F0;
@@ -402,12 +427,12 @@ input[type="file"] {
   animation-duration: 0.5s;
   margin-top: -185px;
 }
-// .content-tile-index:hover{
-//   border: 5px #CA7735 solid;
-//   animation: flip-out 1s ease-in-out ;
-//   -webkit-animation: flip-out 1s ease-in-out ;
-//   animation-fill-mode: forwards;
-// }
+.content-tile-index:hover{
+  border: 5px #CA7735 solid;
+  animation: flip-out 1s ease-in-out ;
+  -webkit-animation: flip-out 1s ease-in-out ;
+  animation-fill-mode: forwards;
+}
 
 .content-tile-show {
   transform: scale(0.6) translate(-44px) translateY(-588px) skew(-10deg);
