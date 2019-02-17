@@ -1,8 +1,10 @@
-<h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-  <fieldset class="fieldset-user"><legend>User Info</legend>
+  <div className="panel">
+
+
+  <fieldset class="fieldset-user"><legend>New User Info</legend>
 
   <div class="row">
   <div class="field datetext columns">
@@ -40,11 +42,16 @@
      <%= f.file_field :profile_photo %>
    </div>
 
-  <div class="actions columns center">
+  <div className="button form-submit">
     <%= f.submit "Sign up" %>
   </div>
 </div>
+
   </fieldset>
+    </div>
+
+
+
 <% end %>
 
 <%= render "devise/shared/links" %>

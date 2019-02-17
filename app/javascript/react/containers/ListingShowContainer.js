@@ -13,16 +13,34 @@ class ListingShowContainer extends Component {
       listing: [],
       amenities: {},
       features: {},
-      pictures: []
+      pictures: [],
+      showtile: {}
+
     }
-    this.roledex = this.roledex.bind(this)
+    this.roledexforward = this.roledexforward.bind(this)
+    this.roledexback = this.roledexback.bind(this)
+    this.current_Pic = this.current_Pic.bind(this)
+
+
   }
-   roledex(){
+   roledexforward(){
     let holder = this.state.pictures
     let pergatory = holder.pop()
     holder.unshift(pergatory)
-    this.setState({ pictures: holder})
+    this.setState({ pictures: holder, showtile: holder[10].image})
   }
+  roledexback(){
+   let holder = this.state.pictures
+   let pergatory = holder.shift()
+   holder.push(pergatory)
+   this.setState({ pictures: holder, showtile: holder[10].image})
+ }
+
+  current_Pic(position){
+    this.setState({ showtile: picture_gallery[position]})
+
+  }
+
   componentDidMount() {
     fetch(`/api/v1/listings/${this.props.params.id}`)
       .then(response => {
@@ -36,7 +54,8 @@ class ListingShowContainer extends Component {
       })
       .then((response) => response.json())
       .then((responseData) => {
-        this.setState({ amenities: responseData.amenities, listing: responseData, features: responseData.features, pictures: responseData.pictures})
+        console.log(responseData.pictures);
+        this.setState({ amenities: responseData.amenities, listing: responseData, features: responseData.features, pictures: responseData.pictures, showtile: responseData.pictures[0].image})
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
@@ -44,14 +63,12 @@ class ListingShowContainer extends Component {
 
 render(){
 
-  console.log("pics");
-  console.log(this.state.pictures);
-
   let picture_gallery = this.state.pictures.map((picture) => {
     return( picture.image
         )
       })
   let listing = this.state.listing
+  let view_window = this.state.viewer
 
   return(
     <div >
@@ -60,6 +77,8 @@ render(){
 
   </div>
        <div className="sidewinder-box">
+         <div className="sidewinder"><img src={this.state.showtile}></img></div>
+
         <div className="sidewinder d-10"><img src={picture_gallery[0]}></img></div>
       <div className="sidewinder d-9"><img src={picture_gallery[1]}></img></div>
     <div className="sidewinder d-8"><img src={picture_gallery[2]}></img></div>
@@ -73,7 +92,7 @@ render(){
         <div className="sidewinder d1"><img src={picture_gallery[10]}></img></div>
       <div className="sidewinder d2"><img src={picture_gallery[11]}></img></div>
     <div className="sidewinder d3"><img src={picture_gallery[12]}></img></div>
-  <div className="sidewinder d4"><img src={picture_gallery[13]}></img></div>
+  <div className="sidewinder d4" onClick={this.current_Pic[13]}><img src={picture_gallery[13]}></img></div>
 <div className="sidewinder d5"><img src={picture_gallery[14]}></img></div>
         <div className="sidewinder d6"><img src={picture_gallery[15]}></img></div>
       <div className="sidewinder d7"><img src={picture_gallery[16]}></img></div>
@@ -89,7 +108,12 @@ render(){
 
 
       </div>
-      <div className="hexagon" onMouseMove={this.roledex}></div>
+      <div className="circle" onMouseMove={this.roledexforward}><h5 className="spinme"></h5></div>
+      <div className="rectangle" onClick={this.roledexforward}><h5></h5></div>
+      <div className="rectangle2" onClick={this.roledexback}><h5></h5></div>
+
+
+
         <MapShow
          listingsall={this.state.listing}
         />
@@ -122,6 +146,10 @@ render(){
          state={listing.state}
          zip={listing.zip}
            />
+         <div className="spinme"><h9>Spin me</h9></div>
+         <div className="upme"><h9 onClick={this.roledexforward}>Up</h9></div>
+         <div className="downme" ><h9 onClick={this.roledexback}>Down</h9></div>
+
 
 
        </div>

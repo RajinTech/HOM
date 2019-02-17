@@ -1,7 +1,11 @@
 class ListingSerializer < ActiveModel::Serializer
   attributes :id, :street, :unit, :city, :state, :zip, :longitude, :latitude, :pictures, :amenities, :features
+
   def pictures
-    object.pictures.first.image
+    if !object.pictures.empty?
+      return object.pictures.first.image
+    end
+    return nil
   end
 
   def amenities

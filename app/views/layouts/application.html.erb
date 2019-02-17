@@ -11,40 +11,32 @@
   <%= csrf_meta_tags %>
 </head>
 <body className="background-oh">
-
   <nav class="top-bar">
-    <div className="arrows">
-      <h3>>>></h3>
-    </div>
     <ul class="title-area title-hover">
       <li class="name">
 
-        <h1 className="HOM-style"><li><%= link_to 'HOM', root_path %></li></h1>
+        <h1></h1>
       </li>
     </ul>
-    <div className="arrows">
-      <h3>>>></h3>
-    </div>
-
     <section class="top-bar-section">
       <ul class="right">
         <%- if current_user -%>
-
+            
             <li class="active picture"><img src="<%= current_user.profile_photo %>" width="50" height="50" /></li>
+            <li><%= link_to 'HOME', root_path %></li>
 
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
 
 
         <%- else -%>
+          <li><%= link_to 'HOME', root_path %></li>
+
           <li><%= link_to 'Sign Up', new_user_registration_path %></li>
 
           <li><%= link_to 'Sign In', new_user_session_path %></li>
         <%- end -%>
       </ul>
     </section>
-    <div className="arrows">
-      <h3>>>></h3>
-    </div>
   </nav>
 
   <%- flash.each do |key, value| -%>
