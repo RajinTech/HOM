@@ -11,12 +11,31 @@ class ListingIndexContainer extends Component {
     super(props);
     this.state = {
       listings_all: [],
-      listings_holder: [],
       listings_show: [],
       first_pictures:[]
     }
+    this.roledexforward = this.roledexforward.bind(this)
+    this.roledexback = this.roledexback.bind(this)
+    this.current_Pic = this.current_Pic.bind(this)
   }
-//FETCH
+  roledexforward(){
+   let holder = this.state.listings_all
+   let pergatory = holder.pop()
+   holder.unshift(pergatory)
+   this.setState({ listings_all: holder})
+ }
+ roledexback(){
+  let holder = this.state.listings_all
+  let pergatory = holder.shift()
+  holder.push(pergatory)
+  this.setState({ listings_all: holder})
+}
+
+ current_Pic(position){
+   this.setState({ showtile: picture_gallery[position]})
+
+ }
+
   componentWillMount() {
   fetch(`/api/v1/listings.json`)
     .then(response => {
@@ -36,7 +55,7 @@ class ListingIndexContainer extends Component {
   }
 
   render(){
-    let listings_display = this.state.listings_all.map((listing) => {
+    let listings_display = this.state.listings_all.slice(0, 13).map((listing) => {
       return (
         <ListingTile
           key={listing.id}
@@ -57,10 +76,10 @@ class ListingIndexContainer extends Component {
     return(
         <div className="">
             <div className="listings-box">
-              <div className="listing-text">ß
+              <div className="listing-text">
             <h2></h2>
           </div>
-          {listings_display}
+          {listings_display.reverse()}
       </div>
       <div className="row">
       <div>
@@ -71,6 +90,17 @@ class ListingIndexContainer extends Component {
             </div>
         </div>
       </div>
+      <h6 className="glide">Hover to reveal listing Click to View Details</h6>
+      <div className="triangle-up" onClick={this.roledexforward}><h5></h5></div>
+      <div className="triangle-down" onClick={this.roledexback}><h5></h5></div>
+      <div className="circle2" onClick={this.roledexforward}><h5></h5></div>
+      <div className="circle3" onClick={this.roledexback}><h5></h5></div>
+      <div className="circle4" onClick={this.roledexback}><h5></h5></div>
+      <div className="circle5" onMouseMove={this.roledexforward}><h5></h5></div>
+        <div className="spinme2"><h9>Spin me</h9></div>
+        <div className="upme"><h9 onClick={this.roledexforward}>Up</h9></div>
+        <div className="downme" ><h9 onClick={this.roledexback}>Down</h9></div>
+
         </div>
     )
   }

@@ -11,7 +11,7 @@ class ListingFormContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      street: "123 Main st ",
+      street: "1234 Main st ",
       unit: "",
       city: "Oneonta",
       state: "NY",
@@ -33,34 +33,7 @@ class ListingFormContainer extends Component {
       smoking: false,
       image: "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.06.47+AM.png"
     }
-    // this.state = {
-    //   location: {
-    //     street: "123 Main st ",
-    //     unit: "",
-    //     city: "Oneonta",
-    //     state: "NY",
-    //     zip: "13820"},
-    //   features:{
-    //     bedrooms: "3",
-    //     bathrooms: "2",
-    //     rent: "1000",
-    //     sq_ft: "1000",
-    //     date_available: "2019-02-01",
-    //     lease_length: "12"},
-    //   amenities: {
-    //     building_style: "Duplex",
-    //     parking_spaces: "2",
-    //     pets: false,
-    //     zoning: "Residential",
-    //     school_district: "",
-    //     heating: "Gas",
-    //     cooling: "Central Air",
-    //     hud: false,
-    //     smoking: false},
-    //   pictures: {
-    //   image: "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.06.47+AM.png"}
-    //
-    // }
+
     this.handleStreetChange = this.handleStreetChange.bind(this)
     this.handleUnitChange = this.handleUnitChange.bind(this)
     this.handleCityChange = this.handleCityChange.bind(this)
@@ -135,11 +108,7 @@ class ListingFormContainer extends Component {
   handleDateAvailableChange(event) {
 
     let newDateAvailable = event.target.value
-    this.setState({
-      features:{
-        date_available: newDateAvailable,
-      }
-    })
+    this.setState({date_available: newDateAvailable})
   }
 
   handleLeaseLengthChange(event) {
@@ -194,7 +163,7 @@ class ListingFormContainer extends Component {
 
   handlePictureChange(event) {
     let newPicture = event.target.value
-    this.setState({ image: newPicture })
+    this.setState({ image: "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.06.47+AM.png" })
   }
 
 
@@ -222,7 +191,7 @@ class ListingFormContainer extends Component {
       })
       .then(response => response.json())
       .then(body => {
-        browserHistory.push(`/listings/1`);
+        browserHistory.push(`/listings`);
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
