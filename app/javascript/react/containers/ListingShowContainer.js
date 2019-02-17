@@ -201,39 +201,39 @@ render(){
   let view_window = this.state.viewer
 
   return(
-<div>
-<div className="image-container">
-  </div>
-       <div className="sidewinder-box">
-         <div className="sidewinder"><img src={this.state.showtile}></img></div>
-        <div className="sidewinder d-10" onMouseEnter={this.now_0}><img src={picture_gallery[0]}></img></div>
-      <div className="sidewinder d-9" onMouseEnter={this.now_1}><img src={picture_gallery[1]}></img></div>
-    <div className="sidewinder d-8" onMouseEnter={this.now_2}><img src={picture_gallery[2]}></img></div>
-  <div className="sidewinder d-7" onMouseEnter={this.now_3}><img src={picture_gallery[3]}></img></div>
-<div className="sidewinder d-6" onMouseEnter={this.now_4}><img src={picture_gallery[4]}></img></div>
-        <div className="sidewinder d-5" onMouseEnter={this.now_5}><img src={picture_gallery[5]}></img></div>
-      <div className="sidewinder d-4" onMouseEnter={this.now_6}><img src={picture_gallery[6]}></img></div>
-    <div className="sidewinder d-3" onMouseEnter={this.now_7}><img src={picture_gallery[7]}></img></div>
-  <div className="sidewinder d-2" onMouseEnter={this.now_8}><img src={picture_gallery[8]}></img></div>
-<div className="sidewinder d-1" onMouseEnter={this.now_9}><img src={picture_gallery[9]}></img></div>
-        <div className="sidewinder d1" onMouseEnter={this.now_10}><img src={picture_gallery[10]}></img></div>
-      <div className="sidewinder d2" onMouseEnter={this.now_11}><img src={picture_gallery[11]}></img></div>
-    <div className="sidewinder d3" onMouseEnter={this.now_12}><img src={picture_gallery[12]}></img></div>
-  <div className="sidewinder d4" onMouseEnter={this.now_13}><img src={picture_gallery[13]}></img></div>
-<div className="sidewinder d5" onMouseEnter={this.now_14}><img src={picture_gallery[14]}></img></div>
-        <div className="sidewinder d6" onMouseEnter={this.now_15}><img src={picture_gallery[15]}></img></div>
-      <div className="sidewinder d7" onMouseEnter={this.now_16}><img src={picture_gallery[16]}></img></div>
-    <div className="sidewinder d8" onMouseEnter={this.now_17}><img src={picture_gallery[17]}></img></div>
-  <div className="sidewinder d9" onMouseEnter={this.now_18}><img src={picture_gallery[18]}></img></div>
-<div className="sidewinder d10" onMouseEnter={this.now_19}><img src={picture_gallery[19]}></img></div>
-        <div className="sidewinder d11" onMouseEnter={this.now_20}><img src={picture_gallery[20]}></img></div>
-      <div className="sidewinder d12" onMouseEnter={this.now_21}><img src={picture_gallery[21]}></img></div>
-    <div className="sidewinder d13" onMouseEnter={this.now_22}><img src={picture_gallery[22]}></img></div>
-  <div className="sidewinder d14" onMouseEnter={this.now_23}><img src={picture_gallery[23]}></img></div>
-<div className="sidewinder d15" onMouseEnter={this.now_24}><img src={picture_gallery[24]}></img></div>
-  </div><div className="circle" onMouseMove={this.roledexforward}><h5 className="spinme"></h5></div>
-          <div className="rectangle" onClick={this.roledexforward}><h5></h5></div>
-            <div className="rectangle2" onClick={this.roledexback}><h5></h5></div>
+  <div>
+    <div className="image-container">
+      </div>
+           <div className="sidewinder-box">
+             <div className="sidewinder"><img src={this.state.showtile}></img></div>
+            <div className="sidewinder d-10" onClick={this.now_0}><img src={picture_gallery[0]}></img></div>
+          <div className="sidewinder d-9" onClick={this.now_1}><img src={picture_gallery[1]}></img></div>
+        <div className="sidewinder d-8" onClick={this.now_2}><img src={picture_gallery[2]}></img></div>
+      <div className="sidewinder d-7" onClick={this.now_3}><img src={picture_gallery[3]}></img></div>
+    <div className="sidewinder d-6" onClick={this.now_4}><img src={picture_gallery[4]}></img></div>
+            <div className="sidewinder d-5" onClick={this.now_5}><img src={picture_gallery[5]}></img></div>
+          <div className="sidewinder d-4" onClick={this.now_6}><img src={picture_gallery[6]}></img></div>
+        <div className="sidewinder d-3" onClick={this.now_7}><img src={picture_gallery[7]}></img></div>
+      <div className="sidewinder d-2" onClick={this.now_8}><img src={picture_gallery[8]}></img></div>
+    <div className="sidewinder d-1" onClick={this.now_9}><img src={picture_gallery[9]}></img></div>
+            <div className="sidewinder d1" onClick={this.now_10}><img src={picture_gallery[10]}></img></div>
+          <div className="sidewinder d2" onClick={this.now_11}><img src={picture_gallery[11]}></img></div>
+        <div className="sidewinder d3" onClick={this.now_12}><img src={picture_gallery[12]}></img></div>
+      <div className="sidewinder d4" onClick={this.now_13}><img src={picture_gallery[13]}></img></div>
+    <div className="sidewinder d5" onClick={this.now_14}><img src={picture_gallery[14]}></img></div>
+            <div className="sidewinder d6" onClick={this.now_15}><img src={picture_gallery[15]}></img></div>
+          <div className="sidewinder d7" onClick={this.now_16}><img src={picture_gallery[16]}></img></div>
+        <div className="sidewinder d8" onClick={this.now_17}><img src={picture_gallery[17]}></img></div>
+      <div className="sidewinder d9" onClick={this.now_18}><img src={picture_gallery[18]}></img></div>
+    <div className="sidewinder d10" onClick={this.now_19}><img src={picture_gallery[19]}></img></div>
+            <div className="sidewinder d11" onClick={this.now_20}><img src={picture_gallery[20]}></img></div>
+          <div className="sidewinder d12" onClick={this.now_21}><img src={picture_gallery[21]}></img></div>
+        <div className="sidewinder d13" onClick={this.now_22}><img src={picture_gallery[22]}></img></div>
+      <div className="sidewinder d14" onClick={this.now_23}><img src={picture_gallery[23]}></img></div>
+    <div className="sidewinder d15" onClick={this.now_24}><img src={picture_gallery[24]}></img></div>
+      </div><div className="circle" onMouseMove={this.roledexforward}></div>
+              <div className="rectangle" onClick={this.roledexforward}></div>
+                <div className="rectangle2" onClick={this.roledexback}></div>
 
         <MapShow
          listingsall={this.state.listing}
