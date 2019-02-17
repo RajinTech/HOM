@@ -166,7 +166,6 @@ class ListingFormContainer extends Component {
     this.setState({ image: "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.06.47+AM.png" })
   }
 
-
   handleSubmit(event){
     event.preventDefault();
     let formPayload = this.state;
@@ -197,14 +196,13 @@ class ListingFormContainer extends Component {
   }
 
   render(){
-    console.log(this.state)
 
     return(
+
       <div className="form-box">
       <div className="row new-listing">
         <div className="row-one"></div>
         <div className="form-header">Add a New Listing</div>
-
       <form onSubmit={this.handleSubmit} className="panel">
         <fieldset><legend>Location</legend>
           <div className="row">
@@ -218,7 +216,6 @@ class ListingFormContainer extends Component {
               />
             </div>
           </div>
-
           <div className="small-4 columns">
             <div className="datetext">
               <TextTile
@@ -230,8 +227,6 @@ class ListingFormContainer extends Component {
             </div>
           </div>
         </div>
-
-
         <div className="row">
           <div className="small-4 columns">
             <div className="datetext" >
@@ -243,7 +238,6 @@ class ListingFormContainer extends Component {
               />
             </div>
           </div>
-
           <div className="small-4 columns">
             <div className="datetext" >
               <TextTile
@@ -254,7 +248,6 @@ class ListingFormContainer extends Component {
               />
             </div>
           </div>
-
           <div className="small-4 columns">
             <div className="datetext">
               <TextTile
@@ -279,7 +272,6 @@ class ListingFormContainer extends Component {
               />
             </div>
           </div>
-
           <div className="small-4 columns">
             <div className="datetext">
               <TextTile
@@ -290,7 +282,6 @@ class ListingFormContainer extends Component {
               />
             </div>
           </div>
-
           <div className="small-4 columns">
             <div className="datetext">
               <DateField
@@ -302,7 +293,6 @@ class ListingFormContainer extends Component {
             </div>
           </div>
         </div>
-
         <div className="row">
           <div className="small-4 columns">
             <RangeField
@@ -316,7 +306,6 @@ class ListingFormContainer extends Component {
               <h5>{this.state.bedrooms} Bedrooms</h5>
             </div>
           </div>
-
           <div className="small-4 columns">
             <div className="datetext">
               <RangeField
@@ -331,7 +320,6 @@ class ListingFormContainer extends Component {
               </div>
             </div>
           </div>
-
           <div className="small-4 columns">
             <div className="datetext">
               <RangeField
@@ -356,11 +344,9 @@ class ListingFormContainer extends Component {
                   name="hud"
                   onChange={this.handleHudChange}
                   value={this.state.hud}
-
                 />
               </div>
             </div>
-
             <div className="small-4 columns">
               <div className="datetext">
                 <RadioFieldBool
@@ -371,8 +357,6 @@ class ListingFormContainer extends Component {
                   />
                 </div>
               </div>
-
-
             <div className="small-4 columns">
               <div className="datetext">
                 <RadioFieldBool
@@ -385,7 +369,6 @@ class ListingFormContainer extends Component {
             </div>
             </fieldset>
             <fieldset><legend>Building Specs</legend>
-
             <div className="small-4 columns">
               <RadioField
                 label="Zoning"
@@ -395,9 +378,7 @@ class ListingFormContainer extends Component {
                 onChange={this.handlezoningChange}
                 value={this.state.zoning}
               />
-
             </div>
-
               <div className="small-4 columns">
                 <div className="datetext">
                   <RadioField
@@ -410,7 +391,6 @@ class ListingFormContainer extends Component {
                   />
                 </div>
               </div>
-
               <div className="small-4 columns">
                 <div className="datetext">
                   <RadioField
@@ -424,7 +404,6 @@ class ListingFormContainer extends Component {
                 </div>
               </div>
             </fieldset>
-
             <fieldset><legend>Living Specs</legend>
               <div className="small-4 columns">
                 <div className="datetext">
@@ -433,7 +412,6 @@ class ListingFormContainer extends Component {
                     name="school_district"
                     onChange={this.handleSchoolDistrictChange}
                     value={this.state.school_district}
-
                   />
                 </div>
               </div>
@@ -446,11 +424,7 @@ class ListingFormContainer extends Component {
                   onChange={this.handleCoolingChange}
                   value={this.state.cooling}
                 />
-
               </div>
-
-
-
               <div className="small-4 columns">
                 <div className="datetext">
                   <RadioField
@@ -464,16 +438,10 @@ class ListingFormContainer extends Component {
                   </div>
                 </div>
             </fieldset>
-
         <input className="button form-submit" type="submit" value="Submit New Listing"/>
-    </form>
-
-
-
-      </div>
-</div>
-    )
-  }
-}
+      </form>
+    </div>
+  </div>
+)}}
 
 export default ListingFormContainer
