@@ -203,7 +203,7 @@ class ListingFormContainer extends Component {
       <div className="row new-listing">
         <div className="row-one"></div>
         <div className="form-header">Add a New Listing</div>
-      <form onSubmit={this.handleSubmit} className="panel">
+      <form onSubmit={this.handleSubmit} className="">
         <fieldset><legend>Location</legend>
           <div className="row">
             <div className="small-8 columns">
@@ -294,7 +294,7 @@ class ListingFormContainer extends Component {
           </div>
         </div>
         <div className="row">
-          <div className="small-4 columns">
+          <div className="small-4 columns ">
             <RangeField
               label="Bedrooms"
               name="bedrooms"
@@ -303,7 +303,7 @@ class ListingFormContainer extends Component {
               max="5"
             />
             <div>
-              <h5>{this.state.bedrooms} Bedrooms</h5>
+              <h5 className="slider-name" >{this.state.bedrooms} Bedrooms</h5>
             </div>
           </div>
           <div className="small-4 columns">
@@ -316,7 +316,7 @@ class ListingFormContainer extends Component {
                 max="5"
               />
               <div>
-                <h5>{this.state.bathrooms}  Bathrooms</h5>
+                <h5 className="slider-name" >{this.state.bathrooms}  Bathrooms</h5>
               </div>
             </div>
           </div>
@@ -330,13 +330,13 @@ class ListingFormContainer extends Component {
                 max="12"
                 />
                 <div>
-                  <h5>{this.state.lease_length} Months</h5>
+                  <h5 className="slider-name" >{this.state.lease_length} Months</h5>
                 </div>
               </div>
             </div>
           </div>
         </fieldset>
-          <fieldset><legend>Houseing Restrictions</legend>
+          <fieldset><legend>Housing Restrictions</legend>
             <div className="small-4 columns">
               <div className="datetext">
                 <RadioFieldBool
@@ -382,7 +382,7 @@ class ListingFormContainer extends Component {
               <div className="small-4 columns">
                 <div className="datetext">
                   <RadioField
-                    label="Buidling Style"
+                    label="Building Style"
                     name="building_style"
                     option1="House"
                     option2="Duplex"
