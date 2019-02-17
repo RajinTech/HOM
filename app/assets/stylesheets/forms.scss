@@ -24,9 +24,12 @@
 
 
 label {
-  font-size: 2rem;
-  color: #301312;
-  font-weight: bold;
+  color: #FFF5F0;
+  cursor: pointer;
+  display: block;
+  font-size: 1.375rem;
+  font-weight: normal;
+  line-height: 1.5;
   font-family: monospace;
   transform: skewX(-10deg);
 }

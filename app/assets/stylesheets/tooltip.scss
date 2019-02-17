@@ -11,10 +11,12 @@
 
 .tooltip .tooltiptext {
   visibility: hidden;
+  background-color: #FFF5F0;
+  border: 2px #301312 solid;
+  border-radius: 3px;
   width: 167px;
   text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
+  padding: 0px 0;
   position: absolute;
   z-index: 0;
   bottom: 100%;
@@ -22,8 +24,11 @@
   margin-left: -60px;
   opacity: 0;
   transition: opacity 1s;
-  transform: translate(204px) translateY(56px);
+  transform: translate(204px) translateY(60px) skew(-10deg);
+  height: 35px;
   font-family: monospace;
+  color: #301312;
+  font-weight: bold;
 }
 
 .tooltip:hover .tooltiptext {
