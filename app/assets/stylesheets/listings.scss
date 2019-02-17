@@ -13,7 +13,9 @@ a:hover {
 }
 body {
 
-  background-image: url("https://s3.amazonaws.com/hom-development/LA_background_orange.jpg");
+  // background-image: url("https://s3.amazonaws.com/hom-development/LA_background_orange.jpg");
+   //background-image: url("https://s3.amazonaws.com/hom-development/wallpaper.wiki-Desktop-Plain-Pictures-PIC-WPE001777.jpg");
+   background-image: url("https://s3.amazonaws.com/hom-development/tropical-beach-background-1.jpg");
  background-repeat:repeat-y;
  background-position: right;
  background-size: cover;
@@ -60,6 +62,10 @@ background-color: transparentize(#301312, 0.5);
 .new-listing{
   border: 20px transparent solid;
   width: 65%;
+}
+.form-box{
+  height: 500px;
+  overflow:scroll;
 }
 .fieldset-user {
   width: 60%;

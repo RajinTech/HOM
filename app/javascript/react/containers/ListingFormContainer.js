@@ -200,6 +200,7 @@ class ListingFormContainer extends Component {
     console.log(this.state)
 
     return(
+      <div className="form-box">
       <div className="row new-listing">
         <div className="row-one"></div>
         <div className="form-header">Add a New Listing</div>
@@ -470,7 +471,7 @@ class ListingFormContainer extends Component {
 
 
       </div>
-
+</div>
     )
   }
 }

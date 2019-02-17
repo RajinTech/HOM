@@ -108,11 +108,11 @@
 .d15{
   transform: scale(0.25) translate(660px) rotate(70deg) translateY(1400px);
 }
-.d1:hover {
-  animation: d15 1s ease-in-out ;
-  -webkit-animation: d15 1s ease-in-out ;
-  animation-fill-mode: forwards;
-}
+// .d1:hover {
+//   animation: d15 1s ease-in-out ;
+//   -webkit-animation: d15 1s ease-in-out ;
+//   animation-fill-mode: forwards;
+// }
 .main
 .main-box{
   position:absolute;
