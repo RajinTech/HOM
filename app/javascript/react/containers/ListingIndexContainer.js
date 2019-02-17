@@ -97,9 +97,8 @@ class ListingIndexContainer extends Component {
                 <div className="circle2" onClick={this.roledexforward}><h5></h5></div></div>
                 <div className="circle3" onClick={this.roledexback}><h5></h5></div>
                   <div className="triangle-down" onClick={this.roledexback}><h5></h5></div>
-                  <div className="circle5" onMouseMove={this.roledexforward}><h5></h5></div>
 
-              <span className="tooltiptext">Click up or down, or Roll top ball Scroll</span>
+              <span className="tooltiptext">Click up or down to Scroll</span>
             </div>
 
 
