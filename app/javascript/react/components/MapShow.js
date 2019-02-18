@@ -1,5 +1,5 @@
-import React, { Component } from "react";
 import {withScriptjs, withGoogleMap, Marker, GoogleMap} from "react-google-maps";
+import React, { Component } from "react";
 
 const InitialMap = withGoogleMap(props => {
   return(
@@ -11,8 +11,8 @@ const InitialMap = withGoogleMap(props => {
     >
       {props.children}
     </GoogleMap>
-    )
-  });
+  )
+});
 
 class MapShow extends Component {
   constructor(props){
@@ -27,15 +27,13 @@ class MapShow extends Component {
           containerElement={<div className="map-box" />}
           mapElement={<div style={{ height: `100%` }} />}
           center={{ lat: parseFloat(this.props.listingsall.latitude), lng: parseFloat(this.props.listingsall.longitude) }}
-
         >
         <Marker
         key={this.props.listingsall.id}
         title={this.props.listingsall.street}
         position={{ lat: parseFloat(this.props.listingsall.latitude), lng: parseFloat(this.props.listingsall.longitude) }}
         />
-
-      </InitialMap>
+        </InitialMap>
       </div>
     );
   }

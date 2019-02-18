@@ -1,5 +1,5 @@
-import React, { Component } from "react";
 import {withScriptjs, withGoogleMap, Marker, GoogleMap} from "react-google-maps";
+import React, { Component } from "react";
 
 const InitialMap = withGoogleMap(props => {
   return(
@@ -21,8 +21,6 @@ class Map extends Component {
   }
 
   render() {
-    console.log(this.props);
-    console.log(this.state);
     return (
       <div>
         <InitialMap
@@ -38,8 +36,7 @@ class Map extends Component {
               />
             )
           })}
-
-      </InitialMap>
+        </InitialMap>
       </div>
     );
   }

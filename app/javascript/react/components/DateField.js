@@ -16,7 +16,7 @@ const DateField = (props) => {
         />
       </label>
     </div>
-    );
+  );
 }
 
 export default DateField;

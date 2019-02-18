@@ -4,7 +4,6 @@ class Listing < ApplicationRecord
   validates :state, presence: true
   validates :zip, presence: true
 
-
   belongs_to :user
   has_one :amenity
   has_one :feature
