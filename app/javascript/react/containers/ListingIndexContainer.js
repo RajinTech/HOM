@@ -1,9 +1,7 @@
+import ListingTile from '../components/ListingTile'
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import ListingTile from '../components/ListingTile'
-import ScrollTile from '../components/ScrollTile'
 import Map from '../components/Map'
-import ImageTile from '../components/ImageTile'
 
 
 class ListingIndexContainer extends Component {
@@ -18,23 +16,24 @@ class ListingIndexContainer extends Component {
     this.roledexback = this.roledexback.bind(this)
     this.current_Pic = this.current_Pic.bind(this)
   }
+
   roledexforward(){
-   let holder = this.state.listings_all
-   let pergatory = holder.pop()
-   holder.unshift(pergatory)
-   this.setState({ listings_all: holder})
- }
- roledexback(){
-  let holder = this.state.listings_all
-  let pergatory = holder.shift()
-  holder.push(pergatory)
-  this.setState({ listings_all: holder})
-}
+    let holder = this.state.listings_all
+    let pergatory = holder.pop()
+    holder.unshift(pergatory)
+    this.setState({ listings_all: holder})
+  }
+
+  roledexback(){
+    let holder = this.state.listings_all
+    let pergatory = holder.shift()
+    holder.push(pergatory)
+    this.setState({ listings_all: holder})
+  }
 
  current_Pic(position){
-   this.setState({ showtile: picture_gallery[position]})
-
- }
+    this.setState({ showtile: picture_gallery[position]})
+  }
 
   componentWillMount() {
   fetch(`/api/v1/listings.json`)
@@ -71,46 +70,37 @@ class ListingIndexContainer extends Component {
           rent={listing.features.rent}
           pic={listing.pictures}
         />
-    )
-  })
+      )
+    })
     return(
-        <div className="">
-            <div className="listings-box">
-              <div className="listing-text">
+      <div className="">
+        <div className="listings-box">
+          <div className="listing-text">
             <h2></h2>
           </div>
-          {listings_display.reverse()}
-      </div>
-      <div className="row">
+            {listings_display.reverse()}
+          </div>
+        <div className="row">
       <div>
         <div>
-            <Map
-              listingsall={this.state.listings_all}
-            />
-            </div>
+          <Map
+            listingsall={this.state.listings_all}
+          />
         </div>
       </div>
+    </div>
       <h6 className="glide">Hover to reveal listing Click to View Details</h6>
-
-      <div className=" tooltip move0">
-                <div className="triangle-up" onClick={this.roledexforward}><h5></h5>
-                <div className="circle2" onClick={this.roledexforward}><h5></h5></div></div>
-                <div className="circle3" onClick={this.roledexback}><h5></h5></div>
-                  <div className="triangle-down" onClick={this.roledexback}><h5></h5></div>
-
-              <span className="tooltiptext">Click up or down to Scroll</span>
-            </div>
-
-
-
-
-        <div className="spinme2" onMouseMove={this.roledexforward}><h9>Spin me</h9></div>
-        <div className="upme2"><h9 onClick={this.roledexforward}>Up</h9></div>
-
-
-        </div>
-    )
-  }
+    <div className=" tooltip move0">
+      <div className="triangle-up" onClick={this.roledexforward}><h5></h5>
+      <div className="circle2" onClick={this.roledexforward}><h5></h5></div></div>
+      <div className="circle3" onClick={this.roledexback}><h5></h5></div>
+      <div className="triangle-down" onClick={this.roledexback}><h5></h5></div>
+      <span className="tooltiptext">Click up or down to Scroll</span>
+    </div>
+      <div className="spinme2" onMouseMove={this.roledexforward}><h9>Spin me</h9></div>
+      <div className="upme2"><h9 onClick={this.roledexforward}>Up</h9></div>
+    </div>
+  )}
 }
 
 export default ListingIndexContainer

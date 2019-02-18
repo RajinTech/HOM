@@ -6,5 +6,4 @@ class Feature < ApplicationRecord
   validates :lease_length, presence: true
 
   belongs_to :listing
-
 end

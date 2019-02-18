@@ -1,11 +1,10 @@
-  import React, { Component } from 'react';
+import RadioFieldBool from '../components/RadioFieldBool'
+import RangeField from '../components/RangeField';
+import RadioField from '../components/RadioField'
+import DateField from '../components/DateField';
 import TextTile from '../components/TextTile';
 import { browserHistory } from 'react-router'
-import RangeField from '../components/RangeField';
-import DateField from '../components/DateField';
-import FeatureFormContainer from './FeatureFormContainer'
-import RadioField from '../components/RadioField'
-import RadioFieldBool from '../components/RadioFieldBool'
+import React, { Component } from 'react';
 
 class ListingFormContainer extends Component {
   constructor(props) {
@@ -169,7 +168,6 @@ class ListingFormContainer extends Component {
   handleSubmit(event){
     event.preventDefault();
     let formPayload = this.state;
-    console.log(formPayload);
     fetch('/api/v1/listings', {
       credentials: 'same-origin',
       method: 'POST',
