@@ -56,3 +56,4 @@ Eventual goals:
   Regional Comparisons with Zillow Api
   Managment tools with Data Visualization
   Social Media Integration
+ 
