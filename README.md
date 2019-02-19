@@ -7,33 +7,33 @@ An app for managing real estate related tasks
 
 Currently switching to Foundation 6 so site is not responsive, best viewed with Macbook Air on fullscre a zoom level of 150%
 
-System dependencies
+System dependencies: 
   Must have Ruby 2.4.5
   Bundle 2.0
   postgres data base
   on system
 
-Configuration
-  Bundle Install
-  yarn Install
+Configuration: 
+  Bundle Install 
+  yarn Install 
 
-Database creation
-  rake db:setup
+Database creation:
+  rake db:setup 
 
-Database initialization
-  rake db:seed
+Database initialization: 
+  rake db:seed 
 
-How to run the test suite
-  yarn run test
-  bundle exec rspec
+How to run the test suite: 
+  yarn run test 
+  bundle exec rspec 
 
-Services
-  Used Rails, React, Foundation 5 which most came with the 'make it so' gem from Launch Academy.
+Services: 
+  Used Rails, React, Foundation 5 which most came with the 'make it so' gem from Launch Academy. 
 
-Deployment
-  Deployed to Heroku and used AWS for photo hosting
+Deployment: 
+  Deployed to Heroku and used AWS for photo hosting 
 
-App walkthrough:
+App walkthrough: 
  
  1)
     “User can sign in to the website.”
