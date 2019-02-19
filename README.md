@@ -2,16 +2,16 @@
 # HOM
 
 An app for managing real estate related tasks
-  Allows a user to post a listing
-  Allows a user to view a listing
+    Allows a user to post a listing
+    Allows a user to view a listing
 
 Currently switching to Foundation 6 so site is not responsive, best viewed with Macbook Air on fullscre a zoom level of 150%
 
 System dependencies: 
-  Must have Ruby 2.4.5
-  Bundle 2.0
-  postgres data base
-  on system
+    Must have Ruby 2.4.5
+    Bundle 2.0
+    postgres data base
+    on system
 
 Configuration: 
   Bundle Install 
