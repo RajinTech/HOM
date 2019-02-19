@@ -27,6 +27,7 @@ Services
 Deployment
   Deployed to Heroku and used AWS for photo hosting
 App walkthrough:
+ 
  1)
     “User can sign in to the website.”
       Technologies used: (Carrierwave, Heroku for hosting, Devise for login)
