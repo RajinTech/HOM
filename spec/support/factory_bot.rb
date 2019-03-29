@@ -11,17 +11,17 @@ FactoryBot.define do
     password { 'password' }
     password_confirmation { 'password' }
   end
-#
-#   factory :listing do
-#       sequence(:street) {|n| "#{n} Main St" }
-#       sequence(:unit) {|n| "#{n}A" }
-#       city { "Schenectady" }
-#       state { "NY" }
-#       zip { "13820" }
-#       sequence(:latitude) {|n| "42.44947#{n}" }
-#       sequence(:longitude) {|n| "-75.06569#{n}" }
-#       sequence(:user) {|n| n }
-#     end
+
+  factory :listing do
+      sequence(:street) {|n| "#{n} Main St" }
+      sequence(:unit) {|n| "#{n}A" }
+      city { "Schenectady" }
+      state { "NY" }
+      zip { "13820" }
+      sequence(:latitude) {|n| "42.44947#{n}" }
+      sequence(:longitude) {|n| "-75.06569#{n}" }
+      user
+    end
 #
 #   factory :amenity do |n|
 #     building_style { "duplex" }

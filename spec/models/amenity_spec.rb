@@ -27,10 +27,11 @@ RSpec.describe Amenity, type: :model do
   context 'validation tests'do
     it 'expect amenity to save' do
 
-      user = FactoryBot.create(:user)
-      listing = Listing.new( { street: "14 Washington St", unit: '', city: "Oneonta", state: "NY", zip: "13820", latitude: 42.458542, longitude: -75.064056,  user_id: 3} ).save!
+      user = User.new({ first_name: 'Stephen', last_name: 'Baker', email: "germany@gmail.com", password: "germany", password_confirmation: "germany", role: "tenant"}).save!
 
-      amenity = Amenity.new( { building_style: "duplex", parking_spaces: 0, pets: false, zoning: "residential", school_district: "Center", heating: "gas", cooling: "central air", hud: false, smoking: false, listing_id: 1 } ).save!
+      listing = Listing.new( { street: "14 Washington St", unit: '', city: "Oneonta", state: "NY", zip: "13820", latitude: 42.458542, longitude: -75.064056,  user_id: User.first.id} ).save!
+
+      amenity = Amenity.new( { building_style: "duplex", parking_spaces: 0, pets: false, zoning: "residential", school_district: "Center", heating: "gas", cooling: "central air", hud: false, smoking: false, listing_id: Listing.first.id } ).save!
 
       expect(amenity).to eq(true)
     end
