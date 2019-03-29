@@ -35,19 +35,16 @@ FactoryBot.define do
     smoking { "false" }
     listing
   end
-#
-#   factory :feature do
-#       sequence(:bedrooms) {|n| "#{n}" }
-#       sequence(:bathrooms) {|n| "#{n}" }
-#       sequence(:rent) {|n| "#{n}00" }
-#       date_available { "2019-03-03" }
-#       sequence(:lease_length) {|n| "#{n}" }
-#       sequence(:sq_ft) {|n| "#{n}000" }
-#       zip { "13820" }
-#       sequence(:latitude) {|n| "42.44947#{n}" }
-#       sequence(:longitude) {|n| "-75.06569#{n}" }
-#       sequence(:listing_id) {|n| n }
-#     end
+
+  factory :feature do
+      sequence(:bedrooms) {|n| "#{n}" }
+      sequence(:bathrooms) {|n| "#{n}" }
+      sequence(:rent) {|n| "#{n}00" }
+      date_available { "2019-03-03" }
+      sequence(:lease_length) {|n| "#{n}" }
+      sequence(:sq_ft) {|n| "#{n}000" }
+      listing
+    end
 #
 #   factory :picture do
 #       image {"https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-05+at+8.19.50+PM.png"}
