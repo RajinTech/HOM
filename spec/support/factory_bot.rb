@@ -45,9 +45,9 @@ FactoryBot.define do
       sequence(:sq_ft) {|n| "#{n}000" }
       listing
     end
-#
-#   factory :picture do
-#       image {"https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-05+at+8.19.50+PM.png"}
-#       sequence(:listing_id) {|n| n }
-#     end
+
+  factory :picture do
+      image {"https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-05+at+8.19.50+PM.png"}
+      listing
+    end
  end
