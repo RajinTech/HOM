@@ -25,6 +25,8 @@ require 'rails_helper'
 
 RSpec.describe Amenity, type: :model do
   context 'validation tests'do
+  it { should validate_presence_of(:building_style)}
+  it { should validate_presence_of(:parking_spaces)}
 
     it 'expect amenity to save' do
       amenitybot = FactoryBot.create(:amenity)

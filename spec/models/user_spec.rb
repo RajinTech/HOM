@@ -1,5 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'expect user to save' do
+    userbot = FactoryBot.create(:user)
+    expect(userbot.present?).to eq(true)
+  end
 end

@@ -22,6 +22,12 @@
 require 'rails_helper'
 
 RSpec.describe Feature, type: :model do
+  it { should validate_presence_of(:bedrooms)}
+  it { should validate_presence_of(:bathrooms)}
+  it { should validate_presence_of(:rent)}
+  it { should validate_presence_of(:date_available)}
+  it { should validate_presence_of(:lease_length)}
+
   it 'expect feature to save' do
     featurebot = FactoryBot.create(:feature)
     expect(featurebot.present?).to eq(true)
