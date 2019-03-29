@@ -25,6 +25,11 @@ require 'rails_helper'
 
 RSpec.describe Listing, type: :model do
   context 'validation tests'do
+
+    # it 'ensures street is present' do
+    #   listingbot = FactoryBot.create(:listing, street: nil)
+    #   expect(listingbot.present?).to eq(false)
+    # end
     it 'expect listing to save' do
       listingbot = FactoryBot.create(:listing)
       expect(listingbot.present?).to eq(true)

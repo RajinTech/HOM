@@ -22,19 +22,19 @@ FactoryBot.define do
       sequence(:longitude) {|n| "-75.06569#{n}" }
       user
     end
-#
-#   factory :amenity do |n|
-#     building_style { "duplex" }
-#     parking_spaces { "2" }
-#     pets { "false" }
-#     zoning { "residential" }
-#     school_district { "central" }
-#     heating { "gas" }
-#     cooling { "central air" }
-#     hud { "false" }
-#     smoking { "false" }
-#     sequence(:listing_id) {|n| n }
-#   end
+
+  factory :amenity do |n|
+    building_style { "duplex" }
+    parking_spaces { "2" }
+    pets { "false" }
+    zoning { "residential" }
+    school_district { "central" }
+    heating { "gas" }
+    cooling { "central air" }
+    hud { "false" }
+    smoking { "false" }
+    listing
+  end
 #
 #   factory :feature do
 #       sequence(:bedrooms) {|n| "#{n}" }
