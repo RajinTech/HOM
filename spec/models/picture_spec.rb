@@ -1,7 +1,7 @@
 require 'rails_helper'
 require 'spec_helper'
 
-
+require "#{Rails.root}/app/models/picture.rb"
 
 RSpec.describe Picture, type: :model do
   it 'expect picture to save' do
