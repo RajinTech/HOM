@@ -55,7 +55,7 @@ gem 'launchy', group: [:development, :test]
 gem 'factory_bot', group: [:development, :test]
 gem 'database_cleaner', group: [:development, :test]
 gem 'valid_attribute', group: [:development, :test]
-gem 'shoulda-matchers', group: [:development, :test], require: false
+gem 'shoulda-matchers', group: [:development, :test], require: true
 gem 'devise'
 gem 'dotenv-rails', group: [:development, :test]
 gem 'carrierwave', '~>1.0'

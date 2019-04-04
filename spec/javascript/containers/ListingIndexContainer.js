@@ -1,4 +1,5 @@
 // import ListingIndexContainer from '../../../app/javascript/react/containers/ListingIndexContainer.js'
+//
 // import ListingTile from '../../../app/javascript/react/components/ListingTile.js'
 // import fetchMock from 'fetch-mock'
 // import { mount } from 'enzyme'
