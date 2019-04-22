@@ -74,18 +74,14 @@ class ListingIndexContainer extends Component {
     })
     return(
       <div className='main'>
-        <div className="row">
-            <div className="columns small-4 listing_container">
+        <div className="container ">
+            <div className="listing_container">
               {listings_display}
             </div>
-            <div className="columns small-4 ">
+            <div className="">
               <Map
                 listingsall={this.state.listings_all}
               />
-            </div>
-            <div className="columns small-2 ">
-              <div  onClick={this.roledexforward}><h5>UP</h5></div>
-              <div  onClick={this.roledexback}><h5>DOWN</h5></div>
             </div>
         </div>
       </div>
