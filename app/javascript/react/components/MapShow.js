@@ -24,7 +24,7 @@ class MapShow extends Component {
     return (
       <div>
         <InitialMap
-          containerElement={<div className="map-box" />}
+          containerElement={<div className="map_container" />}
           mapElement={<div style={{ height: `100%` }} />}
           center={{ lat: parseFloat(this.props.listingsall.latitude), lng: parseFloat(this.props.listingsall.longitude) }}
         >

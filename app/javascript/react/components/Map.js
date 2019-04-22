@@ -24,7 +24,7 @@ class Map extends Component {
     return (
       <div>
         <InitialMap
-          containerElement={<div className="map_container" />}
+          containerElement={<div className="map_container"/>}
           mapElement={<div style={{ height: `100%` }} />}
         >
           {this.props.listingsall.map(listing => {
