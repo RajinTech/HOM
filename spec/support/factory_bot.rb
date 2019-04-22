@@ -23,7 +23,7 @@ FactoryBot.define do
       user
     end
 
-  factory :amenity do |n|
+  factory :amenity do
     building_style { "duplex" }
     parking_spaces { "2" }
     pets { "false" }
