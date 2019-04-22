@@ -5,16 +5,16 @@ const ListingShow = (props) => {
   return (
     <div>
       <Link to={`/listings/${props.id}`}>
-      <div className="content-tile-show">
-        <h5><b>{props.street} {props.unit}</b></h5>
-        <h6><b>{props.city}, {props.state}{props.zip}</b></h6>
-      <div className="flex-column">
-        <h6> <b>Bed:</b> {props.bed}</h6>
-        <h6> <b>Bath:</b> {props.bath}</h6>
-        <h6> <b>Sq Ft:</b> {props.sqft}</h6>
-        <h6> <b>Rent:</b> ${props.rent}</h6>
+        <h8><b>{props.street} {props.unit}</b></h8>
+        <h8><b>{props.city}, {props.state}{props.zip}</b></h8>
+      <div>
+        <ul>
+        <li><h8> <b>Bed:</b> {props.bed}</h8></li>
+      <li><h8> <b>Bath:</b> {props.bath}</h8></li>
+    <li><h8> <b>Sq Ft:</b> {props.sqft}</h8></li>
+  <li><h8> <b>Rent:</b> ${props.rent}</h8></li>
+      </ul>
       </div>
-    </div>
       </Link>
     </div>
   )

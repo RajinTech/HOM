@@ -1,7 +1,7 @@
 div {
-  border: 1px solid;
-  border-color: red;
-  padding: 1px;
+  // border: 1px solid;
+  // border-color: red;
+  // padding: 1px;
 }
 h8 {
   font-family: cursive;
@@ -10,22 +10,25 @@ h8 {
 .container{
   display:flex;
 }
+.vertical_container{
+  flex-direction: column;
+}
 .listing_tile {
-border-color: blue;
-border-radius: 5px;
-overflow:hidden;
-margin: 10px;
-width: 300px;
-height: 363px;
-flex: 0 0 auto;
-padding: 5px
+  border-color: blue;
+  border-radius: 5px;
+  overflow:hidden;
+  margin: 10px;
+  width: 300px;
+  height: 363px;
+  flex: 0 0 auto;
+  padding: 5px
 }
 .listing_container {
-display: flex;
-flex-direction: row;
-flex-wrap: nowrap;
-overflow-x: auto;
-height: 400px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  height: 400px;
 }
 .listing_photo {
   width: 300px;
@@ -34,9 +37,10 @@ height: 400px;
 .picture_gallery{
   overflow: scroll;
   height: 700px;
+  padding:2px;
 }
 .picture{
-  margin-top:5px;
+  margin:5px;
 }
 
 .map_container{

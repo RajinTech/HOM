@@ -197,22 +197,9 @@ render(){
 
   return(
     <div className='main'>
-      <div className='container'>
-
-
-          <AmenityTile
-            key={this.state.amenities.id + 1}
-            buildingstyle={this.state.amenities.building_style}
-            cooling={this.state.amenities.cooling}
-            heating={this.state.amenities.heating}
-            hud={this.state.amenities.hud}
-            parkingspaces={this.state.amenities.parking_spaces}
-            pets={this.state.amenities.pets}
-            schooldistrict={this.state.amenities.school_district}
-            smoking={this.state.amenities.smoking}
-            zoning={this.state.amenities.zoning}
-          />
-
+          <div className='container'>
+            <div className='vertical_container'>
+              <div className='container'>
           <ListingShow
             key={listing.id}
             bath={this.state.features.bathrooms}
@@ -228,13 +215,28 @@ render(){
             state={listing.state}
             zip={listing.zip}
           />
+        <AmenityTile
+          key={this.state.amenities.id + 1}
+          buildingstyle={this.state.amenities.building_style}
+          cooling={this.state.amenities.cooling}
+          heating={this.state.amenities.heating}
+          hud={this.state.amenities.hud}
+          parkingspaces={this.state.amenities.parking_spaces}
+          pets={this.state.amenities.pets}
+          schooldistrict={this.state.amenities.school_district}
+          smoking={this.state.amenities.smoking}
+          zoning={this.state.amenities.zoning}
+          />
+      </div>
         <div className='picture_gallery'>
           {picture_gallery}
         </div>
-        <MapShow
-          listingsall={this.state.listing}
-        />
-            </div>
+      </div>
+          <MapShow
+            listingsall={this.state.listing}
+          />
+      </div>
+
           </div>
           )
         }
