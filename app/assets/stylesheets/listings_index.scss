@@ -10,18 +10,36 @@ h8 {
   font-family: cursive;
   color: #3C3C3C;
 }
-
+h1 {
+  font-family: cursive;
+  color: #3C3C3C;
+}
 .container{
   display:flex;
-  margin: 5px;
+  margin: auto;
 }
 .vertical_container{
   display: flex;
   flex-direction: column;
+  margin: auto;
 }
 .vertical_centering{
   display: flex;
   flex-direction: column;
+}
+.listing_show{
+  display:flex;
+  margin: auto;
+  border-radius: 8px;
+  border-width: 5px;
+  border-color: #3C3C3C;
+  padding: 5px;
+}
+.listing_show_container{
+  display:flex;
+  margin: auto;
+  align-items: center;
+
 }
 .listing_tile {
   border-color: #3C3C3C;
@@ -38,7 +56,7 @@ h8 {
   flex-direction: row;
   flex-wrap: nowrap;
   overflow-x: auto;
-  height: 436px;
+  height: 437px;
   border-radius: 8px;
   border-width: 5px;
   border-color: #3C3C3C;
@@ -82,6 +100,21 @@ h8 {
   border-right: 3px solid transparent;
   margin: 0 auto;
 }
+.triangle_right {
+  width: 0;
+  height: 0;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-left: 35px solid #3C3C3C;
+}
+.triangle_left {
+  width: 0;
+  height: 0;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-right: 35px solid #3C3C3C;
+  vertical-align: middle;
+}
 .triangle_bottom {
   width: 0;
   border-top: 100px solid #3C3C3C;
@@ -89,6 +122,7 @@ h8 {
   border-right: 3px solid transparent;
   margin: 0 auto;
 }
+
 .rentals_logo{
   margin-top: -30px;
   margin-bottom: -75px;

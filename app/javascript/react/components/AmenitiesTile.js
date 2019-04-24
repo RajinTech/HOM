@@ -13,8 +13,9 @@ const AmenityTile = (props) => {
 
   return (
       <div className="amenity-tile">
-        <div className="amenity-text">
+        <div>
           <ul>
+        <li><h8><b> Building Style:</b> {props.building_style}</h8></li>
         <li><h8><b> Heating:</b> {props.heating}</h8></li>
         <li><h8><b> Cooling:</b> {props.cooling}</h8></li>
         <li><h8><b> HUD:</b> {tf(props.hud)}</h8></li>
@@ -22,6 +23,7 @@ const AmenityTile = (props) => {
         <li><h8><b> Smoking:</b> {tf(props.smoking)}</h8></li>
         <li><h8><b> School District:</b> {props.schooldistrict}</h8></li>
         <li><h8><b> Zoning:</b> {props.zoning}</h8></li>
+        <li><h8><b> Parking:</b> {props.parkingspaces}</h8></li>
       </ul>
       </div>
     </div>
