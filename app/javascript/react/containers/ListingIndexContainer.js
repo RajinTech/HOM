@@ -74,15 +74,28 @@ class ListingIndexContainer extends Component {
     })
     return(
       <div className='main'>
-        <div className="container ">
-            <div className="listing_container">
-              {listings_display}
-            </div>
-            <div className="">
-              <Map
-                listingsall={this.state.listings_all}
-              />
-            </div>
+        <div className="container">
+          <div className='left_half'>
+            <div>
+              <img className='rentals_logo' src='https://s3.amazonaws.com/hom-development/rentals_logo.png'></img>
+          </div>
+
+
+         <Map
+            listingsall={this.state.listings_all}
+          />
+          </div>
+
+          <div className='right_half'>
+            <div className='triangle_top'></div>
+              <div className="listing_container">
+               {listings_display}
+             </div>
+           <div className='triangle_bottom'></div>
+          </div>
+
+
+
         </div>
       </div>
   )}
