@@ -1,6 +1,7 @@
 import ListingShow from '../components/ListingShowTile'
 import AmenityTile from '../components/AmenitiesTile'
 import MapShow from '../components/MapShow'
+import Map from '../components/Map'
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
@@ -198,8 +199,9 @@ render(){
   return(
     <div className='main'>
           <div className='container'>
-            <div className='vertical_container'>
+            <div className='left_half'>
               <div className='container'>
+
           <ListingShow
             key={listing.id}
             bath={this.state.features.bathrooms}
@@ -215,6 +217,7 @@ render(){
             state={listing.state}
             zip={listing.zip}
           />
+
         <AmenityTile
           key={this.state.amenities.id + 1}
           buildingstyle={this.state.amenities.building_style}
@@ -227,14 +230,17 @@ render(){
           smoking={this.state.amenities.smoking}
           zoning={this.state.amenities.zoning}
           />
-      </div>
-        <div className='picture_gallery'>
-          {picture_gallery}
         </div>
-      </div>
-          <MapShow
+          <Map
             listingsall={this.state.listing}
           />
+        </div>
+        <div className='right_half'>
+
+          <div className='picture_gallery'>
+            {picture_gallery}
+          </div>
+        </div>
       </div>
 
           </div>
