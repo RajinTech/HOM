@@ -3,13 +3,16 @@ import React from 'react';
 
 const ListingTile = (props) => {
   return (
+    <div className='listing_show_container'>
+    <div className='triangle_left_small'></div>
     <div className="listing_tile">
       <Link to={`/listings/${props.id}`}>
       <div>
         <div className='top_half'>
-
+          <div className='horizontal_centering'>
           <h8>{props.street} {props.unit}</h8>
-          <h8>{props.city}, {props.state}{props.zip}</h8>
+          <h8>{props.city}, {props.state} {props.zip}</h8>
+      </div>
       </div>
         <div className='bottom_half'>
 
@@ -22,6 +25,9 @@ const ListingTile = (props) => {
           <img className="listing_photo" src={props.pic}></img>
       </Link>
     </div>
+    <div className='triangle_right_small'></div>
+  </div>
+
   )
 }
 
