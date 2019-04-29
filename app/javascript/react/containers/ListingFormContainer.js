@@ -32,7 +32,8 @@ class ListingFormContainer extends Component {
       cooling: "Central Air",
       hud: false,
       smoking: false,
-      image: []
+      image: [],
+      message: ''
     }
 
     this.handleStreetChange = this.handleStreetChange.bind(this)
@@ -176,7 +177,29 @@ class ListingFormContainer extends Component {
 
   handleSubmit(event){
     event.preventDefault();
-    let formPayload = this.state;
+    let formPayload = new FormData()
+    formPayload.append('street', this.state.street)
+    formPayload.append('unit', this.state.unit)
+    formPayload.append('city', this.state.city)
+    formPayload.append('state', this.state.state)
+    formPayload.append('zip', this.state.zip)
+    formPayload.append('bedrooms', this.state.bedrooms)
+    formPayload.append('bathrooms', this.state.bathrooms)
+    formPayload.append('rent', this.state.rent)
+    formPayload.append('sq_ft', this.state.sq_ft)
+    formPayload.append('date_available', this.state.date_available)
+    formPayload.append('lease_length', this.state.lease_length)
+    formPayload.append('building_style', this.state.building_style)
+    formPayload.append('parking_spaces', this.state.parking_spaces)
+    formPayload.append('pets', this.state.pets)
+    formPayload.append('zoning', this.state.zoning)
+    formPayload.append('school_district', this.state.school_district)
+    formPayload.append('heating', this.state.heating)
+    formPayload.append('cooling', this.state.cooling)
+    formPayload.append('hud', this.state.hud)
+    formPayload.append('smoking', this.state.smoking)
+    formPayload.append('image', this.state.image[0])
+
     fetch('/api/v1/listings', {
       credentials: 'same-origin',
       method: 'POST',
@@ -197,13 +220,13 @@ class ListingFormContainer extends Component {
       })
       .then(response => response.json())
       .then(body => {
-        browserHistory.push(`/listings`);
+        this.setState({ message: body.message })
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   render(){
-
+console.log(this.state.image);
     return(
       <div>
       <div className="row">
