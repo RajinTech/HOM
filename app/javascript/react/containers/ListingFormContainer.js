@@ -196,7 +196,6 @@ class ListingFormContainer extends Component {
   render(){
 
     return(
-
       <div>
       <div className="row">
         <div className="row"></div>
