@@ -26,9 +26,6 @@ class ListingShowContainer extends Component {
     }
   }
 
-
-
-
   componentDidMount() {
     fetch(`/api/v1/listings/${this.props.params.id}`)
       .then(response => {
@@ -42,7 +39,6 @@ class ListingShowContainer extends Component {
       })
       .then((response) => response.json())
       .then((responseData) => {
-        console.log(responseData)
         this.setState({
           amenities: responseData.amenities,
           listing: responseData,
@@ -52,7 +48,6 @@ class ListingShowContainer extends Component {
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
     }
-
 
 render(){
 

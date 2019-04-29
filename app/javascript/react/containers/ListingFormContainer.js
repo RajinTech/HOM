@@ -3,6 +3,7 @@ import RangeField from '../components/RangeField';
 import RadioField from '../components/RadioField'
 import DateField from '../components/DateField';
 import TextTile from '../components/TextTile';
+import ImageTile from '../components/ImageTile';
 import { browserHistory } from 'react-router'
 import React, { Component } from 'react';
 
@@ -10,7 +11,7 @@ class ListingFormContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      street: "1234 Main st ",
+      street: "123 Main St",
       unit: "",
       city: "Oneonta",
       state: "NY",
@@ -161,6 +162,7 @@ class ListingFormContainer extends Component {
   }
 
   handlePictureChange(event) {
+    console.log('hi');
     let newPicture = event.target.value
     this.setState({ image: "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.06.47+AM.png" })
   }
@@ -435,6 +437,17 @@ class ListingFormContainer extends Component {
                     />
                   </div>
                 </div>
+            </fieldset>
+            <fieldset><legend>Pictures</legend>
+          <ImageTile
+            label="Images"
+            name="image"
+            oncChange={this.handlePictureChange}
+            value={this.state.image}
+          />
+          <div>
+            <h8 className="slider-name" >{this.state.image} Your Image</h8>
+          </div>
             </fieldset>
         <input className="button" type="submit" value="Submit New Listing"/>
       </form>

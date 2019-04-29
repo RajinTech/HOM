@@ -54,7 +54,7 @@ class ListingIndexContainer extends Component {
   }
 
   render(){
-    let listings_display = this.state.listings_all.slice(0, 13).map((listing) => {
+    let listings_display = this.state.listings_all.map((listing) => {
       return (
           <ListingTile
             key={listing.id}
