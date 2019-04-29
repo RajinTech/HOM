@@ -45,7 +45,6 @@ class ListingFormContainer extends Component {
     this.handleSqFtChange = this.handleSqFtChange.bind(this)
     this.handleDateAvailableChange = this.handleDateAvailableChange.bind(this)
     this.handleLeaseLengthChange = this.handleLeaseLengthChange.bind(this)
-
     this.handleBuildingStyleChange = this.handleBuildingStyleChange.bind(this)
     this.handleParkingSpacesChange = this.handleParkingSpacesChange.bind(this)
     this.handlePetsChange = this.handlePetsChange.bind(this)
@@ -106,7 +105,6 @@ class ListingFormContainer extends Component {
   }
 
   handleDateAvailableChange(event) {
-
     let newDateAvailable = event.target.value
     this.setState({date_available: newDateAvailable})
   }
