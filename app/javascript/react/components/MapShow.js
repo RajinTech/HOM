@@ -22,9 +22,11 @@ class MapShow extends Component {
 
   render() {
     return (
-      <div>
+      <div className='map_tile'>
+        <div className='triangle_top'></div>
+
         <InitialMap
-          containerElement={<div className="map-box" />}
+          containerElement={<div className="map_container" />}
           mapElement={<div style={{ height: `100%` }} />}
           center={{ lat: parseFloat(this.props.listingsall.latitude), lng: parseFloat(this.props.listingsall.longitude) }}
         >
@@ -34,6 +36,8 @@ class MapShow extends Component {
         position={{ lat: parseFloat(this.props.listingsall.latitude), lng: parseFloat(this.props.listingsall.longitude) }}
         />
         </InitialMap>
+        <div className='triangle_bottom'></div>
+
       </div>
     );
   }

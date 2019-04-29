@@ -3,9 +3,14 @@ import React from 'react';
 
 const ImageTile = (props) => {
   return (
-    <div className="image-show">
-      <img src={props.pic}></img>
-    </div>
+    <label>{props.label}
+      <input
+        type="file"
+        onChange={props.onChange}
+        name={props.name}
+        value={props.content}
+      />
+    </label>
   )
 }
 

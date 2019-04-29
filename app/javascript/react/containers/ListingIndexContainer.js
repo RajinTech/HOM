@@ -54,52 +54,50 @@ class ListingIndexContainer extends Component {
   }
 
   render(){
-    let listings_display = this.state.listings_all.slice(0, 13).map((listing) => {
+    let listings_display = this.state.listings_all.map((listing) => {
       return (
-        <ListingTile
-          key={listing.id}
-          id={listing.id}
-          city={listing.city}
-          state={listing.state}
-          street={listing.street}
-          unit={listing.unit}
-          zip={listing.zip}
-          bed={listing.features.bedrooms}
-          bath={listing.features.bathrooms}
-          sqft={listing.features.sq_ft}
-          rent={listing.features.rent}
-          pic={listing.pictures}
-        />
+          <ListingTile
+            key={listing.id}
+            id={listing.id}
+            city={listing.city}
+            state={listing.state}
+            street={listing.street}
+            unit={listing.unit}
+            zip={listing.zip}
+            bed={listing.features.bedrooms}
+            bath={listing.features.bathrooms}
+            sqft={listing.features.sq_ft}
+            rent={listing.features.rent}
+            pic={listing.pictures}
+          />
       )
     })
     return(
-      <div className="">
-        <div className="listings-box">
-          <div className="listing-text">
-            <h2></h2>
+      <div className='main'>
+        <div className="container">
+          <div className='left_half'>
+            <div>
+              <img className='rentals_logo' src='https://s3.amazonaws.com/hom-development/rentals_logo.png'></img>
           </div>
-            {listings_display.reverse()}
-          </div>
-        <div className="row">
-      <div>
-        <div>
-          <Map
+
+
+         <Map
             listingsall={this.state.listings_all}
           />
+          </div>
+
+          <div className='right_half'>
+            <div className='triangle_top'></div>
+              <div className="listing_container">
+               {listings_display}
+             </div>
+           <div className='triangle_bottom'></div>
+          </div>
+
+
+
         </div>
       </div>
-    </div>
-      <h6 className="glide">Hover to reveal listing Click to View Details</h6>
-    <div className=" tooltip move0">
-      <div className="triangle-up" onClick={this.roledexforward}><h5></h5>
-      <div className="circle2" onClick={this.roledexforward}><h5></h5></div></div>
-      <div className="circle3" onClick={this.roledexback}><h5></h5></div>
-      <div className="triangle-down" onClick={this.roledexback}><h5></h5></div>
-      <span className="tooltiptext">Click up or down to Scroll</span>
-    </div>
-      <div className="spinme2" onMouseMove={this.roledexforward}><h9>Spin me</h9></div>
-      <div className="upme2"><h9 onClick={this.roledexforward}>Up</h9></div>
-    </div>
   )}
 }
 

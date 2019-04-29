@@ -3,6 +3,7 @@ import RangeField from '../components/RangeField';
 import RadioField from '../components/RadioField'
 import DateField from '../components/DateField';
 import TextTile from '../components/TextTile';
+import ImageTile from '../components/ImageTile';
 import { browserHistory } from 'react-router'
 import React, { Component } from 'react';
 
@@ -10,7 +11,7 @@ class ListingFormContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      street: "1234 Main st ",
+      street: "123 Main St",
       unit: "",
       city: "Oneonta",
       state: "NY",
@@ -161,6 +162,7 @@ class ListingFormContainer extends Component {
   }
 
   handlePictureChange(event) {
+    console.log('hi');
     let newPicture = event.target.value
     this.setState({ image: "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.06.47+AM.png" })
   }
@@ -197,15 +199,15 @@ class ListingFormContainer extends Component {
 
     return(
 
-      <div className="form-box">
-      <div className="row new-listing">
-        <div className="row-one"></div>
-        <div className="form-header">Add a New Listing</div>
+      <div>
+      <div className="row">
+        <div className="row"></div>
+      <div><h1>Add a New Listing</h1></div>
       <form onSubmit={this.handleSubmit} className="">
         <fieldset><legend>Location</legend>
           <div className="row">
             <div className="small-8 columns">
-              <div className="streettext">
+              <div>
               <TextTile
                 label="Street"
                 name="street"
@@ -215,7 +217,7 @@ class ListingFormContainer extends Component {
             </div>
           </div>
           <div className="small-4 columns">
-            <div className="datetext">
+            <div>
               <TextTile
                 label="Unit"
                 name="unit"
@@ -227,7 +229,7 @@ class ListingFormContainer extends Component {
         </div>
         <div className="row">
           <div className="small-4 columns">
-            <div className="datetext" >
+            <div>
               <TextTile
                 label="City"
                 name="city"
@@ -237,7 +239,7 @@ class ListingFormContainer extends Component {
             </div>
           </div>
           <div className="small-4 columns">
-            <div className="datetext" >
+            <div>
               <TextTile
                 label="State"
                 name="state"
@@ -247,7 +249,7 @@ class ListingFormContainer extends Component {
             </div>
           </div>
           <div className="small-4 columns">
-            <div className="datetext">
+            <div>
               <TextTile
                 label="Zip"
                 name="zip"
@@ -261,7 +263,7 @@ class ListingFormContainer extends Component {
       <fieldset><legend>Features</legend>
         <div className="row">
           <div className="small-4 columns">
-            <div className="datetext">
+            <div>
               <TextTile
                 label="Rent"
                 name="rent"
@@ -271,7 +273,7 @@ class ListingFormContainer extends Component {
             </div>
           </div>
           <div className="small-4 columns">
-            <div className="datetext">
+            <div>
               <TextTile
                 label="Sqft"
                 name="sq_ft"
@@ -281,7 +283,7 @@ class ListingFormContainer extends Component {
             </div>
           </div>
           <div className="small-4 columns">
-            <div className="datetext">
+            <div>
               <DateField
                 label="Date Available"
                 name="date_available"
@@ -301,11 +303,11 @@ class ListingFormContainer extends Component {
               max="5"
             />
             <div>
-              <h5 className="slider-name" >{this.state.bedrooms} Bedrooms</h5>
+              <h8 className="slider-name" >{this.state.bedrooms} Bedrooms</h8>
             </div>
           </div>
           <div className="small-4 columns">
-            <div className="datetext">
+            <div>
               <RangeField
                 label="Bathrooms"
                 name="bathrooms"
@@ -314,12 +316,12 @@ class ListingFormContainer extends Component {
                 max="5"
               />
               <div>
-                <h5 className="slider-name" >{this.state.bathrooms}  Bathrooms</h5>
+                <h8 className="slider-name" >{this.state.bathrooms}  Bathrooms</h8>
               </div>
             </div>
           </div>
           <div className="small-4 columns">
-            <div className="datetext">
+            <div>
               <RangeField
                 label="Lease Length"
                 name="lease_length"
@@ -328,7 +330,7 @@ class ListingFormContainer extends Component {
                 max="12"
                 />
                 <div>
-                  <h5 className="slider-name" >{this.state.lease_length} Months</h5>
+                  <h8 className="slider-name" >{this.state.lease_length} Months</h8>
                 </div>
               </div>
             </div>
@@ -336,7 +338,7 @@ class ListingFormContainer extends Component {
         </fieldset>
           <fieldset><legend>Housing Restrictions</legend>
             <div className="small-4 columns">
-              <div className="datetext">
+              <div>
                 <RadioFieldBool
                   label="Hud"
                   name="hud"
@@ -346,7 +348,7 @@ class ListingFormContainer extends Component {
               </div>
             </div>
             <div className="small-4 columns">
-              <div className="datetext">
+              <div>
                 <RadioFieldBool
                   label="Smoking"
                   name="smoking"
@@ -356,7 +358,7 @@ class ListingFormContainer extends Component {
                 </div>
               </div>
             <div className="small-4 columns">
-              <div className="datetext">
+              <div>
                 <RadioFieldBool
                   label="Pets"
                   name="pets"
@@ -378,7 +380,7 @@ class ListingFormContainer extends Component {
               />
             </div>
               <div className="small-4 columns">
-                <div className="datetext">
+                <div>
                   <RadioField
                     label="Building Style"
                     name="building_style"
@@ -390,7 +392,7 @@ class ListingFormContainer extends Component {
                 </div>
               </div>
               <div className="small-4 columns">
-                <div className="datetext">
+                <div>
                   <RadioField
                     label="Parking Spaces"
                     name="parking_spaces"
@@ -404,7 +406,7 @@ class ListingFormContainer extends Component {
             </fieldset>
             <fieldset><legend>Living Specs</legend>
               <div className="small-4 columns">
-                <div className="datetext">
+                <div>
                   <TextTile
                     label="School District"
                     name="school_district"
@@ -424,7 +426,7 @@ class ListingFormContainer extends Component {
                 />
               </div>
               <div className="small-4 columns">
-                <div className="datetext">
+                <div>
                   <RadioField
                     label="Heating"
                     name="heating"
@@ -436,7 +438,18 @@ class ListingFormContainer extends Component {
                   </div>
                 </div>
             </fieldset>
-        <input className="button form-submit" type="submit" value="Submit New Listing"/>
+            <fieldset><legend>Pictures</legend>
+          <ImageTile
+            label="Images"
+            name="image"
+            oncChange={this.handlePictureChange}
+            value={this.state.image}
+          />
+          <div>
+            <h8 className="slider-name" >{this.state.image} Your Image</h8>
+          </div>
+            </fieldset>
+        <input className="button" type="submit" value="Submit New Listing"/>
       </form>
     </div>
   </div>
