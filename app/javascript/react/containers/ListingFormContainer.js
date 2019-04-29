@@ -32,7 +32,7 @@ class ListingFormContainer extends Component {
       cooling: "Central Air",
       hud: false,
       smoking: false,
-      image: "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.06.47+AM.png"
+      image: []
     }
 
     this.handleStreetChange = this.handleStreetChange.bind(this)
@@ -56,6 +56,7 @@ class ListingFormContainer extends Component {
     this.handleHudChange = this.handleHudChange.bind(this)
     this.handleSmokingChange = this.handleSmokingChange.bind(this)
     this.handlePictureChange = this.handlePictureChange.bind(this)
+    this.onDrop = this.onDrop.bind(this)
 
 
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -164,6 +165,13 @@ class ListingFormContainer extends Component {
     console.log('hi');
     let newPicture = event.target.value
     this.setState({ image: "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.06.47+AM.png" })
+  }
+  onDrop(file) {
+    if(file.length == 1) {
+      this.setState({ image: file })
+    } else {
+      this.setState({ message: 'You can only upload one photo per board game.'})
+    }
   }
 
   handleSubmit(event){
@@ -437,12 +445,34 @@ class ListingFormContainer extends Component {
                 </div>
             </fieldset>
             <fieldset><legend>Pictures</legend>
+
+
+            <div className="dropzone">
+            <Dropzone onDrop={this.onDrop}>
+              <p>Try dropping some files here, or click to select files to upload.</p>
+            </Dropzone>
+          </div>
+          <aside>
+            <h2>Dropped files</h2>
+            <ul>
+              {
+                this.state.image.map(f => <li key={f.name}>{f.name} - {f.size} bytes</li>)
+              }
+            </ul>
+          </aside>
+
+
+
+
           <ImageTile
             label="Images"
             name="image"
             oncChange={this.handlePictureChange}
             value={this.state.image}
           />
+
+
+
           <div>
             <h8 className="slider-name" >{this.state.image} Your Image</h8>
           </div>
