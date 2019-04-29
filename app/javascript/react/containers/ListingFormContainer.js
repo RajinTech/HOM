@@ -6,6 +6,7 @@ import TextTile from '../components/TextTile';
 import ImageTile from '../components/ImageTile';
 import { browserHistory } from 'react-router'
 import React, { Component } from 'react';
+import Dropzone from 'react-dropzone';
 
 class ListingFormContainer extends Component {
   constructor(props) {
