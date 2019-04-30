@@ -487,15 +487,6 @@ console.log(this.state.image);
 
 
 
-          <ImageTile
-            label="Images"
-            name="image"
-            oncChange={this.handlePictureChange}
-            value={this.state.image}
-          />
-
-
-
           <div>
             <h8 className="slider-name" >{this.state.image} Your Image</h8>
           </div>
