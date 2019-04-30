@@ -57,7 +57,7 @@ class ListingFormContainer extends Component {
     this.handleHudChange = this.handleHudChange.bind(this)
     this.handleSmokingChange = this.handleSmokingChange.bind(this)
     this.handlePictureChange = this.handlePictureChange.bind(this)
-    this.onDrop = this.onDrop.bind(this)
+    this.onDrop2 = this.onDrop2.bind(this)
 
 
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -167,7 +167,7 @@ class ListingFormContainer extends Component {
     let newPicture = event.target.value
     this.setState({ image: "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.06.47+AM.png" })
   }
-  onDrop(file) {
+  onDrop2(file) {
     if(file.length == 1) {
       this.setState({ image: file })
     } else {
@@ -471,18 +471,25 @@ console.log(this.state.image);
 
 
             <div className="dropzone">
-            <Dropzone onDrop={this.onDrop}>
-              <p>Try dropping some files here, or click to select files to upload.</p>
-            </Dropzone>
+              <Dropzone onDrop={acceptedFiles => console.log(acceptedFiles, this.state.image)}>
+                {({getRootProps, getInputProps}) => (
+                  <section>
+                    <div {...getRootProps()}>
+                      <input {...getInputProps()} />
+                      <p>Drag 'n' drop some files here, or click to select files</p>
+                    </div>
+                  </section>
+                )}
+              </Dropzone>
           </div>
-          <aside>
+          <div>
             <h2>Dropped files</h2>
             <ul>
               {
                 this.state.image.map(f => <li key={f.name}>{f.name} - {f.size} bytes</li>)
               }
             </ul>
-          </aside>
+          </div>
 
 
 
