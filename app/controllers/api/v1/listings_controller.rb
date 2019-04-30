@@ -39,4 +39,5 @@ class Api::V1::ListingsController < ApiController
   def pictures_params
     params.permit(:image)
   end
+  
 end

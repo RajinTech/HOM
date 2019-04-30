@@ -6,6 +6,7 @@ import TextTile from '../components/TextTile';
 import ImageTile from '../components/ImageTile';
 import { browserHistory } from 'react-router'
 import React, { Component } from 'react';
+import Dropzone from 'react-dropzone';
 
 class ListingFormContainer extends Component {
   constructor(props) {
@@ -31,7 +32,8 @@ class ListingFormContainer extends Component {
       cooling: "Central Air",
       hud: false,
       smoking: false,
-      image: "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.06.47+AM.png"
+      image: [],
+      message: ''
     }
 
     this.handleStreetChange = this.handleStreetChange.bind(this)
@@ -45,7 +47,6 @@ class ListingFormContainer extends Component {
     this.handleSqFtChange = this.handleSqFtChange.bind(this)
     this.handleDateAvailableChange = this.handleDateAvailableChange.bind(this)
     this.handleLeaseLengthChange = this.handleLeaseLengthChange.bind(this)
-
     this.handleBuildingStyleChange = this.handleBuildingStyleChange.bind(this)
     this.handleParkingSpacesChange = this.handleParkingSpacesChange.bind(this)
     this.handlePetsChange = this.handlePetsChange.bind(this)
@@ -56,6 +57,7 @@ class ListingFormContainer extends Component {
     this.handleHudChange = this.handleHudChange.bind(this)
     this.handleSmokingChange = this.handleSmokingChange.bind(this)
     this.handlePictureChange = this.handlePictureChange.bind(this)
+    this.onDrop2 = this.onDrop2.bind(this)
 
 
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -106,7 +108,6 @@ class ListingFormContainer extends Component {
   }
 
   handleDateAvailableChange(event) {
-
     let newDateAvailable = event.target.value
     this.setState({date_available: newDateAvailable})
   }
@@ -166,10 +167,39 @@ class ListingFormContainer extends Component {
     let newPicture = event.target.value
     this.setState({ image: "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.06.47+AM.png" })
   }
+  onDrop2(file) {
+    if(file.length == 1) {
+      this.setState({ image: file })
+    } else {
+      this.setState({ message: 'You can only upload one photo per board game.'})
+    }
+  }
 
   handleSubmit(event){
     event.preventDefault();
-    let formPayload = this.state;
+    let formPayload = new FormData()
+    formPayload.append('street', this.state.street)
+    formPayload.append('unit', this.state.unit)
+    formPayload.append('city', this.state.city)
+    formPayload.append('state', this.state.state)
+    formPayload.append('zip', this.state.zip)
+    formPayload.append('bedrooms', this.state.bedrooms)
+    formPayload.append('bathrooms', this.state.bathrooms)
+    formPayload.append('rent', this.state.rent)
+    formPayload.append('sq_ft', this.state.sq_ft)
+    formPayload.append('date_available', this.state.date_available)
+    formPayload.append('lease_length', this.state.lease_length)
+    formPayload.append('building_style', this.state.building_style)
+    formPayload.append('parking_spaces', this.state.parking_spaces)
+    formPayload.append('pets', this.state.pets)
+    formPayload.append('zoning', this.state.zoning)
+    formPayload.append('school_district', this.state.school_district)
+    formPayload.append('heating', this.state.heating)
+    formPayload.append('cooling', this.state.cooling)
+    formPayload.append('hud', this.state.hud)
+    formPayload.append('smoking', this.state.smoking)
+    formPayload.append('image', this.state.image[0])
+
     fetch('/api/v1/listings', {
       credentials: 'same-origin',
       method: 'POST',
@@ -190,15 +220,14 @@ class ListingFormContainer extends Component {
       })
       .then(response => response.json())
       .then(body => {
-        browserHistory.push(`/listings`);
+        this.setState({ message: body.message })
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   render(){
-
+console.log(this.state.image);
     return(
-
       <div>
       <div className="row">
         <div className="row"></div>
@@ -439,12 +468,32 @@ class ListingFormContainer extends Component {
                 </div>
             </fieldset>
             <fieldset><legend>Pictures</legend>
-          <ImageTile
-            label="Images"
-            name="image"
-            oncChange={this.handlePictureChange}
-            value={this.state.image}
-          />
+
+
+            <div className="dropzone">
+              <Dropzone onDrop={acceptedFiles => console.log(acceptedFiles, this.state.image)}>
+                {({getRootProps, getInputProps}) => (
+                  <section>
+                    <div {...getRootProps()}>
+                      <input {...getInputProps()} />
+                      <p>Drag 'n' drop some files here, or click to select files</p>
+                    </div>
+                  </section>
+                )}
+              </Dropzone>
+          </div>
+          <div>
+            <h2>Dropped files</h2>
+            <ul>
+              {
+                this.state.image.map(f => <li key={f.name}>{f.name} - {f.size} bytes</li>)
+              }
+            </ul>
+          </div>
+
+
+
+
           <div>
             <h8 className="slider-name" >{this.state.image} Your Image</h8>
           </div>
