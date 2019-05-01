@@ -32,8 +32,7 @@ class ListingFormContainer extends Component {
       cooling: "Central Air",
       hud: false,
       smoking: false,
-      image: [],
-      message: ''
+      image: ['hahaha.com'],
     }
 
     this.handleStreetChange = this.handleStreetChange.bind(this)
@@ -163,7 +162,6 @@ class ListingFormContainer extends Component {
   }
 
   handlePictureChange(event) {
-    console.log('hi');
     let newPicture = event.target.value
     this.setState({ image: "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.06.47+AM.png" })
   }
@@ -171,11 +169,13 @@ class ListingFormContainer extends Component {
     if(file.length == 1) {
       this.setState({ image: file })
     } else {
-      this.setState({ message: 'You can only upload one photo per board game.'})
+      console.log('You can only upload one photo per board game');
     }
   }
 
   handleSubmit(event){
+    console.log("handsubmit_fire");
+    console.log(this.state);
     event.preventDefault();
     let formPayload = new FormData()
     formPayload.append('street', this.state.street)
@@ -226,13 +226,13 @@ class ListingFormContainer extends Component {
   }
 
   render(){
-console.log(this.state.image);
+console.log(this.state);
     return(
       <div>
       <div className="row">
         <div className="row"></div>
       <div><h1>Add a New Listing</h1></div>
-      <form onSubmit={this.handleSubmit} className="">
+      <form onSubmit={this.handleSubmit}>
         <fieldset><legend>Location</legend>
           <div className="row">
             <div className="small-8 columns">
