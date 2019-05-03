@@ -162,8 +162,8 @@ class ListingFormContainer extends Component {
 
   handleImageChange(event) {
     console.log('hi');
-    let newImage = event.target.value
-    this.setState({ image.push(newImage) })
+    let newImage = this.state.image.concat(event.target.value)
+    this.setState({ image: newImage })
   }
 
   handleSubmit(event){
