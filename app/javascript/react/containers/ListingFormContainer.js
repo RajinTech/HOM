@@ -162,7 +162,7 @@ class ListingFormContainer extends Component {
 
   handleImageChange(event) {
     console.log('hi');
-    let newPicture = event.target.value
+    let newImage = event.target.value
     this.setState({ image: newImage })
   }
 
@@ -436,12 +436,12 @@ class ListingFormContainer extends Component {
                   </div>
                 </div>
             </fieldset>
-            <fieldset><legend>Pictures</legend>
+            <fieldset><legend>Images</legend>
             <div className="small-4 columns">
               <div>
                 <TextTile
-                  label="Sqft"
-                  name="sq_ft"
+                  label="Image Url"
+                  name="image"
                   onChange={this.handleImageChange}
                   value={this.state.image}
                 />
