@@ -34,137 +34,16 @@ class ListingFormContainer extends Component {
       smoking: false,
       image: []
     }
-
-    this.handleStreetChange = this.handleStreetChange.bind(this)
-    this.handleUnitChange = this.handleUnitChange.bind(this)
-    this.handleCityChange = this.handleCityChange.bind(this)
-    this.handleStateChange = this.handleStateChange.bind(this)
-    this.handleZipChange = this.handleZipChange.bind(this)
-    this.handleBedroomChange = this.handleBedroomChange.bind(this)
-    this.handleBathroomChange = this.handleBathroomChange.bind(this)
-    this.handleRentChange = this.handleRentChange.bind(this)
-    this.handleSqFtChange = this.handleSqFtChange.bind(this)
-    this.handleDateAvailableChange = this.handleDateAvailableChange.bind(this)
-    this.handleLeaseLengthChange = this.handleLeaseLengthChange.bind(this)
-    this.handleBuildingStyleChange = this.handleBuildingStyleChange.bind(this)
-    this.handleParkingSpacesChange = this.handleParkingSpacesChange.bind(this)
-    this.handlePetsChange = this.handlePetsChange.bind(this)
-    this.handleZoningChange = this.handleZoningChange.bind(this)
-    this.handleSchoolDistrictChange = this.handleSchoolDistrictChange.bind(this)
-    this.handleHeatingChange = this.handleHeatingChange.bind(this)
-    this.handleCoolingChange = this.handleCoolingChange.bind(this)
-    this.handleHudChange = this.handleHudChange.bind(this)
-    this.handleSmokingChange = this.handleSmokingChange.bind(this)
-    this.handleImageChange = this.handleImageChange.bind(this)
-
-
+    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleStreetChange(event) {
-    let newStreet = event.target.value
-    this.setState({ street: newStreet })
-  }
 
-  handleUnitChange(event) {
-    let newUnit = event.target.value
-    this.setState({ unit: newUnit })
-  }
-
-  handleCityChange(event) {
-    let newCity = event.target.value
-    this.setState({ city: newCity })
-  }
-
-  handleStateChange(event) {
-    let newState = event.target.value
-    this.setState({ state: newState })
-  }
-
-  handleZipChange(event) {
-    let newZip = event.target.value
-    this.setState({ zip: newZip })
-  }
-  handleBedroomChange(event) {
-    let newBedroom = event.target.value
-    this.setState({ bedrooms: newBedroom })
-  }
-
-  handleBathroomChange(event) {
-    let newBathroom = event.target.value
-    this.setState({ bathrooms: newBathroom })
-  }
-
-  handleRentChange(event) {
-    let newRent = event.target.value
-    this.setState({ rent: newRent })
-  }
-
-  handleSqFtChange(event) {
-    let newSqFt = event.target.value
-    this.setState({ sq_ft: newSqFt })
-  }
-
-  handleDateAvailableChange(event) {
-    let newDateAvailable = event.target.value
-    this.setState({date_available: newDateAvailable})
-  }
-
-  handleLeaseLengthChange(event) {
-    let newLeaseLength = event.target.value
-    this.setState({ lease_length: newLeaseLength })
-  }
-
-  handleBuildingStyleChange(event) {
-    let newBuildingStyle = event.target.value
-    this.setState({ building_style: newBuildingStyle })
-  }
-
-  handleParkingSpacesChange(event) {
-    let newParkingSpaces = event.target.value
-    this.setState({ parking_spaces: newParkingSpaces })
-  }
-
-  handlePetsChange(event) {
-    let newPets = event.target.value
-    this.setState({ pets: newPets })
-  }
-
-  handleZoningChange(event) {
-    let newZoning = event.target.value
-    this.setState({ zoning: newZoning })
-  }
-
-  handleSchoolDistrictChange(event) {
-    let newSchoolDistrict = event.target.value
-    this.setState({ school_district: newSchoolDistrict })
-  }
-
-  handleHeatingChange(event) {
-    let newHeating = event.target.value
-    this.setState({ heating: newHeating })
-  }
-
-  handleCoolingChange(event) {
-    let newCooling = event.target.value
-    this.setState({ cooling: newCooling })
-  }
-
-  handleHudChange(event) {
-    let newHud = event.target.value
-    this.setState({ hud: newHud })
-  }
-
-  handleSmokingChange(event) {
-    let newSmoking = event.target.value
-    this.setState({ smoking: newSmoking })
-  }
-
-  handleImageChange(event) {
-    console.log('hi');
-    let newImage = this.state.image.concat(event.target.value)
-    this.setState({ image: newImage })
-  }
+  handleChange(event) {
+  this.setState({
+    [event.target.name]: event.target.value
+  })
+}
 
   handleSubmit(event){
     event.preventDefault();
@@ -210,7 +89,7 @@ class ListingFormContainer extends Component {
               <TextTile
                 label="Street"
                 name="street"
-                onChange={this.handleStreetChange}
+                onChange={this.handleChange}
                 value={this.state.street}
               />
             </div>
@@ -220,7 +99,7 @@ class ListingFormContainer extends Component {
               <TextTile
                 label="Unit"
                 name="unit"
-                onChange={this.handleUnitChange}
+                onChange={this.handleChange}
                 value={this.state.unit}
               />
             </div>
@@ -232,7 +111,7 @@ class ListingFormContainer extends Component {
               <TextTile
                 label="City"
                 name="city"
-                onChange={this.handleCityChange}
+                onChange={this.handleChange}
                 value={this.state.city}
               />
             </div>
@@ -242,7 +121,7 @@ class ListingFormContainer extends Component {
               <TextTile
                 label="State"
                 name="state"
-                onChange={this.handleStateChange}
+                onChange={this.handleChange}
                 value={this.state.state}
               />
             </div>
@@ -252,7 +131,7 @@ class ListingFormContainer extends Component {
               <TextTile
                 label="Zip"
                 name="zip"
-                onChange={this.handleZipChange}
+                onChange={this.handleChange}
                 value={this.state.zip}
               />
             </div>
@@ -266,7 +145,7 @@ class ListingFormContainer extends Component {
               <TextTile
                 label="Rent"
                 name="rent"
-                onChange={this.handleRentChange}
+                onChange={this.handleChange}
                 value={this.state.rent}
               />
             </div>
@@ -276,7 +155,7 @@ class ListingFormContainer extends Component {
               <TextTile
                 label="Sqft"
                 name="sq_ft"
-                onChange={this.handleSqFtChange}
+                onChange={this.handleChange}
                 value={this.state.sq_ft}
               />
             </div>
@@ -286,7 +165,7 @@ class ListingFormContainer extends Component {
               <DateField
                 label="Date Available"
                 name="date_available"
-                onChange={this.handleDateAvailableChange}
+                onChange={this.handleChange}
                 value={this.state.date_available}
               />
             </div>
@@ -297,7 +176,7 @@ class ListingFormContainer extends Component {
             <RangeField
               label="Bedrooms"
               name="bedrooms"
-              onChange={this.handleBedroomChange}
+              onChange={this.handleChange}
               value={this.state.bedrooms}
               max="5"
             />
@@ -310,7 +189,7 @@ class ListingFormContainer extends Component {
               <RangeField
                 label="Bathrooms"
                 name="bathrooms"
-                onChange={this.handleBathroomChange}
+                onChange={this.handleChange}
                 value={this.state.bathrooms}
                 max="5"
               />
@@ -324,7 +203,7 @@ class ListingFormContainer extends Component {
               <RangeField
                 label="Lease Length"
                 name="lease_length"
-                onChange={this.handleLeaseLengthChange}
+                onChange={this.handleChange}
                 value={this.state.lease_length}
                 max="12"
                 />
@@ -341,7 +220,7 @@ class ListingFormContainer extends Component {
                 <RadioFieldBool
                   label="Hud"
                   name="hud"
-                  onChange={this.handleHudChange}
+                  onChange={this.handleChange}
                   value={this.state.hud}
                 />
               </div>
@@ -351,7 +230,7 @@ class ListingFormContainer extends Component {
                 <RadioFieldBool
                   label="Smoking"
                   name="smoking"
-                  onChange={this.handleSmokingChange}
+                  onChange={this.handleChange}
                   value={this.state.smoking}
                   />
                 </div>
@@ -361,7 +240,7 @@ class ListingFormContainer extends Component {
                 <RadioFieldBool
                   label="Pets"
                   name="pets"
-                  onChange={this.handlePetsChange}
+                  onChange={this.handleChange}
                   value={this.state.pets}
                 />
               </div>
@@ -374,7 +253,7 @@ class ListingFormContainer extends Component {
                 name="zoning"
                 option1="Comercial"
                 option2="Residential"
-                onChange={this.handlezoningChange}
+                onChange={this.handleChange}
                 value={this.state.zoning}
               />
             </div>
@@ -385,7 +264,7 @@ class ListingFormContainer extends Component {
                     name="building_style"
                     option1="House"
                     option2="Duplex"
-                    onChange={this.handleBuildingStyleChange}
+                    onChange={this.handleChange}
                     value={this.state.building_style}
                   />
                 </div>
@@ -397,7 +276,7 @@ class ListingFormContainer extends Component {
                     name="parking_spaces"
                     option1="1"
                     option2="2"
-                    onChange={this.handleParkingSpacesChange}
+                    onChange={this.handleChange}
                     value={this.state.parking_spaces}
                   />
                 </div>
@@ -409,7 +288,7 @@ class ListingFormContainer extends Component {
                   <TextTile
                     label="School District"
                     name="school_district"
-                    onChange={this.handleSchoolDistrictChange}
+                    onChange={this.handleChange}
                     value={this.state.school_district}
                   />
                 </div>
@@ -420,7 +299,7 @@ class ListingFormContainer extends Component {
                   name="cooling"
                   option1="Central Air"
                   option2="None"
-                  onChange={this.handleCoolingChange}
+                  onChange={this.handleChange}
                   value={this.state.cooling}
                 />
               </div>
@@ -431,7 +310,7 @@ class ListingFormContainer extends Component {
                     name="heating"
                     option1="Gas"
                     option2="Oil"
-                    onChange={this.handleHeatingChange}
+                    onChange={this.handleChange}
                     value={this.state.heating}
                     />
                   </div>
@@ -441,23 +320,14 @@ class ListingFormContainer extends Component {
             <div className="small-4 columns">
               <div>
                 <TextTile
-                  label="Image Url 1"
+                  label="Image URL"
                   name="image"
-                  onChange={this.handleImageChange}
+                  onChange={this.handleChange}
                   value={this.state.image}
                 />
               </div>
             </div>
-            <div className="small-4 columns">
-              <div>
-                <TextTile
-                  label="Image Url 2"
-                  name="image"
-                  onChange={this.handleImageChange}
-                  value={this.state.image}
-                />
-              </div>
-            </div>
+
           <div>
             <h8 className="slider-name" >{this.state.image} Your Image</h8>
           </div>
