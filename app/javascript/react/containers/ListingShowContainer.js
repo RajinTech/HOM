@@ -45,6 +45,7 @@ class ListingShowContainer extends Component {
           features: responseData.features,
           pictures: responseData.pictures,
           showtile: responseData.pictures[0].image})
+          console.log(responseData);
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
     }

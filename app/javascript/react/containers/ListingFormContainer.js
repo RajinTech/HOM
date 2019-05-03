@@ -163,7 +163,7 @@ class ListingFormContainer extends Component {
   handleImageChange(event) {
     console.log('hi');
     let newImage = event.target.value
-    this.setState({ image: newImage })
+    this.setState({ image.push(newImage) })
   }
 
   handleSubmit(event){
@@ -195,6 +195,7 @@ class ListingFormContainer extends Component {
   }
 
   render(){
+
 
     return(
       <div>
@@ -440,7 +441,17 @@ class ListingFormContainer extends Component {
             <div className="small-4 columns">
               <div>
                 <TextTile
-                  label="Image Url"
+                  label="Image Url 1"
+                  name="image"
+                  onChange={this.handleImageChange}
+                  value={this.state.image}
+                />
+              </div>
+            </div>
+            <div className="small-4 columns">
+              <div>
+                <TextTile
+                  label="Image Url 2"
                   name="image"
                   onChange={this.handleImageChange}
                   value={this.state.image}
