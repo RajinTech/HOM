@@ -11,9 +11,6 @@ import Dropzone from 'react-dropzone';
 class ListingFormContainer extends Component {
   constructor(props) {
     super(props);
-    this.onDrop = (files) => {
-      this.setState({files})
-    };
     this.state = {
       street: "123 Main St",
       unit: "",
@@ -35,8 +32,7 @@ class ListingFormContainer extends Component {
       cooling: "Central Air",
       hud: false,
       smoking: false,
-      files: [],
-      message: '',
+      image: []
     }
 
     this.handleStreetChange = this.handleStreetChange.bind(this)
@@ -59,7 +55,7 @@ class ListingFormContainer extends Component {
     this.handleCoolingChange = this.handleCoolingChange.bind(this)
     this.handleHudChange = this.handleHudChange.bind(this)
     this.handleSmokingChange = this.handleSmokingChange.bind(this)
-
+    this.handleImageChange = this.handleImageChange.bind(this)
 
 
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -164,41 +160,23 @@ class ListingFormContainer extends Component {
     this.setState({ smoking: newSmoking })
   }
 
-
+  handleImageChange(event) {
+    console.log('hi');
+    let newPicture = event.target.value
+    this.setState({ image: newImage })
+  }
 
   handleSubmit(event){
     event.preventDefault();
-
-    console.log("handsubmit_fire");
-    console.log(this.state);
-
-    let body = new FormData()
-    body.append('street', this.state.street)
-    body.append('unit', this.state.unit)
-    body.append('city', this.state.city)
-    body.append('state', this.state.state)
-    body.append('zip', this.state.zip)
-    body.append('bedrooms', this.state.bedrooms)
-    body.append('bathrooms', this.state.bathrooms)
-    body.append('rent', this.state.rent)
-    body.append('sq_ft', this.state.sq_ft)
-    body.append('date_available', this.state.date_available)
-    body.append('lease_length', this.state.lease_length)
-    body.append('building_style', this.state.building_style)
-    body.append('parking_spaces', this.state.parking_spaces)
-    body.append('pets', this.state.pets)
-    body.append('zoning', this.state.zoning)
-    body.append('school_district', this.state.school_district)
-    body.append('heating', this.state.heating)
-    body.append('cooling', this.state.cooling)
-    body.append('hud', this.state.hud)
-    body.append('smoking', this.state.smoking)
-    body.append('image', this.state.files[0])
-
+    let formPayload = this.state;
     fetch('/api/v1/listings', {
       credentials: 'same-origin',
       method: 'POST',
-      body: body
+      body: JSON.stringify(formPayload),
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
     })
       .then(response => {
         if (response.ok) {
@@ -211,25 +189,19 @@ class ListingFormContainer extends Component {
       })
       .then(response => response.json())
       .then(body => {
-        this.setState({ message: body.message })
+        browserHistory.push(`/listings`);
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   render(){
-    const files = this.state.files.map(file => (
-  <li key={file.name}>
-    {file.name} - {file.size} bytes
-  </li>
-));
 
-console.log(this.state);
     return(
       <div>
       <div className="row">
         <div className="row"></div>
       <div><h1>Add a New Listing</h1></div>
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} className="">
         <fieldset><legend>Location</legend>
           <div className="row">
             <div className="small-8 columns">
@@ -465,28 +437,18 @@ console.log(this.state);
                 </div>
             </fieldset>
             <fieldset><legend>Pictures</legend>
-
-
-            <Dropzone onDrop={this.onDrop}>
-      {({getRootProps, getInputProps}) => (
-        <section className="container">
-          <div {...getRootProps({className: 'dropzone'})}>
-            <input {...getInputProps()} />
-            <p>Drag 'n' drop some files here, or click to select files</p>
-          </div>
-          <aside>
-            <h4>Files</h4>
-            <ul>{files}</ul>
-          </aside>
-        </section>
-      )}
-    </Dropzone>
-
-
-
-
+            <div className="small-4 columns">
+              <div>
+                <TextTile
+                  label="Sqft"
+                  name="sq_ft"
+                  onChange={this.handleImageChange}
+                  value={this.state.image}
+                />
+              </div>
+            </div>
           <div>
-            <h8 className="slider-name" >{this.state.file} Your Image</h8>
+            <h8 className="slider-name" >{this.state.image} Your Image</h8>
           </div>
             </fieldset>
         <input className="button" type="submit" value="Submit New Listing"/>
