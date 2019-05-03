@@ -11,6 +11,9 @@ import Dropzone from 'react-dropzone';
 class ListingFormContainer extends Component {
   constructor(props) {
     super(props);
+    this.onDrop = (files) => {
+      this.setState({files})
+    };
     this.state = {
       street: "123 Main St",
       unit: "",
@@ -32,7 +35,8 @@ class ListingFormContainer extends Component {
       cooling: "Central Air",
       hud: false,
       smoking: false,
-      image: ['hahaha.com'],
+      files: [],
+      message: '',
     }
 
     this.handleStreetChange = this.handleStreetChange.bind(this)
@@ -55,8 +59,7 @@ class ListingFormContainer extends Component {
     this.handleCoolingChange = this.handleCoolingChange.bind(this)
     this.handleHudChange = this.handleHudChange.bind(this)
     this.handleSmokingChange = this.handleSmokingChange.bind(this)
-    this.handlePictureChange = this.handlePictureChange.bind(this)
-    this.onDrop2 = this.onDrop2.bind(this)
+
 
 
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -161,53 +164,41 @@ class ListingFormContainer extends Component {
     this.setState({ smoking: newSmoking })
   }
 
-  handlePictureChange(event) {
-    let newPicture = event.target.value
-    this.setState({ image: "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.06.47+AM.png" })
-  }
-  onDrop2(file) {
-    if(file.length == 1) {
-      this.setState({ image: file })
-    } else {
-      console.log('You can only upload one photo per board game');
-    }
-  }
+
 
   handleSubmit(event){
+    event.preventDefault();
+
     console.log("handsubmit_fire");
     console.log(this.state);
-    event.preventDefault();
-    let formPayload = new FormData()
-    formPayload.append('street', this.state.street)
-    formPayload.append('unit', this.state.unit)
-    formPayload.append('city', this.state.city)
-    formPayload.append('state', this.state.state)
-    formPayload.append('zip', this.state.zip)
-    formPayload.append('bedrooms', this.state.bedrooms)
-    formPayload.append('bathrooms', this.state.bathrooms)
-    formPayload.append('rent', this.state.rent)
-    formPayload.append('sq_ft', this.state.sq_ft)
-    formPayload.append('date_available', this.state.date_available)
-    formPayload.append('lease_length', this.state.lease_length)
-    formPayload.append('building_style', this.state.building_style)
-    formPayload.append('parking_spaces', this.state.parking_spaces)
-    formPayload.append('pets', this.state.pets)
-    formPayload.append('zoning', this.state.zoning)
-    formPayload.append('school_district', this.state.school_district)
-    formPayload.append('heating', this.state.heating)
-    formPayload.append('cooling', this.state.cooling)
-    formPayload.append('hud', this.state.hud)
-    formPayload.append('smoking', this.state.smoking)
-    formPayload.append('image', this.state.image[0])
+
+    let body = new FormData()
+    body.append('street', this.state.street)
+    body.append('unit', this.state.unit)
+    body.append('city', this.state.city)
+    body.append('state', this.state.state)
+    body.append('zip', this.state.zip)
+    body.append('bedrooms', this.state.bedrooms)
+    body.append('bathrooms', this.state.bathrooms)
+    body.append('rent', this.state.rent)
+    body.append('sq_ft', this.state.sq_ft)
+    body.append('date_available', this.state.date_available)
+    body.append('lease_length', this.state.lease_length)
+    body.append('building_style', this.state.building_style)
+    body.append('parking_spaces', this.state.parking_spaces)
+    body.append('pets', this.state.pets)
+    body.append('zoning', this.state.zoning)
+    body.append('school_district', this.state.school_district)
+    body.append('heating', this.state.heating)
+    body.append('cooling', this.state.cooling)
+    body.append('hud', this.state.hud)
+    body.append('smoking', this.state.smoking)
+    body.append('image', this.state.files[0])
 
     fetch('/api/v1/listings', {
       credentials: 'same-origin',
       method: 'POST',
-      body: JSON.stringify(formPayload),
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      }
+      body: body
     })
       .then(response => {
         if (response.ok) {
@@ -226,6 +217,12 @@ class ListingFormContainer extends Component {
   }
 
   render(){
+    const files = this.state.files.map(file => (
+  <li key={file.name}>
+    {file.name} - {file.size} bytes
+  </li>
+));
+
 console.log(this.state);
     return(
       <div>
@@ -470,32 +467,26 @@ console.log(this.state);
             <fieldset><legend>Pictures</legend>
 
 
-            <div className="dropzone">
-              <Dropzone onDrop={acceptedFiles => console.log(acceptedFiles, this.state.image)}>
-                {({getRootProps, getInputProps}) => (
-                  <section>
-                    <div {...getRootProps()}>
-                      <input {...getInputProps()} />
-                      <p>Drag 'n' drop some files here, or click to select files</p>
-                    </div>
-                  </section>
-                )}
-              </Dropzone>
+            <Dropzone onDrop={this.onDrop}>
+      {({getRootProps, getInputProps}) => (
+        <section className="container">
+          <div {...getRootProps({className: 'dropzone'})}>
+            <input {...getInputProps()} />
+            <p>Drag 'n' drop some files here, or click to select files</p>
           </div>
-          <div>
-            <h2>Dropped files</h2>
-            <ul>
-              {
-                this.state.image.map(f => <li key={f.name}>{f.name} - {f.size} bytes</li>)
-              }
-            </ul>
-          </div>
+          <aside>
+            <h4>Files</h4>
+            <ul>{files}</ul>
+          </aside>
+        </section>
+      )}
+    </Dropzone>
 
 
 
 
           <div>
-            <h8 className="slider-name" >{this.state.image} Your Image</h8>
+            <h8 className="slider-name" >{this.state.file} Your Image</h8>
           </div>
             </fieldset>
         <input className="button" type="submit" value="Submit New Listing"/>

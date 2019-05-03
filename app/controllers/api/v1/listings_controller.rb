@@ -1,5 +1,4 @@
 class Api::V1::ListingsController < ApiController
-
   def index
      render json: Listing.all
   end
@@ -39,5 +38,5 @@ class Api::V1::ListingsController < ApiController
   def pictures_params
     params.permit(:image)
   end
-  
+
 end
