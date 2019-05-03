@@ -49,6 +49,7 @@ class ListingIndexContainer extends Component {
     .then((response) => response.json())
     .then((responseData) => {
       this.setState({ listings_all: responseData });
+      console.log(responseData);
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }

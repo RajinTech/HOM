@@ -32,174 +32,22 @@ class ListingFormContainer extends Component {
       cooling: "Central Air",
       hud: false,
       smoking: false,
-      image: [],
-      message: ''
+      image: []
     }
-
-    this.handleStreetChange = this.handleStreetChange.bind(this)
-    this.handleUnitChange = this.handleUnitChange.bind(this)
-    this.handleCityChange = this.handleCityChange.bind(this)
-    this.handleStateChange = this.handleStateChange.bind(this)
-    this.handleZipChange = this.handleZipChange.bind(this)
-    this.handleBedroomChange = this.handleBedroomChange.bind(this)
-    this.handleBathroomChange = this.handleBathroomChange.bind(this)
-    this.handleRentChange = this.handleRentChange.bind(this)
-    this.handleSqFtChange = this.handleSqFtChange.bind(this)
-    this.handleDateAvailableChange = this.handleDateAvailableChange.bind(this)
-    this.handleLeaseLengthChange = this.handleLeaseLengthChange.bind(this)
-    this.handleBuildingStyleChange = this.handleBuildingStyleChange.bind(this)
-    this.handleParkingSpacesChange = this.handleParkingSpacesChange.bind(this)
-    this.handlePetsChange = this.handlePetsChange.bind(this)
-    this.handleZoningChange = this.handleZoningChange.bind(this)
-    this.handleSchoolDistrictChange = this.handleSchoolDistrictChange.bind(this)
-    this.handleHeatingChange = this.handleHeatingChange.bind(this)
-    this.handleCoolingChange = this.handleCoolingChange.bind(this)
-    this.handleHudChange = this.handleHudChange.bind(this)
-    this.handleSmokingChange = this.handleSmokingChange.bind(this)
-    this.handlePictureChange = this.handlePictureChange.bind(this)
-    this.onDrop2 = this.onDrop2.bind(this)
-
-
+    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleStreetChange(event) {
-    let newStreet = event.target.value
-    this.setState({ street: newStreet })
-  }
 
-  handleUnitChange(event) {
-    let newUnit = event.target.value
-    this.setState({ unit: newUnit })
-  }
-
-  handleCityChange(event) {
-    let newCity = event.target.value
-    this.setState({ city: newCity })
-  }
-
-  handleStateChange(event) {
-    let newState = event.target.value
-    this.setState({ state: newState })
-  }
-
-  handleZipChange(event) {
-    let newZip = event.target.value
-    this.setState({ zip: newZip })
-  }
-  handleBedroomChange(event) {
-    let newBedroom = event.target.value
-    this.setState({ bedrooms: newBedroom })
-  }
-
-  handleBathroomChange(event) {
-    let newBathroom = event.target.value
-    this.setState({ bathrooms: newBathroom })
-  }
-
-  handleRentChange(event) {
-    let newRent = event.target.value
-    this.setState({ rent: newRent })
-  }
-
-  handleSqFtChange(event) {
-    let newSqFt = event.target.value
-    this.setState({ sq_ft: newSqFt })
-  }
-
-  handleDateAvailableChange(event) {
-    let newDateAvailable = event.target.value
-    this.setState({date_available: newDateAvailable})
-  }
-
-  handleLeaseLengthChange(event) {
-    let newLeaseLength = event.target.value
-    this.setState({ lease_length: newLeaseLength })
-  }
-
-  handleBuildingStyleChange(event) {
-    let newBuildingStyle = event.target.value
-    this.setState({ building_style: newBuildingStyle })
-  }
-
-  handleParkingSpacesChange(event) {
-    let newParkingSpaces = event.target.value
-    this.setState({ parking_spaces: newParkingSpaces })
-  }
-
-  handlePetsChange(event) {
-    let newPets = event.target.value
-    this.setState({ pets: newPets })
-  }
-
-  handleZoningChange(event) {
-    let newZoning = event.target.value
-    this.setState({ zoning: newZoning })
-  }
-
-  handleSchoolDistrictChange(event) {
-    let newSchoolDistrict = event.target.value
-    this.setState({ school_district: newSchoolDistrict })
-  }
-
-  handleHeatingChange(event) {
-    let newHeating = event.target.value
-    this.setState({ heating: newHeating })
-  }
-
-  handleCoolingChange(event) {
-    let newCooling = event.target.value
-    this.setState({ cooling: newCooling })
-  }
-
-  handleHudChange(event) {
-    let newHud = event.target.value
-    this.setState({ hud: newHud })
-  }
-
-  handleSmokingChange(event) {
-    let newSmoking = event.target.value
-    this.setState({ smoking: newSmoking })
-  }
-
-  handlePictureChange(event) {
-    console.log('hi');
-    let newPicture = event.target.value
-    this.setState({ image: "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-13+at+2.06.47+AM.png" })
-  }
-  onDrop2(file) {
-    if(file.length == 1) {
-      this.setState({ image: file })
-    } else {
-      this.setState({ message: 'You can only upload one photo per board game.'})
-    }
-  }
+  handleChange(event) {
+  this.setState({
+    [event.target.name]: event.target.value
+  })
+}
 
   handleSubmit(event){
     event.preventDefault();
-    let formPayload = new FormData()
-    formPayload.append('street', this.state.street)
-    formPayload.append('unit', this.state.unit)
-    formPayload.append('city', this.state.city)
-    formPayload.append('state', this.state.state)
-    formPayload.append('zip', this.state.zip)
-    formPayload.append('bedrooms', this.state.bedrooms)
-    formPayload.append('bathrooms', this.state.bathrooms)
-    formPayload.append('rent', this.state.rent)
-    formPayload.append('sq_ft', this.state.sq_ft)
-    formPayload.append('date_available', this.state.date_available)
-    formPayload.append('lease_length', this.state.lease_length)
-    formPayload.append('building_style', this.state.building_style)
-    formPayload.append('parking_spaces', this.state.parking_spaces)
-    formPayload.append('pets', this.state.pets)
-    formPayload.append('zoning', this.state.zoning)
-    formPayload.append('school_district', this.state.school_district)
-    formPayload.append('heating', this.state.heating)
-    formPayload.append('cooling', this.state.cooling)
-    formPayload.append('hud', this.state.hud)
-    formPayload.append('smoking', this.state.smoking)
-    formPayload.append('image', this.state.image[0])
-
+    let formPayload = this.state;
     fetch('/api/v1/listings', {
       credentials: 'same-origin',
       method: 'POST',
@@ -220,13 +68,14 @@ class ListingFormContainer extends Component {
       })
       .then(response => response.json())
       .then(body => {
-        this.setState({ message: body.message })
+        browserHistory.push(`/listings`);
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   render(){
-console.log(this.state.image);
+
+
     return(
       <div>
       <div className="row">
@@ -240,7 +89,7 @@ console.log(this.state.image);
               <TextTile
                 label="Street"
                 name="street"
-                onChange={this.handleStreetChange}
+                onChange={this.handleChange}
                 value={this.state.street}
               />
             </div>
@@ -250,7 +99,7 @@ console.log(this.state.image);
               <TextTile
                 label="Unit"
                 name="unit"
-                onChange={this.handleUnitChange}
+                onChange={this.handleChange}
                 value={this.state.unit}
               />
             </div>
@@ -262,7 +111,7 @@ console.log(this.state.image);
               <TextTile
                 label="City"
                 name="city"
-                onChange={this.handleCityChange}
+                onChange={this.handleChange}
                 value={this.state.city}
               />
             </div>
@@ -272,7 +121,7 @@ console.log(this.state.image);
               <TextTile
                 label="State"
                 name="state"
-                onChange={this.handleStateChange}
+                onChange={this.handleChange}
                 value={this.state.state}
               />
             </div>
@@ -282,7 +131,7 @@ console.log(this.state.image);
               <TextTile
                 label="Zip"
                 name="zip"
-                onChange={this.handleZipChange}
+                onChange={this.handleChange}
                 value={this.state.zip}
               />
             </div>
@@ -296,7 +145,7 @@ console.log(this.state.image);
               <TextTile
                 label="Rent"
                 name="rent"
-                onChange={this.handleRentChange}
+                onChange={this.handleChange}
                 value={this.state.rent}
               />
             </div>
@@ -306,7 +155,7 @@ console.log(this.state.image);
               <TextTile
                 label="Sqft"
                 name="sq_ft"
-                onChange={this.handleSqFtChange}
+                onChange={this.handleChange}
                 value={this.state.sq_ft}
               />
             </div>
@@ -316,7 +165,7 @@ console.log(this.state.image);
               <DateField
                 label="Date Available"
                 name="date_available"
-                onChange={this.handleDateAvailableChange}
+                onChange={this.handleChange}
                 value={this.state.date_available}
               />
             </div>
@@ -327,7 +176,7 @@ console.log(this.state.image);
             <RangeField
               label="Bedrooms"
               name="bedrooms"
-              onChange={this.handleBedroomChange}
+              onChange={this.handleChange}
               value={this.state.bedrooms}
               max="5"
             />
@@ -340,7 +189,7 @@ console.log(this.state.image);
               <RangeField
                 label="Bathrooms"
                 name="bathrooms"
-                onChange={this.handleBathroomChange}
+                onChange={this.handleChange}
                 value={this.state.bathrooms}
                 max="5"
               />
@@ -354,7 +203,7 @@ console.log(this.state.image);
               <RangeField
                 label="Lease Length"
                 name="lease_length"
-                onChange={this.handleLeaseLengthChange}
+                onChange={this.handleChange}
                 value={this.state.lease_length}
                 max="12"
                 />
@@ -371,7 +220,7 @@ console.log(this.state.image);
                 <RadioFieldBool
                   label="Hud"
                   name="hud"
-                  onChange={this.handleHudChange}
+                  onChange={this.handleChange}
                   value={this.state.hud}
                 />
               </div>
@@ -381,7 +230,7 @@ console.log(this.state.image);
                 <RadioFieldBool
                   label="Smoking"
                   name="smoking"
-                  onChange={this.handleSmokingChange}
+                  onChange={this.handleChange}
                   value={this.state.smoking}
                   />
                 </div>
@@ -391,7 +240,7 @@ console.log(this.state.image);
                 <RadioFieldBool
                   label="Pets"
                   name="pets"
-                  onChange={this.handlePetsChange}
+                  onChange={this.handleChange}
                   value={this.state.pets}
                 />
               </div>
@@ -404,7 +253,7 @@ console.log(this.state.image);
                 name="zoning"
                 option1="Comercial"
                 option2="Residential"
-                onChange={this.handlezoningChange}
+                onChange={this.handleChange}
                 value={this.state.zoning}
               />
             </div>
@@ -415,7 +264,7 @@ console.log(this.state.image);
                     name="building_style"
                     option1="House"
                     option2="Duplex"
-                    onChange={this.handleBuildingStyleChange}
+                    onChange={this.handleChange}
                     value={this.state.building_style}
                   />
                 </div>
@@ -427,7 +276,7 @@ console.log(this.state.image);
                     name="parking_spaces"
                     option1="1"
                     option2="2"
-                    onChange={this.handleParkingSpacesChange}
+                    onChange={this.handleChange}
                     value={this.state.parking_spaces}
                   />
                 </div>
@@ -439,7 +288,7 @@ console.log(this.state.image);
                   <TextTile
                     label="School District"
                     name="school_district"
-                    onChange={this.handleSchoolDistrictChange}
+                    onChange={this.handleChange}
                     value={this.state.school_district}
                   />
                 </div>
@@ -450,7 +299,7 @@ console.log(this.state.image);
                   name="cooling"
                   option1="Central Air"
                   option2="None"
-                  onChange={this.handleCoolingChange}
+                  onChange={this.handleChange}
                   value={this.state.cooling}
                 />
               </div>
@@ -461,38 +310,23 @@ console.log(this.state.image);
                     name="heating"
                     option1="Gas"
                     option2="Oil"
-                    onChange={this.handleHeatingChange}
+                    onChange={this.handleChange}
                     value={this.state.heating}
                     />
                   </div>
                 </div>
             </fieldset>
-            <fieldset><legend>Pictures</legend>
-
-
-            <div className="dropzone">
-              <Dropzone onDrop={acceptedFiles => console.log(acceptedFiles, this.state.image)}>
-                {({getRootProps, getInputProps}) => (
-                  <section>
-                    <div {...getRootProps()}>
-                      <input {...getInputProps()} />
-                      <p>Drag 'n' drop some files here, or click to select files</p>
-                    </div>
-                  </section>
-                )}
-              </Dropzone>
-          </div>
-          <div>
-            <h2>Dropped files</h2>
-            <ul>
-              {
-                this.state.image.map(f => <li key={f.name}>{f.name} - {f.size} bytes</li>)
-              }
-            </ul>
-          </div>
-
-
-
+            <fieldset><legend>Images</legend>
+            <div className="small-4 columns">
+              <div>
+                <TextTile
+                  label="Image URL"
+                  name="image"
+                  onChange={this.handleChange}
+                  value={this.state.image}
+                />
+              </div>
+            </div>
 
           <div>
             <h8 className="slider-name" >{this.state.image} Your Image</h8>
