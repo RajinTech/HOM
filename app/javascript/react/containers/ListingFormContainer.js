@@ -33,27 +33,43 @@ class ListingFormContainer extends Component {
       hud: "",
       smoking: "",
       image: [],
+      submit_message: "",
+      field_message: ""
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this)
     this.validationError = this.validationError.bind(this)
+    this.validateSubmit = this.validateSubmit.bind(this)
   }
 
   handleChange(event) {
+    if(event.target.value == ""){
+      this.setState({ field_message: "Cannot be blank" })
+    } else if (event.target.value !== "") {
+      this.setState({ field_message: "" })
+    }
   this.setState({
-    [event.target.name]: event.target.value
+    [event.target.name]: event.target.value,
+    submit_message: "",
   })
 }
   validationError(field) {
-    if (field === "") {
+    if (field === "" && this.state.error == true ) {
       return (
         <h6> field cannot be blank</h6>
       )
     }
   }
 
+  validateSubmit() {
+      this.setState({
+        submit_message: "Some required fields are empty",
+        error: true })
+  }
+
   handleSubmit(event){
     event.preventDefault();
+    this.validateSubmit();
     let formPayload = this.state;
     fetch('/api/v1/listings', {
       credentials: 'same-origin',
@@ -68,6 +84,7 @@ class ListingFormContainer extends Component {
         if (response.ok) {
           return response;
         } else {
+
           let errorMessage = `${response.status} (${response.statusText})`,
               error = new Error(errorMessage);
           throw(error);
@@ -79,6 +96,7 @@ class ListingFormContainer extends Component {
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
+
 
   render(){
 
@@ -100,7 +118,7 @@ class ListingFormContainer extends Component {
                 value={this.state.street}
               />
             </div>
-            {this.validationError(this.state.street)}
+            <h6>{this.state.field_message}</h6>
           </div>
           <div className="small-4 columns">
             <div>
@@ -348,6 +366,7 @@ class ListingFormContainer extends Component {
             <h5 className="slider-name" >{this.state.image} Your Image</h5>
           </div>
             </fieldset>
+            <h6>{this.state.submit_message}</h6>
         <input className="button" type="submit" value="Submit New Listing"/>
       </form>
     </div>
