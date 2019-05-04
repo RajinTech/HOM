@@ -3,10 +3,10 @@ body{
 }
 div {
    border: 1px solid;
-   border-color: transparent;
+   border-color: red;
    padding: 1px;
 }
-h8 {
+h5 {
   font-family: cursive;
   color: #3C3C3C;
 }
@@ -15,6 +15,13 @@ h1 {
   color: #3C3C3C;
   display:flex;
   justify-content: center;
+}
+h6 {
+  font-family: monospace;
+  color: red;
+  display:flex;
+  justify-content: center;
+  margin: 0 auto;
 }
 legend{
   font-family: cursive;
@@ -97,7 +104,7 @@ input[type="submit"]:hover {
   width: 300px;
   height: 397px;
   flex: 0 0 auto;
-  padding: 5px
+  padding: 5px;
 }
 .listing_container {
   display: flex;
@@ -128,12 +135,12 @@ input[type="submit"]:hover {
 .top_half{
   height: 50%;
   float:top;
-  margin: 5px;
 }
 .bottom_half{
   height:50%;
   float:bottom;
-  margin: 5px;
+  display: flex;
+  justify-content: space-between;
 }
 .picture_gallery{
   display: flex;

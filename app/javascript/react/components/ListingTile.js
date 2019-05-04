@@ -10,16 +10,19 @@ const ListingTile = (props) => {
       <div>
         <div className='top_half'>
           <div className='horizontal_centering'>
-          <h8>{props.street} {props.unit}</h8>
-          <h8>{props.city}, {props.state} {props.zip}</h8>
+          <h5>{props.street} {props.unit}</h5>
+          <h5>{props.city}, {props.state} {props.zip}</h5>
       </div>
       </div>
         <div className='bottom_half'>
-
-          <h8> <b>Bed:</b> {props.bed}</h8>
-          <h8> <b>Bath:</b>  {props.bath}</h8>
-          <h8> <b>Sq Ft:</b>  {props.sqft}</h8>
-          <h8> <b>Rent:</b>  ${props.rent}</h8>
+          <div>
+          <h5> <b>Bed:</b> {props.bed}</h5>
+          <h5> <b>Bath:</b>  {props.bath}</h5>
+      </div>
+          <div>
+          <h5> <b>Sq Ft:</b>  {props.sqft}</h5>
+          <h5> <b>Rent:</b>  ${props.rent}</h5>
+      </div>
       </div>
       </div>
           <img className="listing_photo" src={props.pic}></img>
