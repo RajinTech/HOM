@@ -12,41 +12,66 @@ class ListingFormContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      street: "123 Main St",
+      street: "",
       unit: "",
-      city: "Oneonta",
-      state: "NY",
-      zip: "13820",
-      bedrooms: "3",
-      bathrooms: "2",
-      rent: "1000",
-      sq_ft: "1000",
-      date_available: "2019-02-01",
-      lease_length: "12",
-      building_style: "Duplex",
-      parking_spaces: "2",
-      pets: false,
-      zoning: "Residential",
+      city: "",
+      state: "",
+      zip: "",
+      bedrooms: 2,
+      bathrooms: 3,
+      rent: "",
+      sq_ft: "",
+      date_available: "",
+      lease_length: 12,
+      building_style: "",
+      parking_spaces: "",
+      pets: "",
+      zoning: "",
       school_district: "",
-      heating: "Gas",
-      cooling: "Central Air",
-      hud: false,
-      smoking: false,
-      image: []
+      heating: "",
+      cooling: "",
+      hud: "",
+      smoking: "",
+      image: [],
+      error: false,
+      submit_message: "",
+      field_message: "",
+
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.validationError = this.validationError.bind(this)
+    this.validateSubmit = this.validateSubmit.bind(this)
   }
 
-
   handleChange(event) {
+    if(event.target.value == ""){
+      this.setState({ [event.target.name.error]: "Cannot be blank" })
+    } else if (event.target.value !== "") {
+      this.setState({ [event.target.name.error]: "" })
+    }
   this.setState({
-    [event.target.name]: event.target.value
+    [event.target.name]: event.target.value,
+    submit_message: "",
   })
 }
+  validationError(field) {
+    if (field === "" && this.state.error == true ) {
+      return (
+        <h6> field cannot be blank</h6>
+      )
+    }
+  }
+
+  validateSubmit() {
+      this.setState({
+        submit_message: "Some required fields are empty",
+        error: true })
+  }
 
   handleSubmit(event){
     event.preventDefault();
+    this.validateSubmit();
     let formPayload = this.state;
     fetch('/api/v1/listings', {
       credentials: 'same-origin',
@@ -61,6 +86,7 @@ class ListingFormContainer extends Component {
         if (response.ok) {
           return response;
         } else {
+
           let errorMessage = `${response.status} (${response.statusText})`,
               error = new Error(errorMessage);
           throw(error);
@@ -72,6 +98,7 @@ class ListingFormContainer extends Component {
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
+
 
   render(){
 
@@ -93,6 +120,7 @@ class ListingFormContainer extends Component {
                 value={this.state.street}
               />
             </div>
+            {this.validationError(this.state.street)}
           </div>
           <div className="small-4 columns">
             <div>
@@ -115,6 +143,7 @@ class ListingFormContainer extends Component {
                 value={this.state.city}
               />
             </div>
+            {this.validationError(this.state.city)}
           </div>
           <div className="small-4 columns">
             <div>
@@ -125,6 +154,7 @@ class ListingFormContainer extends Component {
                 value={this.state.state}
               />
             </div>
+            {this.validationError(this.state.state)}
           </div>
           <div className="small-4 columns">
             <div>
@@ -135,6 +165,7 @@ class ListingFormContainer extends Component {
                 value={this.state.zip}
               />
             </div>
+            {this.validationError(this.state.zip)}
           </div>
         </div>
       </fieldset>
@@ -149,6 +180,7 @@ class ListingFormContainer extends Component {
                 value={this.state.rent}
               />
             </div>
+            {this.validationError(this.state.rent)}
           </div>
           <div className="small-4 columns">
             <div>
@@ -159,6 +191,7 @@ class ListingFormContainer extends Component {
                 value={this.state.sq_ft}
               />
             </div>
+            {this.validationError(this.state.sq_ft)}
           </div>
           <div className="small-4 columns">
             <div>
@@ -169,6 +202,7 @@ class ListingFormContainer extends Component {
                 value={this.state.date_available}
               />
             </div>
+            {this.validationError(this.state.date_available)}
           </div>
         </div>
         <div className="row">
@@ -181,7 +215,7 @@ class ListingFormContainer extends Component {
               max="5"
             />
             <div>
-              <h8 className="slider-name" >{this.state.bedrooms} Bedrooms</h8>
+              <h5 className="slider-name" >{this.state.bedrooms} Bedrooms</h5>
             </div>
           </div>
           <div className="small-4 columns">
@@ -194,7 +228,7 @@ class ListingFormContainer extends Component {
                 max="5"
               />
               <div>
-                <h8 className="slider-name" >{this.state.bathrooms}  Bathrooms</h8>
+                <h5 className="slider-name" >{this.state.bathrooms}  Bathrooms</h5>
               </div>
             </div>
           </div>
@@ -208,7 +242,7 @@ class ListingFormContainer extends Component {
                 max="12"
                 />
                 <div>
-                  <h8 className="slider-name" >{this.state.lease_length} Months</h8>
+                  <h5 className="slider-name" >{this.state.lease_length} Months</h5>
                 </div>
               </div>
             </div>
@@ -267,6 +301,7 @@ class ListingFormContainer extends Component {
                     onChange={this.handleChange}
                     value={this.state.building_style}
                   />
+                  {this.validationError(this.state.building_style)}
                 </div>
               </div>
               <div className="small-4 columns">
@@ -279,6 +314,7 @@ class ListingFormContainer extends Component {
                     onChange={this.handleChange}
                     value={this.state.parking_spaces}
                   />
+                  {this.validationError(this.state.parking_spaces)}
                 </div>
               </div>
             </fieldset>
@@ -329,9 +365,10 @@ class ListingFormContainer extends Component {
             </div>
 
           <div>
-            <h8 className="slider-name" >{this.state.image} Your Image</h8>
+            <h5 className="slider-name" >{this.state.image} Your Image</h5>
           </div>
             </fieldset>
+            <h6>{this.state.submit_message}</h6>
         <input className="button" type="submit" value="Submit New Listing"/>
       </form>
     </div>

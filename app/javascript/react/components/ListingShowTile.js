@@ -12,34 +12,34 @@ const ListingShow = (props) => {
         <div>
 
       <ul>
-        <li><h8> <b>Bed:</b> {props.bed}</h8></li>
-        <li><h8> <b>Bath:</b> {props.bath}</h8></li>
-        <li><h8> <b>Rent:</b> ${props.rent}</h8></li>
+        <li><h5> <b>Bed:</b> {props.bed}</h5></li>
+        <li><h5> <b>Bath:</b> {props.bath}</h5></li>
+        <li><h5> <b>Rent:</b> ${props.rent}</h5></li>
       </ul>
     </div>
 <div>
 
 
       <ul>
-        <li><h8><b> Heating:</b> {props.heating}</h8></li>
-        <li><h8><b> Cooling:</b> {props.cooling}</h8></li>
-      <li><h8><b> Parking Spaces:</b> {props.parkingspaces}</h8></li>
+        <li><h5><b> Heating:</b> {props.heating}</h5></li>
+        <li><h5><b> Cooling:</b> {props.cooling}</h5></li>
+      <li><h5><b> Parking Spaces:</b> {props.parkingspaces}</h5></li>
       </ul>
     </div>
 <div>
 
       <ul>
-        <li><h8><b> Building Style:</b> {props.buildingstyle}</h8></li>
-        <li><h8> <b>Sq Ft:</b> {props.sqft}</h8></li>
-        <li><h8><b> School District:</b> {props.schooldistrict}</h8></li>
+        <li><h5><b> Building Style:</b> {props.buildingstyle}</h5></li>
+        <li><h5> <b>Sq Ft:</b> {props.sqft}</h5></li>
+        <li><h5><b> School District:</b> {props.schooldistrict}</h5></li>
       </ul>
     </div>
 <div>
 
       <ul>
-        <li><h8><b> Smoking:</b> {(props.smoking)}</h8></li>
-        <li><h8><b> Pets:</b> {(props.pets)}</h8></li>
-        <li><h8><b> HUD:</b> {(props.hud)}</h8></li>
+        <li><h5><b> Smoking:</b> {(props.smoking)}</h5></li>
+        <li><h5><b> Pets:</b> {(props.pets)}</h5></li>
+        <li><h5><b> HUD:</b> {(props.hud)}</h5></li>
       </ul>
     </div>
 
