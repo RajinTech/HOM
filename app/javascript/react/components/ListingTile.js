@@ -15,6 +15,7 @@ const ListingTile = (props) => {
       </div>
       </div>
         <div className='bottom_half'>
+          <div></div>
           <div>
           <h5> <b>Bed:</b> {props.bed}</h5>
           <h5> <b>Bath:</b>  {props.bath}</h5>
@@ -23,6 +24,7 @@ const ListingTile = (props) => {
           <h5> <b>Sq Ft:</b>  {props.sqft}</h5>
           <h5> <b>Rent:</b>  ${props.rent}</h5>
       </div>
+      <div></div>
       </div>
       </div>
           <img className="listing_photo" src={props.pic}></img>
