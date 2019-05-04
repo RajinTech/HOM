@@ -83,7 +83,7 @@ input[type="submit"]:hover {
   display:flex;
   margin: auto;
   align-items: center;
-  background-color: #B9D8C2;
+  background-color: #F7FFF7;
   border-radius: 8px;
   border-width: 5px;
   border-color: #3C3C3C;
@@ -135,6 +135,8 @@ input[type="submit"]:hover {
 .top_half{
   height: 50%;
   float:top;
+  display: flex;
+  justify-content: center;
 }
 .bottom_half{
   height:50%;
@@ -145,7 +147,7 @@ input[type="submit"]:hover {
 .picture_gallery{
   display: flex;
   flex-direction: column;
-  background-color: #F7FFF7;
+  background-color: #B9D8C2;
   overflow-x: hidden;
   overflow-y: scroll;
   height: 440px;

@@ -33,8 +33,10 @@ class ListingFormContainer extends Component {
       hud: "",
       smoking: "",
       image: [],
+      error: false,
       submit_message: "",
-      field_message: ""
+      field_message: "",
+
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -44,9 +46,9 @@ class ListingFormContainer extends Component {
 
   handleChange(event) {
     if(event.target.value == ""){
-      this.setState({ field_message: "Cannot be blank" })
+      this.setState({ [event.target.name.error]: "Cannot be blank" })
     } else if (event.target.value !== "") {
-      this.setState({ field_message: "" })
+      this.setState({ [event.target.name.error]: "" })
     }
   this.setState({
     [event.target.name]: event.target.value,
@@ -118,7 +120,7 @@ class ListingFormContainer extends Component {
                 value={this.state.street}
               />
             </div>
-            <h6>{this.state.field_message}</h6>
+            {this.validationError(this.state.street)}
           </div>
           <div className="small-4 columns">
             <div>
