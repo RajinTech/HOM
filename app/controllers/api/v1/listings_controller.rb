@@ -22,6 +22,7 @@ class Api::V1::ListingsController < ApiController
     render json: Listing.find(params["id"]), serializer: ListingShowSerializer
   end
 
+
   private
   def location_params
     params.permit(:street, :unit, :city, :state, :zip)

@@ -50,6 +50,7 @@ class ListingShowContainer extends Component {
       .catch(error => console.error(`Error in fetch: ${error.message}`));
     }
 
+  
 render(){
 
   let listing = this.state.listing
@@ -115,6 +116,7 @@ render(){
             listingsall={this.state.listing}
           />
         </div>
+
 
       </div>
     </div>

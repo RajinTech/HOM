@@ -31,6 +31,9 @@ const ListingTile = (props) => {
       </Link>
     </div>
     <div className='triangle_right_small'></div>
+      <button className="button form-submit" onClick={props.onClickDelete}>
+    Delete
+  </button>
   </div>
 
   )
