@@ -50,9 +50,8 @@ class ListingShowContainer extends Component {
       .catch(error => console.error(`Error in fetch: ${error.message}`));
     }
 
-  
 render(){
-
+  let listing_id = this.props.params.id
   let listing = this.state.listing
   let picture_gallery = this.state.pictures.map((picture) => {
     return(
@@ -116,7 +115,6 @@ render(){
             listingsall={this.state.listing}
           />
         </div>
-
 
       </div>
     </div>

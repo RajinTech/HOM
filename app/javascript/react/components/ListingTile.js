@@ -34,6 +34,7 @@ const ListingTile = (props) => {
       <button className="button form-submit" onClick={props.onClickDelete}>
     Delete
   </button>
+<Link to={`/listings/${props.id}`}> Edit </Link>
   </div>
 
   )
