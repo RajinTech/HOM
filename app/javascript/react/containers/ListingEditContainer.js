@@ -32,7 +32,7 @@ class ListingEditContainer extends Component {
       cooling: this.props.amenities.cooling,
       hud: this.props.amenities.hud,
       smoking: this.props.amenities.smoking,
-      image: [],
+      image: [this.props.pictures],
       error: false,
       submit_message: "",
       field_message: "",
@@ -71,11 +71,12 @@ class ListingEditContainer extends Component {
 
   handleSubmit(event){
     event.preventDefault();
+    console.log("save");
     this.validateSubmit();
     let formPayload = this.state;
-    fetch('/api/v1/listing/${this.props.params.id}', {
+    fetch(`/api/v1/listings/${this.props.id}`, {
       credentials: 'same-origin',
-      method: 'POST',
+      method: 'PATCH',
       body: JSON.stringify(formPayload),
       headers: {
         'Accept': 'application/json',
@@ -101,7 +102,7 @@ class ListingEditContainer extends Component {
 
 
   render(){
-  console.log(this.state);
+
     return(
       <div>
       <div className="row">
@@ -206,6 +207,7 @@ class ListingEditContainer extends Component {
                 name="date_available"
                 onChange={this.handleChange}
                 value={this.state.date_available}
+                placeholder={this.state.date_available}
               />
             </div>
             {this.validationError(this.state.date_available)}
@@ -262,6 +264,7 @@ class ListingEditContainer extends Component {
                   name="hud"
                   onChange={this.handleChange}
                   value={this.state.hud}
+                  placeholder={this.state.hud}
                 />
               </div>
             </div>
@@ -332,6 +335,7 @@ class ListingEditContainer extends Component {
                     name="school_district"
                     onChange={this.handleChange}
                     value={this.state.school_district}
+                    placeholder={this.state.school_district}
                   />
                 </div>
               </div>
@@ -366,6 +370,7 @@ class ListingEditContainer extends Component {
                   name="image"
                   onChange={this.handleChange}
                   value={this.state.image}
+                  placeholder={this.state.image}
                 />
               </div>
             </div>
