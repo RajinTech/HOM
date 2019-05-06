@@ -73,9 +73,9 @@ class ListingEditContainer extends Component {
     event.preventDefault();
     this.validateSubmit();
     let formPayload = this.state;
-    fetch('/api/v1/listings/${this.props.params.id}', {
+    fetch('/api/v1/listing/${this.props.params.id}', {
       credentials: 'same-origin',
-      method: 'PATCH',
+      method: 'POST',
       body: JSON.stringify(formPayload),
       headers: {
         'Accept': 'application/json',
@@ -101,7 +101,6 @@ class ListingEditContainer extends Component {
 
 
   render(){
-
 console.log(this.state.street)
     return(
       <div>

@@ -119,7 +119,6 @@ render(){
             listingsall={this.state.listing}
           />
 
-
         </div>
         <ListingEditContainer
           listing={this.state}/>
