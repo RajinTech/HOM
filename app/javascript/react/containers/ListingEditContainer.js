@@ -8,11 +8,11 @@ import { browserHistory } from 'react-router'
 import React, { Component } from 'react';
 import Dropzone from 'react-dropzone';
 
-class ListingFormContainer extends Component {
+class ListingEditContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      street: "",
+      street: this.props.listing.listing.street,
       unit: "",
       city: "",
       state: "",
@@ -102,12 +102,12 @@ class ListingFormContainer extends Component {
 
   render(){
 
-
+console.log(this.state.street)
     return(
       <div>
       <div className="row">
         <div className="row"></div>
-      <div><h1>Add a New Listing</h1></div>
+      <div><h1>Edit Listing</h1></div>
       <form onSubmit={this.handleSubmit} className="">
         <fieldset><legend>Location</legend>
           <div className="row">
@@ -369,10 +369,10 @@ class ListingFormContainer extends Component {
           </div>
             </fieldset>
             <h6>{this.state.submit_message}</h6>
-        <input className="button" type="submit" value="Submit New Listing"/>
+        <input className="button" type="submit" value="Save"/>
       </form>
     </div>
   </div>
 )}}
 
-export default ListingFormContainer
+export default ListingEditContainer

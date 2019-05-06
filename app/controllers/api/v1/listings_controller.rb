@@ -18,6 +18,23 @@ class Api::V1::ListingsController < ApiController
     end
   end
 
+  def update
+    binding.pry
+    @listing = Listing.find(params['id'])
+    @listing.user = current_user
+    if @listing.save
+      @listing.feature = Feature.new(feature_params)
+      @listing.amenity = Amenity.new(amenity_params)
+      picture = Picture.new(pictures_params)
+      picture.listing = @listing
+      picture.save
+      render json: { listing: @listing }
+    else
+      render json: { error: @listing.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
+
   def show
     render json: Listing.find(params["id"]), serializer: ListingShowSerializer
   end

@@ -1,5 +1,6 @@
 import ListingShow from '../components/ListingShowTile'
 import MapShow from '../components/MapShow'
+import ListingEditContainer from './ListingEditContainer'
 import Map from '../components/Map'
 import React, { Component } from 'react';
 import { Link } from 'react-router';
@@ -12,11 +13,14 @@ class ListingShowContainer extends Component {
       amenities: {},
       features: {},
       pictures: [],
-      showtile: {}
+      showtile: {},
+      edit: false
     }
 
     this.is_false = this.is_false.bind(this)
+
   }
+
 
   is_false(s){
     if(s === false){
@@ -114,7 +118,11 @@ render(){
           <MapShow
             listingsall={this.state.listing}
           />
+
+
         </div>
+        <ListingEditContainer
+          listing={this.state}/>
 
       </div>
     </div>

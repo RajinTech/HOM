@@ -126,9 +126,6 @@ class ListingIndexContainer extends Component {
              </div>
            <div className='triangle_bottom'></div>
           </div>
-
-
-
         </div>
       </div>
   )}
