@@ -9,6 +9,7 @@ const TextTile = (props) => {
           onChange={props.onChange}
           name={props.name}
           value={props.content}
+          placeholder={props.placeholder}
         />
       </label>
     );

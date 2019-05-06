@@ -18,6 +18,9 @@ class ListingShowContainer extends Component {
     }
 
     this.is_false = this.is_false.bind(this)
+    this.editStart = this.editStart.bind(this)
+    this.editStop = this.editStop.bind(this)
+    this.editMode = this.editMode.bind(this)
 
   }
 
@@ -30,6 +33,19 @@ class ListingShowContainer extends Component {
     }
   }
 
+  editMode(form){
+    if(this.state.edit == true){
+      return(form)
+    }
+  }
+
+  editStart(){
+    this.setState({ edit: true })
+  }
+
+  editStop(){
+    this.setState({ edit: false })
+  }
   componentDidMount() {
     fetch(`/api/v1/listings/${this.props.params.id}`)
       .then(response => {
@@ -48,13 +64,22 @@ class ListingShowContainer extends Component {
           listing: responseData,
           features: responseData.features,
           pictures: responseData.pictures,
-          showtile: responseData.pictures[0].image})
-          console.log(responseData);
+          showtile: responseData.pictures[0].image,
+          edit: true })
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
     }
 
 render(){
+  let editForm = this.editMode(
+    <ListingEditContainer
+      listing={this.state.listing}
+      amenities={this.state.amenities}
+      features={this.state.features}
+      pictures={this.state.pictures}
+
+      />
+  )
   let listing_id = this.props.params.id
   let listing = this.state.listing
   let picture_gallery = this.state.pictures.map((picture) => {
@@ -120,8 +145,8 @@ render(){
           />
 
         </div>
-        <ListingEditContainer
-          listing={this.state}/>
+        {editForm}
+
 
       </div>
     </div>

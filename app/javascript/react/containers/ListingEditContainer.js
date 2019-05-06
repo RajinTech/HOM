@@ -12,26 +12,26 @@ class ListingEditContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      street: this.props.listing.listing.street,
-      unit: "",
-      city: "",
-      state: "",
-      zip: "",
-      bedrooms: 2,
-      bathrooms: 3,
-      rent: "",
-      sq_ft: "",
-      date_available: "",
-      lease_length: 12,
-      building_style: "",
-      parking_spaces: "",
-      pets: "",
-      zoning: "",
-      school_district: "",
-      heating: "",
-      cooling: "",
-      hud: "",
-      smoking: "",
+      street: this.props.listing.street,
+      unit: this.props.listing.unit,
+      city: this.props.listing.city,
+      state: this.props.listing.state,
+      zip: this.props.listing.zip,
+      bedrooms: this.props.features.bedrooms,
+      bathrooms: this.props.features.bathrooms,
+      rent: this.props.features.rent,
+      sq_ft: this.props.features.sq_ft,
+      date_available: this.props.features.date_available,
+      lease_length: this.props.features.lease_length,
+      building_style: this.props.amenities.building_style,
+      parking_spaces: this.props.amenities.parking_spaces,
+      pets: this.props.amenities.pets,
+      zoning: this.props.amenities.zoning,
+      school_district: this.props.amenities.school_district,
+      heating: this.props.amenities.heating,
+      cooling: this.props.amenities.cooling,
+      hud: this.props.amenities.hud,
+      smoking: this.props.amenities.smoking,
       image: [],
       error: false,
       submit_message: "",
@@ -101,7 +101,7 @@ class ListingEditContainer extends Component {
 
 
   render(){
-console.log(this.state.street)
+  console.log(this.state);
     return(
       <div>
       <div className="row">
@@ -117,6 +117,7 @@ console.log(this.state.street)
                 name="street"
                 onChange={this.handleChange}
                 value={this.state.street}
+                placeholder={this.state.street}
               />
             </div>
             {this.validationError(this.state.street)}
@@ -128,6 +129,7 @@ console.log(this.state.street)
                 name="unit"
                 onChange={this.handleChange}
                 value={this.state.unit}
+                placeholder={this.state.unit}
               />
             </div>
           </div>
@@ -140,6 +142,7 @@ console.log(this.state.street)
                 name="city"
                 onChange={this.handleChange}
                 value={this.state.city}
+                placeholder={this.state.city}
               />
             </div>
             {this.validationError(this.state.city)}
@@ -151,6 +154,7 @@ console.log(this.state.street)
                 name="state"
                 onChange={this.handleChange}
                 value={this.state.state}
+                placeholder={this.state.state}
               />
             </div>
             {this.validationError(this.state.state)}
@@ -162,6 +166,7 @@ console.log(this.state.street)
                 name="zip"
                 onChange={this.handleChange}
                 value={this.state.zip}
+                placeholder={this.state.zip}
               />
             </div>
             {this.validationError(this.state.zip)}
@@ -177,6 +182,7 @@ console.log(this.state.street)
                 name="rent"
                 onChange={this.handleChange}
                 value={this.state.rent}
+                placeholder={this.state.rent}
               />
             </div>
             {this.validationError(this.state.rent)}
@@ -188,6 +194,7 @@ console.log(this.state.street)
                 name="sq_ft"
                 onChange={this.handleChange}
                 value={this.state.sq_ft}
+                placeholder={this.state.sq_ft}
               />
             </div>
             {this.validationError(this.state.sq_ft)}
