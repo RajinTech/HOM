@@ -19,12 +19,17 @@ class Api::V1::ListingsController < ApiController
   end
 
   def update
-    binding.pry
     @listing = Listing.find(params['id'])
     @listing.user = current_user
+    @listing = (location_params)
+    binding.pry
     if @listing.save
-      @listing.feature = Feature.new(feature_params)
-      @listing.amenity = Amenity.new(amenity_params)
+      feature = Feature.new(feature_params)
+      feature.listing = @listing
+      feature.save
+      amenity = Amenity.new(amenity_params)
+      amenity.listing = @listing
+      amenity.save
       picture = Picture.new(pictures_params)
       picture.listing = @listing
       picture.save
