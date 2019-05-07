@@ -14,7 +14,6 @@ class ListingShowContainer extends Component {
       features: {},
       pictures: [],
       showtile: {},
-      edit: false
     }
 
     this.is_false = this.is_false.bind(this)
@@ -83,7 +82,7 @@ render(){
       id={this.props.params.id}
       />
   )
-  
+
   let listing_id = this.props.params.id
   let listing = this.state.listing
   let picture_gallery = this.state.pictures.map((picture) => {

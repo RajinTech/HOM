@@ -36,7 +36,7 @@ class ListingEditContainer extends Component {
       error: false,
       submit_message: "",
       field_message: "",
-      edit: true
+      edit: false
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -431,7 +431,7 @@ class ListingEditContainer extends Component {
 )
 }else if(this.state.edit == false ){
   return(
-    <div><h1>edit</h1></div>
+    <div onClick={this.editStart()}><h1>edit</h1></div>
   )
 }
 }}
