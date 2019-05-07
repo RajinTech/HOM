@@ -36,7 +36,7 @@ class ListingEditContainer extends Component {
       error: false,
       submit_message: "",
       field_message: "",
-
+      edit: false
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -58,7 +58,7 @@ class ListingEditContainer extends Component {
   })
 }
   validationError(field) {
-    if (field === "" && this.state.error == true ) {
+    if (field === "") {
       return (
         <h6> field cannot be blank</h6>
       )
@@ -67,7 +67,7 @@ class ListingEditContainer extends Component {
 
   validateSubmit() {
       this.setState({
-        submit_message: "Some required fields are empty",
+        submit_message: "Must log in as admin to alter listing",
         error: true })
   }
 
@@ -98,11 +98,16 @@ class ListingEditContainer extends Component {
       .then(body => {
         browserHistory.push(`/listings`);
       })
-      .catch(error => console.error(`Error in fetch: ${error.message}`));
+      .catch(error =>
+        {
+        console.error(`Error in fetch: ${error.message}`),
+            this.setState({ submit_message: 'Must be logged in as an admin to edit a listing' })
+
+    });
   }
 
   deleteListing() {
-  fetch(`/listings/${this.props.id}`, {
+  fetch(`/api/v1/listings/${this.props.id}`, {
     'method': 'DELETE',
     'headers': {
       'Accept': 'application/json',
@@ -127,10 +132,20 @@ class ListingEditContainer extends Component {
         browserHistory.push(`/listings`);
       }
     })
-    .catch(error => console.error(`Error in fetch: ${error.message}`));
+    .catch(error => {
+
+      console.error(`Error in fetch: ${error.message}`),
+      this.setState({ submit_message: 'Must be logged in as an admin to delete a listing'})
+    }
+  );
 }
+  componentDidMount(){
+    this.setState({ edit : true })
+  }
+
 
   render(){
+    if(this.state.edit == true){
     return(
       <div>
       <div className="row">
@@ -418,8 +433,11 @@ class ListingEditContainer extends Component {
         > Delete </button>
     </div>
   </div>
-)
-
-}}
+      )
+    } else{
+      return(null)
+    }
+  }
+}
 
 export default ListingEditContainer
