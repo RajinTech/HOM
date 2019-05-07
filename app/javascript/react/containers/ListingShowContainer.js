@@ -89,59 +89,56 @@ render(){
 
   return(
     <div className='main'>
-          <div className='container'>
-
-            <div className='left_half'>
-              <div className='container'>
-                <div className='listing_show_container'>
-
-                  <div className='triangle_left'></div>
-
-              <ListingShow
-                key={this.state.listing.id}
-                bath={this.state.features.bathrooms}
-                bed={this.state.features.bedrooms}
-                dateavailable={this.state.features.date_available}
-                id={this.state.features.id}
-                leaselength={this.state.features.lease_length}
-                rent={this.state.features.rent}
-                street={this.state.listing.street}
-                unit={this.state.listing.unit}
-                city={this.state.listing.city}
-                state={this.state.listing.state}
-                zip={this.state.listing.zip}
-                heating={this.state.amenities.heating}
-                cooling={this.state.amenities.cooling}
-                parkingspaces={this.state.amenities.parking_spaces}
-                buildingstyle={this.state.amenities.building_style}
-                sqft={this.state.features.sq_ft}
-                schooldistrict={this.state.amenities.school_district}
-                smoking={this.is_false(this.state.amenities.smoking)}
-                pets={this.is_false(this.state.amenities.pets)}
-                hud={this.is_false(this.state.amenities.hud)}
-              />
-              <div className='triangle_right'></div>
-            </div>
-          </div>
-
+          <div className='vertical_container'>
             <div className='listing_show_container'>
+
               <div className='triangle_left'></div>
-              <div className='picture_gallery'>
-                {picture_gallery}
-              </div>
-              <div className='triangle_right'></div>
-            </div>
-        </div>
 
-        <div className='right_half'>
-          <MapShow
-            listingsall={this.state.listing}
+          <ListingShow
+            key={this.state.listing.id}
+            bath={this.state.features.bathrooms}
+            bed={this.state.features.bedrooms}
+            dateavailable={this.state.features.date_available}
+            id={this.state.features.id}
+            leaselength={this.state.features.lease_length}
+            rent={this.state.features.rent}
+            street={this.state.listing.street}
+            unit={this.state.listing.unit}
+            city={this.state.listing.city}
+            state={this.state.listing.state}
+            zip={this.state.listing.zip}
+            heating={this.state.amenities.heating}
+            cooling={this.state.amenities.cooling}
+            parkingspaces={this.state.amenities.parking_spaces}
+            buildingstyle={this.state.amenities.building_style}
+            sqft={this.state.features.sq_ft}
+            schooldistrict={this.state.amenities.school_district}
+            smoking={this.is_false(this.state.amenities.smoking)}
+            pets={this.is_false(this.state.amenities.pets)}
+            hud={this.is_false(this.state.amenities.hud)}
           />
-
+          <div className='triangle_right'></div>
         </div>
-        {editForm}
+
+        <div className='listing_show_container'>
+          <div className='triangle_left'></div>
+          <div className='picture_gallery'>
+            {picture_gallery}
+          </div>
+          <div className='triangle_right'></div>
+        </div>
+
+        <MapShow
+          listingsall={this.state.listing}
+        />
+
+
+      {editForm}
+
       </div>
     </div>
+
+
           )
         }
       }
