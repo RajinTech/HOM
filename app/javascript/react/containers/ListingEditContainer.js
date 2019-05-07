@@ -40,6 +40,7 @@ class ListingEditContainer extends Component {
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.deleteListing = this.deleteListing.bind(this)
     this.validationError = this.validationError.bind(this)
     this.validateSubmit = this.validateSubmit.bind(this)
   }
@@ -99,6 +100,35 @@ class ListingEditContainer extends Component {
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
+  deleteListing() {
+  fetch(`/listings/${this.props.id}`, {
+    'method': 'DELETE',
+    'headers': {
+      'Accept': 'application/json',
+      'Content-Type': "application/json"
+    },
+    'body': JSON.stringify({
+      'listing': { 'id': this.props.id }
+    })
+  })
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+            error = new Error(errorMessage);
+        throw(error);
+      }
+    })
+    .then(response => response.json())
+    .then(body => {
+      if (body['successful']) {
+        browserHistory.push(`/listings`);
+      }
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
+}
+
 
   render(){
 
@@ -107,7 +137,7 @@ class ListingEditContainer extends Component {
       <div className="row">
         <div className="row"></div>
       <div><h1>Edit Listing</h1></div>
-      <form onSubmit={this.handleSubmit} className="">
+      <form onSubmit={this.handleSubmit} className="edit-form">
         <fieldset><legend>Location</legend>
           <div className="row">
             <div className="small-8 columns">
@@ -381,6 +411,10 @@ class ListingEditContainer extends Component {
             <h6>{this.state.submit_message}</h6>
         <input className="button" type="submit" value="Save"/>
       </form>
+      <button
+        onClick={this.deleteListing}
+        className='button'
+        > Delete </button>
     </div>
   </div>
 )}}
