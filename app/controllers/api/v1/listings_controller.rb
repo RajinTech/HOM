@@ -20,19 +20,12 @@ class Api::V1::ListingsController < ApiController
 
   def update
     @listing = Listing.find(params['id'])
-    @listing.user = current_user
-    @listing = (location_params)
+    @listing.update(location_params)
+    @listing.feature.update(feature_params)
+    @listing.amenity.update(amenity_params)
+    @listing.pictures.update(pictures_params)
     binding.pry
     if @listing.save
-      feature = Feature.new(feature_params)
-      feature.listing = @listing
-      feature.save
-      amenity = Amenity.new(amenity_params)
-      amenity.listing = @listing
-      amenity.save
-      picture = Picture.new(pictures_params)
-      picture.listing = @listing
-      picture.save
       render json: { listing: @listing }
     else
       render json: { error: @listing.errors.full_messages }, status: :unprocessable_entity
