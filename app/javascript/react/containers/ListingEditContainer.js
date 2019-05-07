@@ -36,22 +36,16 @@ class ListingEditContainer extends Component {
       error: false,
       submit_message: "",
       field_message: "",
-      edit: false
+
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this)
     this.deleteListing = this.deleteListing.bind(this)
     this.validationError = this.validationError.bind(this)
     this.validateSubmit = this.validateSubmit.bind(this)
-    this.editStart = this.editStart.bind(this)
-    this.editStop = this.editStop.bind(this)
+
   }
-  editStart(){
-    this.setState({ edit: true })
-  }
-  editStop(){
-    this.setState({ edit: false })
-  }
+
   handleChange(event) {
     if(event.target.value == ""){
       this.setState({ [event.target.name.error]: "Cannot be blank" })
@@ -136,11 +130,7 @@ class ListingEditContainer extends Component {
     .catch(error => console.error(`Error in fetch: ${error.message}`));
 }
 
-
   render(){
-    if(this.state.edit == true){
-
-
     return(
       <div>
       <div className="row">
@@ -429,11 +419,7 @@ class ListingEditContainer extends Component {
     </div>
   </div>
 )
-}else if(this.state.edit == false ){
-  return(
-    <div onClick={this.editStart()}><h1>edit</h1></div>
-  )
-}
+
 }}
 
 export default ListingEditContainer

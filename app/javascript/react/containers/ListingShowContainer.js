@@ -14,6 +14,7 @@ class ListingShowContainer extends Component {
       features: {},
       pictures: [],
       showtile: {},
+      edit: false,
     }
 
     this.is_false = this.is_false.bind(this)
@@ -66,23 +67,12 @@ class ListingShowContainer extends Component {
           features: responseData.features,
           pictures: responseData.pictures,
           showtile: responseData.pictures[0].image,
-          edit: true })
+           })
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
     }
 
 render(){
-
-  let editForm = this.editMode(
-    <ListingEditContainer
-      listing={this.state.listing}
-      amenities={this.state.amenities}
-      features={this.state.features}
-      pictures={this.state.showtile}
-      id={this.props.params.id}
-      />
-  )
-
   let listing_id = this.props.params.id
   let listing = this.state.listing
   let picture_gallery = this.state.pictures.map((picture) => {
@@ -96,65 +86,72 @@ render(){
       </div>
     )})
 
-  return(
-    <div className='main'>
-          <div className='container'>
 
-            <div className='left_half'>
-              <div className='container'>
-                <div className='listing_show_container'>
+  if(this.state.edit == true){
+    return(
+    <ListingEditContainer
+      listing={this.state.listing}
+      amenities={this.state.amenities}
+      features={this.state.features}
+      pictures={this.state.showtile}
+      id={this.props.params.id}
+      />
+  )
+  } else {
+    return(
+      <div className='main'>
+        <div className='container'>
+          <div className='left_half'>
+            <div className='container'>
+              <div className='listing_show_container'>
+                <div className='triangle_left'></div>
 
-                  <div className='triangle_left'></div>
+                <ListingShow
+                  key={listing.id}
+                  bath={this.state.features.bathrooms}
+                  bed={this.state.features.bedrooms}
+                  dateavailable={this.state.features.date_available}
+                  id={this.state.features.id}
+                  leaselength={this.state.features.lease_length}
+                  rent={this.state.features.rent}
+                  street={listing.street}
+                  unit={listing.unit}
+                  city={listing.city}
+                  state={listing.state}
+                  zip={listing.zip}
+                  heating={this.state.amenities.heating}
+                  cooling={this.state.amenities.cooling}
+                  parkingspaces={this.state.amenities.parking_spaces}
+                  buildingstyle={this.state.amenities.building_style}
+                  sqft={this.state.features.sq_ft}
+                  schooldistrict={this.state.amenities.school_district}
+                  smoking={this.is_false(this.state.amenities.smoking)}
+                  pets={this.is_false(this.state.amenities.pets)}
+                  hud={this.is_false(this.state.amenities.hud)}
+                />
+                <div className='triangle_right'></div>
+              </div>
+            </div>
 
-              <ListingShow
-                key={listing.id}
-                bath={this.state.features.bathrooms}
-                bed={this.state.features.bedrooms}
-                dateavailable={this.state.features.date_available}
-                id={this.state.features.id}
-                leaselength={this.state.features.lease_length}
-                rent={this.state.features.rent}
-                street={listing.street}
-                unit={listing.unit}
-                city={listing.city}
-                state={listing.state}
-                zip={listing.zip}
-                heating={this.state.amenities.heating}
-                cooling={this.state.amenities.cooling}
-                parkingspaces={this.state.amenities.parking_spaces}
-                buildingstyle={this.state.amenities.building_style}
-                sqft={this.state.features.sq_ft}
-                schooldistrict={this.state.amenities.school_district}
-                smoking={this.is_false(this.state.amenities.smoking)}
-                pets={this.is_false(this.state.amenities.pets)}
-                hud={this.is_false(this.state.amenities.hud)}
-              />
+            <div className='listing_show_container'>
+              <div className='triangle_left'></div>
+                <div className='picture_gallery'>
+                  {picture_gallery}
+                </div>
               <div className='triangle_right'></div>
             </div>
           </div>
 
-            <div className='listing_show_container'>
-              <div className='triangle_left'></div>
-              <div className='picture_gallery'>
-                {picture_gallery}
-              </div>
-              <div className='triangle_right'></div>
-            </div>
+          <div className='right_half'>
+            <MapShow
+              listingsall={this.state.listing}
+            />
+          </div>
         </div>
-
-        <div className='right_half'>
-          <MapShow
-            listingsall={this.state.listing}
-          />
-
-        </div>
-        {editForm}
-
-
       </div>
-    </div>
-          )
-        }
-      }
+      )
+    }
+  }
+}
 
 export default ListingShowContainer
