@@ -76,8 +76,6 @@ render(){
       />
   )
 
-  let listing_id = this.props.params.id
-  let listing = this.state.listing
   let picture_gallery = this.state.pictures.map((picture) => {
     return(
       <div className='listing_show_container'>
@@ -100,18 +98,18 @@ render(){
                   <div className='triangle_left'></div>
 
               <ListingShow
-                key={listing.id}
+                key={this.state.listing.id}
                 bath={this.state.features.bathrooms}
                 bed={this.state.features.bedrooms}
                 dateavailable={this.state.features.date_available}
                 id={this.state.features.id}
                 leaselength={this.state.features.lease_length}
                 rent={this.state.features.rent}
-                street={listing.street}
-                unit={listing.unit}
-                city={listing.city}
-                state={listing.state}
-                zip={listing.zip}
+                street={this.state.listing.street}
+                unit={this.state.listing.unit}
+                city={this.state.listing.city}
+                state={this.state.listing.state}
+                zip={this.state.listing.zip}
                 heating={this.state.amenities.heating}
                 cooling={this.state.amenities.cooling}
                 parkingspaces={this.state.amenities.parking_spaces}
