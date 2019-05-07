@@ -21,9 +21,7 @@ class ListingShowContainer extends Component {
     this.editStart = this.editStart.bind(this)
     this.editStop = this.editStop.bind(this)
     this.editMode = this.editMode.bind(this)
-
   }
-
 
   is_false(s){
     if(s === false){
@@ -36,6 +34,10 @@ class ListingShowContainer extends Component {
   editMode(form){
     if(this.state.edit == true){
       return(form)
+    } else if(this.state.edit == false){
+      return(
+        <h3>edit</h3>
+      )
     }
   }
 
@@ -79,9 +81,9 @@ render(){
       features={this.state.features}
       pictures={this.state.showtile}
       id={this.props.params.id}
-
       />
   )
+  
   let listing_id = this.props.params.id
   let listing = this.state.listing
   let picture_gallery = this.state.pictures.map((picture) => {
