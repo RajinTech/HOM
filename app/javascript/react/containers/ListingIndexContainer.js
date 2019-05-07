@@ -15,6 +15,7 @@ class ListingIndexContainer extends Component {
     this.roledexforward = this.roledexforward.bind(this)
     this.roledexback = this.roledexback.bind(this)
     this.current_Pic = this.current_Pic.bind(this)
+    this.deleteListing = this.deleteListing.bind(this)
   }
 
   roledexforward(){
@@ -54,8 +55,38 @@ class ListingIndexContainer extends Component {
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
+  deleteListing(listing_id) {
+  fetch(`/listings/${listing_id}`, {
+    'method': 'DELETE',
+    'headers': {
+      'Accept': 'application/json',
+      'Content-Type': "application/json"
+    },
+    'body': JSON.stringify({
+      'listing': { 'id': listing_id }
+    })
+  })
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+            error = new Error(errorMessage);
+        throw(error);
+      }
+    })
+    .then(response => response.json())
+    .then(body => {
+      if (body['successful']) {
+        this.componentWillMount()
+      }
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
+}
+
   render(){
     let listings_display = this.state.listings_all.map((listing) => {
+      let onClickDelete = () => {this.deleteListing(listing.id)}
       return (
           <ListingTile
             key={listing.id}
@@ -70,6 +101,7 @@ class ListingIndexContainer extends Component {
             sqft={listing.features.sq_ft}
             rent={listing.features.rent}
             pic={listing.pictures}
+            onClickDelete={onClickDelete}
           />
       )
     })
@@ -90,13 +122,10 @@ class ListingIndexContainer extends Component {
           <div className='right_half'>
             <div className='triangle_top'></div>
               <div className="listing_container">
-               {listings_display}
+               {listings_display.reverse()}
              </div>
            <div className='triangle_bottom'></div>
           </div>
-
-
-
         </div>
       </div>
   )}

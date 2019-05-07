@@ -12,6 +12,7 @@ const RangeField = (props) => {
           onChange={props.onChange}
           name={props.name}
           value={props.value}
+          placeholder={props.placeholder}
         />
       </label>
     </div>

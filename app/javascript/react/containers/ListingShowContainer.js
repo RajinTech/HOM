@@ -1,5 +1,6 @@
 import ListingShow from '../components/ListingShowTile'
 import MapShow from '../components/MapShow'
+import ListingEditContainer from './ListingEditContainer'
 import Map from '../components/Map'
 import React, { Component } from 'react';
 import { Link } from 'react-router';
@@ -12,10 +13,11 @@ class ListingShowContainer extends Component {
       amenities: {},
       features: {},
       pictures: [],
-      showtile: {}
+      showtile: {},
+      edit: false
     }
-
     this.is_false = this.is_false.bind(this)
+    this.editMode = this.editMode.bind(this)
   }
 
   is_false(s){
@@ -25,6 +27,17 @@ class ListingShowContainer extends Component {
       return s
     }
   }
+
+  editMode(form){
+    if(this.state.edit == true){
+      return(form)
+    } else if(this.state.edit == false){
+      return(
+        <h3>edit</h3>
+      )
+    }
+  }
+
 
   componentDidMount() {
     fetch(`/api/v1/listings/${this.props.params.id}`)
@@ -44,14 +57,26 @@ class ListingShowContainer extends Component {
           listing: responseData,
           features: responseData.features,
           pictures: responseData.pictures,
-          showtile: responseData.pictures[0].image})
-          console.log(responseData);
+          showtile: responseData.pictures[0].image,
+          edit: true
+
+           })
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
     }
 
 render(){
+  let editForm = this.editMode(
+    <ListingEditContainer
+      listing={this.state.listing}
+      amenities={this.state.amenities}
+      features={this.state.features}
+      pictures={this.state.showtile}
+      id={this.props.params.id}
+      />
+  )
 
+  let listing_id = this.props.params.id
   let listing = this.state.listing
   let picture_gallery = this.state.pictures.map((picture) => {
     return(
@@ -114,8 +139,9 @@ render(){
           <MapShow
             listingsall={this.state.listing}
           />
-        </div>
 
+        </div>
+        {editForm}
       </div>
     </div>
           )
