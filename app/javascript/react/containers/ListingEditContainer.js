@@ -36,15 +36,22 @@ class ListingEditContainer extends Component {
       error: false,
       submit_message: "",
       field_message: "",
-
+      edit: true
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this)
     this.deleteListing = this.deleteListing.bind(this)
     this.validationError = this.validationError.bind(this)
     this.validateSubmit = this.validateSubmit.bind(this)
+    this.editStart = this.editStart.bind(this)
+    this.editStop = this.editStop.bind(this)
   }
-
+  editStart(){
+    this.setState({ edit: true })
+  }
+  editStop(){
+    this.setState({ edit: false })
+  }
   handleChange(event) {
     if(event.target.value == ""){
       this.setState({ [event.target.name.error]: "Cannot be blank" })
@@ -131,13 +138,17 @@ class ListingEditContainer extends Component {
 
 
   render(){
+    if(this.state.edit == true){
+
 
     return(
       <div>
       <div className="row">
         <div className="row"></div>
-      <div><h1>Edit Listing</h1></div>
-      <form onSubmit={this.handleSubmit} className="edit-form">
+      <div>
+        <h1>Edit Listing</h1>
+      </div>
+      <form onSubmit={this.handleSubmit} className="">
         <fieldset><legend>Location</legend>
           <div className="row">
             <div className="small-8 columns">
@@ -417,6 +428,12 @@ class ListingEditContainer extends Component {
         > Delete </button>
     </div>
   </div>
-)}}
+)
+}else if(this.state.edit == false ){
+  return(
+    <div><h1>edit</h1></div>
+  )
+}
+}}
 
 export default ListingEditContainer

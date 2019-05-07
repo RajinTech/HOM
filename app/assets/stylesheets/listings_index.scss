@@ -260,20 +260,70 @@ input[type="submit"]:hover {
 ::-webkit-scrollbar-thumb:hover {
   box-shadow: 0 0 16px #49C1F9;
 }
+
+
+
+
+
+
+
+
+
+
+
+.editshow{
+  animation-name: editform;
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+}
+.editno{
+  transform: rotateY(80deg);
+}
+
+
+
+
+
 .edit-form{
-  transform: rotateY(60deg);
+  transform: rotateY(80deg);
 
 }
 
 .edit-form:active{
   animation-name: editform;
-  animation-fill-mode: forwards;
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
 
 }
 @keyframes editform {
   from {transform: rotateY(80deg);}
   to {transform: rotateY(0deg);}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media screen and (max-width: 991px) {
 /* start of large tablet styles */
 
