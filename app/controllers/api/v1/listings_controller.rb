@@ -24,7 +24,6 @@ class Api::V1::ListingsController < ApiController
     @listing.feature.update(feature_params)
     @listing.amenity.update(amenity_params)
     @listing.pictures.update(pictures_params)
-    binding.pry
     if @listing.save
       render json: { listing: @listing }
     else

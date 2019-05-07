@@ -122,7 +122,7 @@ class ListingIndexContainer extends Component {
           <div className='right_half'>
             <div className='triangle_top'></div>
               <div className="listing_container">
-               {listings_display}
+               {listings_display.reverse()}
              </div>
            <div className='triangle_bottom'></div>
           </div>

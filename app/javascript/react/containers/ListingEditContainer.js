@@ -71,7 +71,6 @@ class ListingEditContainer extends Component {
 
   handleSubmit(event){
     event.preventDefault();
-    console.log("save");
     this.validateSubmit();
     let formPayload = this.state;
     fetch(`/api/v1/listings/${this.props.id}`, {
