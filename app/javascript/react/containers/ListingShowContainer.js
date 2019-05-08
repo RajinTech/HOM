@@ -78,9 +78,11 @@ render(){
 
   let picture_gallery = this.state.pictures.map((picture) => {
     return(
-      <div className='listing_show_container'>
+      <div className='
+        horizontal_container
+        vertical_center'>
         <div className='triangle_left_small'></div>
-      <div className="listing_pictures">
+      <div className="bordered_listing_photo">
           <img src={picture.image}></img>
         </div>
         <div className='triangle_right_small'></div>

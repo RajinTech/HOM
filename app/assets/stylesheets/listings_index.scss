@@ -160,28 +160,8 @@ input[type="submit"]:hover {
   display: flex;
   justify-content: space-between;
 }
-.picture_gallery{
-  display: flex;
-  flex-direction: row;
-  background-color: #B9D8C2;
-  overflow-y: hidden;
-  overflow-x: scroll;
-  height: 440px;
-  width: 100%;
-  padding:2px;
-  border-radius: 8px;
-  border-width: 5px;
-  border-color: #3C3C3C;
-  min-width: 320px;
 
-}
-.listing_pictures{
-  border-radius: 8px;
-  border-width: 5px;
-  border-color: #3C3C3C;
-  height: 300px;
-  width: 300px;
-}
+
 
 .triangle_top{
   width: 0;
@@ -239,10 +219,8 @@ input[type="submit"]:hover {
   border-width: thick;
   background-color: #B9D8C2;
   overflow:hidden;
-  height: 59%;
-  width: 100%;
-  min-width: 320px;
-
+  height: 440px;
+  width: 440px;
 }
 .map_tile{
   height: 100%;

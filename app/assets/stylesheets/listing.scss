@@ -20,8 +20,36 @@
 
 .vertical_center{
   align-items: center;
+  margin:auto;
 }
 
 .horizontal_center{
   justify-content: center;
+  margin:auto;
+}
+
+.overflow_x_scroll{
+  overflow-x: scroll;
+}
+.picture_gallery{
+  display: flex;
+  flex-direction: row;
+  background-color: #B9D8C2;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  height: 440px;
+  width: 440px;
+  padding:2px;
+  border-radius: 8px;
+  border-width: 5px;
+  border-color: #3C3C3C;
+  min-width: 320px;
+}
+
+.bordered_listing_photo{
+  border-radius: 8px;
+  border-width: 5px;
+  border-color: #3C3C3C;
+  height: 300px;
+  width: 300px;
 }
