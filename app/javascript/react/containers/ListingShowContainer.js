@@ -80,7 +80,7 @@ render(){
     return(
       <div className='listing_show_container'>
         <div className='triangle_left_small'></div>
-      <div className="picture">
+      <div className="listing_pictures">
           <img src={picture.image}></img>
         </div>
         <div className='triangle_right_small'></div>
