@@ -92,7 +92,7 @@ render(){
       <div className='vertical_container'>
 
 
-        <div className='listing_show_container'>
+        <div className='horizontal_container'>
           <div className='triangle_left'></div>
             <ListingShow
               key={this.state.listing.id}
@@ -120,7 +120,7 @@ render(){
           <div className='triangle_right'></div>
         </div>
 
-        <div className='listing_show_container'>
+        <div className='horizontal_container'>
           <div className='triangle_left'></div>
             <div className='picture_gallery'>
             {picture_gallery}
