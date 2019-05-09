@@ -22,7 +22,7 @@ class MapShow extends Component {
 
   render() {
     return (
-      <div className='vertical_container horizontal_center'>
+      <div className='vertical_container'>
         <div className='triangle_top'></div>
 
         <InitialMap
