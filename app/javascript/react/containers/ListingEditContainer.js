@@ -146,6 +146,7 @@ class ListingEditContainer extends Component {
 
   render(){
     if(this.state.edit == true){
+
     return(
       <div>
       <div className="row">

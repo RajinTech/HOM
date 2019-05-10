@@ -14,11 +14,13 @@ class ListingShowContainer extends Component {
       features: {},
       pictures: [],
       showtile: {},
-      edit: false
+      edit: false,
+      active: true
     }
     this.is_false = this.is_false.bind(this)
     this.editMode = this.editMode.bind(this)
   }
+
 
   is_false(s){
     if(s === false){
@@ -33,7 +35,7 @@ class ListingShowContainer extends Component {
       return(form)
     } else if(this.state.edit == false){
       return(
-        <h3>edit</h3>
+        <h1>edit</h1>
       )
     }
   }
@@ -58,7 +60,7 @@ class ListingShowContainer extends Component {
           features: responseData.features,
           pictures: responseData.pictures,
           showtile: responseData.pictures[0].image,
-          edit: true
+          edit: false
 
            })
       })
