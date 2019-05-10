@@ -78,9 +78,9 @@ render(){
 
   let picture_gallery = this.state.pictures.map((picture) => {
     return(
-      <div className='horizontal_container'>
+      <div className='listing_show_container'>
         <div className='triangle_left_small'></div>
-      <div className="bordered_listing_photo">
+      <div className="picture">
           <img src={picture.image}></img>
         </div>
         <div className='triangle_right_small'></div>
@@ -92,7 +92,7 @@ render(){
       <div className='vertical_container'>
 
 
-        <div className='horizontal_container'>
+        <div className='listing_show_container'>
           <div className='triangle_left'></div>
             <ListingShow
               key={this.state.listing.id}
@@ -120,7 +120,7 @@ render(){
           <div className='triangle_right'></div>
         </div>
 
-        <div className='horizontal_container'>
+        <div className='listing_show_container'>
           <div className='triangle_left'></div>
             <div className='picture_gallery'>
             {picture_gallery}

@@ -10,8 +10,8 @@ user_list = [
   { first_name: 'Stephen', last_name: 'Baker', email: "germany@gmail.com", password: "germany", password_confirmation: "germany", role: "tenant"},
   { first_name: 'Nicholas', last_name: 'Baroni', email: "france@gmail.com", password: "france", password_confirmation: "france", role: "tenant"},
   { first_name: 'Anthony', last_name: 'Garrison', email: "belgium@gmail.com", password: "belgium", password_confirmation: "belgium", role: "tenant"},
-  { first_name: 'Koby', last_name: 'Marble', email: "netherlands@gmail.com", password: "netherlands", password_confirmation: "netherlands", role: "landlord"},
-  { first_name: 'Brian', last_name: 'Ford', email: "bford@gmail.com", password: "brianford", password_confirmation: "brianford", role: "admin"}
+  { first_name: 'Koby', last_name: 'Marble', email: "netherlands@gmail.com", password: "netherlands", password_confirmation: "netherlands", role: "landlord", profile_photo: "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-05+at+8.19.50+PM.png"},
+  { first_name: 'Brian', last_name: 'Ford', email: "bford@gmail.com", password: "brianford", password_confirmation: "brianford", role: "admin", profile_photo: "https://s3.amazonaws.com/hom-development/Screen+Shot+2019-02-05+at+8.19.50+PM.png"}
 ]
 
 user_list.each do |attributes|

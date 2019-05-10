@@ -1,0 +1,82 @@
+.main {
+  width: 90%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: #49C1F9;
+  z-index: 10;
+  margin:auto;
+
+}
+
+.vertical_container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin:auto;
+}
+
+.horizontal_container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin:auto;
+  justify-content: center;
+}
+
+.overflow_x_scroll{
+  overflow-x: scroll;
+}
+
+.listing_show{
+  display:flex;
+  margin: auto;
+  align-items: center;
+  background-color: #F7FFF7;
+  border-radius: 8px;
+  border-width: 5px;
+  border-color: #3C3C3C;
+  padding: 5px;
+}
+.picture_gallery{
+  display: flex;
+  flex-direction: row;
+  background-color: #B9D8C2;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  padding:2px;
+  max-width: 600px;
+  border-radius: 8px;
+  border-width: 5px;
+  border-color: #3C3C3C;
+}
+
+.bordered_listing_photo{
+  border-radius: 8px;
+  border-width: 5px;
+  border-color: #3C3C3C;
+  height: auto;
+  width: 450px;
+}
+.map_container{
+  border-color: #3C3C3C;
+  border-radius: 5px;
+  border-width: thick;
+  background-color: #B9D8C2;
+  overflow:hidden;
+  height: 600px;
+  width: 600px;
+}
+.button{
+  font-family: cursive;
+  color: #3C3C3C;
+  background-color: #F7FFF7;
+  border-width: 5px;
+  border-color: #3C3C3C;
+}
+.button:hover{
+  color: #F7FFF7;
+  background-color: #3C3C3C;
+  border-width: 5px;
+  border-color: #3C3C3C;
+}
