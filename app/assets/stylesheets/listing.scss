@@ -14,7 +14,6 @@
   flex-direction: column;
   justify-content: center;
   margin:auto;
-
 }
 
 .horizontal_container{
@@ -24,9 +23,18 @@
   margin:auto;
 }
 
-
 .overflow_x_scroll{
   overflow-x: scroll;
+}
+.listing_show{
+  display:flex;
+  margin: auto;
+  align-items: center;
+  background-color: #F7FFF7;
+  border-radius: 8px;
+  border-width: 5px;
+  border-color: #3C3C3C;
+  padding: 5px;
 }
 .picture_gallery{
   display: flex;
@@ -35,7 +43,7 @@
   overflow-y: hidden;
   overflow-x: scroll;
   padding:2px;
-  width:auto;
+  max-width: 600px;
   border-radius: 8px;
   border-width: 5px;
   border-color: #3C3C3C;
@@ -47,6 +55,17 @@
   border-color: #3C3C3C;
   height: auto;
   width: 450px;
+}
+.map_container{
+  border-color: #3C3C3C;
+  border-radius: 5px;
+  border-width: thick;
+  background-color: #B9D8C2;
+  overflow:hidden;
+  height: 100%;
+  width: 100%;
+  min-height: 600px;
+  min-width: 600px;
 }
 .button{
   font-family: cursive;

@@ -86,16 +86,7 @@ input[type="submit"]:hover {
   margin: auto;
 }
 
-.listing_show{
-  display:flex;
-  margin: auto;
-  align-items: center;
-  background-color: #F7FFF7;
-  border-radius: 8px;
-  border-width: 5px;
-  border-color: #3C3C3C;
-  padding: 5px;
-}
+
 .listing_show_container{
   display:flex;
   margin: auto;
@@ -203,15 +194,7 @@ input[type="submit"]:hover {
   margin-top: -30px;
   margin-bottom: -75px;
 }
-.map_container{
-  border-color: #3C3C3C;
-  border-radius: 5px;
-  border-width: thick;
-  background-color: #B9D8C2;
-  overflow:hidden;
-  height: 440px;
-  width: 440px;
-}
+
 .map_tile{
   height: 100%;
   width: 100%;
