@@ -76,6 +76,7 @@ class ListingShowContainer extends Component {
 
 render(){
   let editForm = this.editMode(
+    <div>
     <ListingEditContainer
       listing={this.state.listing}
       amenities={this.state.amenities}
@@ -83,6 +84,7 @@ render(){
       pictures={this.state.showtile}
       id={this.props.params.id}
       />
+  </div>
   )
 
   let picture_gallery = this.state.pictures.map((picture) => {
