@@ -425,12 +425,15 @@ class ListingEditContainer extends Component {
           </div>
             </fieldset>
             <h6>{this.state.submit_message}</h6>
+
+      <div className='horizontal_container'>
         <input className="button" type="submit" value="Save"/>
+        <button
+          onClick={this.deleteListing}
+          className='button'
+          > Delete </button>
+        </div>
       </form>
-      <button
-        onClick={this.deleteListing}
-        className='button'
-        > Delete </button>
     </div>
   </div>
       )
