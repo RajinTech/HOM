@@ -145,7 +145,7 @@ class ListingEditContainer extends Component {
 
 
   render(){
-    if(this.state.edit == true){
+
 
     return(
       <div>
@@ -438,9 +438,7 @@ class ListingEditContainer extends Component {
     </div>
   </div>
       )
-    } else{
-      return(null)
-    }
+    
   }
 }
 

@@ -49,7 +49,7 @@ class ListingShowContainer extends Component {
       )
     } else if(this.state.active == false){
       return(
-          <h1 onClick={this.handleClick}>edit</h1>
+          <h1>edit</h1>
       )
     }
   }
