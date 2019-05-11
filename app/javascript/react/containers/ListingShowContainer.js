@@ -36,12 +36,20 @@ class ListingShowContainer extends Component {
     }
   }
 
-  editMode(form){
-    if(this.state.edit == true){
-      return(form)
-    } else if(this.state.edit == false){
+  editMode(){
+    if(this.state.active == true){
       return(
-        <h1 onClick={this.handleClick}>edit</h1>
+        <ListingEditContainer
+          listing={this.state.listing}
+          amenities={this.state.amenities}
+          features={this.state.features}
+          pictures={this.state.showtile}
+          id={this.props.params.id}
+          />
+      )
+    } else if(this.state.active == false){
+      return(
+          <h1 onClick={this.handleClick}>edit</h1>
       )
     }
   }
@@ -75,21 +83,13 @@ class ListingShowContainer extends Component {
     }
 
 render(){
-  let editForm = this.editMode(
-    <ListingEditContainer
-      listing={this.state.listing}
-      amenities={this.state.amenities}
-      features={this.state.features}
-      pictures={this.state.showtile}
-      id={this.props.params.id}
-      />
-  )
+
 
   let picture_gallery = this.state.pictures.map((picture) => {
     return(
       <div className='horizontal_container'>
         <div className='triangle_left_small'></div>
-      <div className="bordered_listing_photo">
+          <div className="bordered_listing_photo">
           <img src={picture.image}></img>
         </div>
         <div className='triangle_right_small'></div>
@@ -140,8 +140,8 @@ render(){
         <MapShow
           listingsall={this.state.listing}
         />
-      
-        {editForm}
+
+      {this.editMode()}
 
       </div>
     </div>
