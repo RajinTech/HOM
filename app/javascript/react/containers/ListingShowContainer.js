@@ -243,7 +243,7 @@ class ListingShowContainer extends Component {
     }
 
 render(){
-
+  
 
   let picture_gallery = this.state.pictures.map((picture) => {
     return(
