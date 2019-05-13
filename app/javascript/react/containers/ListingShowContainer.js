@@ -90,7 +90,7 @@ class ListingShowContainer extends Component {
     event.preventDefault();
     this.validateSubmit();
     let formPayload = this.state;
-    fetch(`/api/v1/listings/${this.props.id}`, {
+    fetch(`/api/v1/listings/${this.state.id}`, {
       credentials: 'same-origin',
       method: 'PATCH',
       body: JSON.stringify(formPayload),
