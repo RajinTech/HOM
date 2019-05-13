@@ -15,7 +15,34 @@ class ListingShowContainer extends Component {
       pictures: [],
       showtile: {},
       edit: true,
-      active: true
+      active: true,
+
+
+      street: "",
+      unit: "",
+      city: "",
+      state: "",
+      zip: "",
+      bedrooms: "",
+      bathrooms: "",
+      rent: "",
+      sq_ft: "",
+      date_available: "",
+      lease_length: "",
+      building_style: "",
+      parking_spaces: "",
+      pets: "",
+      zoning: "",
+      school_district: "",
+      heating: "",
+      cooling: "",
+      hud: "",
+      smoking: "",
+      image: [],
+      error: false,
+      submit_message: "",
+      field_message: "",
+
     }
     this.is_false = this.is_false.bind(this)
     this.editMode = this.editMode.bind(this)
@@ -84,6 +111,15 @@ class ListingShowContainer extends Component {
 
 render(){
 
+  let editForm = this.editMode(
+    <ListingEditContainer
+      listing={this.state.listing}
+      amenities={this.state.amenities}
+      features={this.state.features}
+      pictures={this.state.showtile}
+      id={this.props.params.id}
+      />
+  )
 
   let picture_gallery = this.state.pictures.map((picture) => {
     return(
@@ -141,7 +177,7 @@ render(){
           listingsall={this.state.listing}
         />
 
-      {this.editMode()}
+
 
       </div>
     </div>

@@ -14,11 +14,19 @@ class ListingShowContainer extends Component {
       features: {},
       pictures: [],
       showtile: {},
-      edit: false
+      edit: true,
+      active: true
     }
     this.is_false = this.is_false.bind(this)
     this.editMode = this.editMode.bind(this)
+    this.handleClick = this.handleClick.bind(this);
   }
+
+  handleClick() {
+    this.setState({
+        active: !this.state.active
+    });
+}
 
   is_false(s){
     if(s === false){
@@ -33,7 +41,7 @@ class ListingShowContainer extends Component {
       return(form)
     } else if(this.state.edit == false){
       return(
-        <h3>edit</h3>
+          <h1 onClick={this.handleClick}>edit</h1>
       )
     }
   }
@@ -58,7 +66,8 @@ class ListingShowContainer extends Component {
           features: responseData.features,
           pictures: responseData.pictures,
           showtile: responseData.pictures[0].image,
-          edit: true
+          edit: false,
+          active: false
 
            })
       })
@@ -78,9 +87,9 @@ render(){
 
   let picture_gallery = this.state.pictures.map((picture) => {
     return(
-      <div className='listing_show_container'>
+      <div className='horizontal_container'>
         <div className='triangle_left_small'></div>
-      <div className="picture">
+      <div className="bordered_listing_photo">
           <img src={picture.image}></img>
         </div>
         <div className='triangle_right_small'></div>
@@ -92,7 +101,7 @@ render(){
       <div className='vertical_container'>
 
 
-        <div className='listing_show_container'>
+        <div className='horizontal_container'>
           <div className='triangle_left'></div>
             <ListingShow
               key={this.state.listing.id}
@@ -120,7 +129,7 @@ render(){
           <div className='triangle_right'></div>
         </div>
 
-        <div className='listing_show_container'>
+        <div className='horizontal_container'>
           <div className='triangle_left'></div>
             <div className='picture_gallery'>
             {picture_gallery}
@@ -132,7 +141,7 @@ render(){
           listingsall={this.state.listing}
         />
 
-        {editForm}
+        editForm
 
       </div>
     </div>
