@@ -106,17 +106,17 @@ class ListingShowContainer extends Component {
   editMode(form){
     if(this.state.active == true){
       return(
-        <div>
+        <div className='vertical_container'>
           <button className='button' onClick={this.handleClick}>View Listing</button>
+          {form}
 
-        <div>
-        {form}
-      </div>
     </div>
       )
     } else if(this.state.active == false && this.state.role == 'admin'){
       return(
+        <div className='vertical_container'>
           <button className='button' onClick={this.handleClick}>edit</button>
+        </div>
       )
     }
   }
@@ -247,28 +247,6 @@ class ListingShowContainer extends Component {
     }
 
 render(){
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   let editPage = this.editMode(
             <div>
@@ -562,39 +540,6 @@ render(){
         </div>
   )
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   let picture_gallery = this.state.pictures.map((picture) => {
     return(
       <div className='horizontal_container'>
@@ -614,27 +559,27 @@ render(){
         <div className='horizontal_container'>
           <div className='triangle_left'></div>
             <ListingShow
-              key={this.state.listing.id}
-              bath={this.state.features.bathrooms}
-              bed={this.state.features.bedrooms}
-              dateavailable={this.state.features.date_available}
-              id={this.state.features.id}
-              leaselength={this.state.features.lease_length}
-              rent={this.state.features.rent}
-              street={this.state.listing.street}
-              unit={this.state.listing.unit}
-              city={this.state.listing.city}
-              state={this.state.listing.state}
-              zip={this.state.listing.zip}
-              heating={this.state.amenities.heating}
-              cooling={this.state.amenities.cooling}
-              parkingspaces={this.state.amenities.parking_spaces}
-              buildingstyle={this.state.amenities.building_style}
+              key={this.state.id}
+              bath={this.state.bathrooms}
+              bed={this.state.bedrooms}
+              dateavailable={this.state.date_available}
+              id={this.state.id}
+              leaselength={this.state.lease_length}
+              rent={this.state.rent}
+              street={this.state.street}
+              unit={this.state.unit}
+              city={this.state.city}
+              state={this.state.state}
+              zip={this.state.zip}
+              heating={this.state.heating}
+              cooling={this.state.cooling}
+              parkingspaces={this.state.parking_spaces}
+              buildingstyle={this.state.building_style}
               sqft={this.state.features.sq_ft}
-              schooldistrict={this.state.amenities.school_district}
-              smoking={this.is_false(this.state.amenities.smoking)}
-              pets={this.is_false(this.state.amenities.pets)}
-              hud={this.is_false(this.state.amenities.hud)}
+              schooldistrict={this.state.school_district}
+              smoking={this.is_false(this.state.smoking)}
+              pets={this.is_false(this.state.pets)}
+              hud={this.is_false(this.state.hud)}
             />
           <div className='triangle_right'></div>
         </div>
@@ -647,11 +592,11 @@ render(){
           <div className='triangle_right'></div>
         </div>
 
-        <div>{editPage}</div>
 
         <MapShow
           listingsall={this.state.listing}
         />
+      {editPage}
 
       </div>
     </div>
