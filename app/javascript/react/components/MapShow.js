@@ -1,7 +1,10 @@
 import {withScriptjs, withGoogleMap, Marker, GoogleMap} from "react-google-maps";
 import React, { Component } from "react";
 
+
+
 const InitialMap = withGoogleMap(props => {
+  
   return(
     <GoogleMap
       ref={props.onMapLoad}
