@@ -49,6 +49,7 @@ class ListingShowContainer extends Component {
       error: false,
       submit_message: "",
       field_message: "",
+      role:""
 
     }
     this.is_false = this.is_false.bind(this)
@@ -81,10 +82,12 @@ class ListingShowContainer extends Component {
   }
 
   validateSubmit() {
+    if(this.state.role !== 'admin'){
       this.setState({
         submit_message: "Must log in as admin to alter listing",
         error: true })
-  }
+      }
+    }
 
   handleClick(event) {
     this.setState({
@@ -111,7 +114,7 @@ class ListingShowContainer extends Component {
       </div>
     </div>
       )
-    } else if(this.state.active == false){
+    } else if(this.state.active == false && this.state.role == 'admin'){
       return(
           <button className='button' onClick={this.handleClick}>edit</button>
       )
@@ -204,6 +207,7 @@ class ListingShowContainer extends Component {
       })
       .then((response) => response.json())
       .then((responseData) => {
+        debugger;
         this.setState({
           amenities: responseData.amenities,
           listing: responseData,
@@ -235,6 +239,7 @@ class ListingShowContainer extends Component {
           hud: responseData.amenities.hud,
           smoking: responseData.amenities.smoking,
           image: [responseData.amenities.building_style],
+          role: responseData.role
 
            })
       })
