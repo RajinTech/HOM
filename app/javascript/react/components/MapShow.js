@@ -1,12 +1,15 @@
 import {withScriptjs, withGoogleMap, Marker, GoogleMap} from "react-google-maps";
 import React, { Component } from "react";
 
+
+
 const InitialMap = withGoogleMap(props => {
+
   return(
     <GoogleMap
       ref={props.onMapLoad}
       zoom={13}
-      center={{ lat: 42.458542, lng: -75.064056 }}
+      center={props.center}
       onClick={props.onMapClick}
     >
       {props.children}
