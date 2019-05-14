@@ -1,9 +1,13 @@
 class Api::V1::ListingsController < ApiController
+
+  before_action :authorize_user, except: [:index, :show]
+
   def index
      render json: Listing.all
   end
 
   def create
+    binding.pry
     @listing = Listing.new(location_params)
     @listing.user = current_user
     if @listing.save
@@ -17,8 +21,6 @@ class Api::V1::ListingsController < ApiController
       render json: { error: @listing.errors.full_messages }, status: :unprocessable_entity
     end
   end
-
-
 
   def destroy
     target_id = destroy_listing_params.to_i
@@ -89,6 +91,13 @@ class Api::V1::ListingsController < ApiController
 
   def destroy_listing_params
     params.require(:id)
+  end
+
+  def authorize_user
+    if !user_signed_in? || !current_user.admin?
+      flash[:notice] = "You do not have access to this page."
+      redirect_to root_path
+    end
   end
 
 end
