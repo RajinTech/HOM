@@ -7,6 +7,7 @@ class Api::V1::ListingsController < ApiController
   end
 
   def create
+    binding.pry
     @listing = Listing.new(location_params)
     @listing.user = current_user
     if @listing.save
@@ -93,7 +94,7 @@ class Api::V1::ListingsController < ApiController
   end
 
   def authorize_user
-    if !user_signed_in || !current_user.admin?
+    if !user_signed_in? || !current_user.admin?
       flash[:notice] = "You do not have access to this page."
       redirect_to root_path
     end
