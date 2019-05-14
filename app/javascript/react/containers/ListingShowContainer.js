@@ -20,8 +20,6 @@ class ListingShowContainer extends Component {
       amenities: {},
       features: {},
       pictures: [],
-      showtile: {},
-      edit: false,
       active: false,
 
       street: "",
@@ -209,11 +207,6 @@ class ListingShowContainer extends Component {
       .then((responseData) => {
         debugger;
         this.setState({
-          amenities: responseData.amenities,
-          listing: responseData,
-          features: responseData.features,
-          pictures: responseData.pictures,
-          showtile: responseData.pictures[0].image,
 
           street: responseData.street,
           city: responseData.city,
@@ -221,6 +214,8 @@ class ListingShowContainer extends Component {
           state: responseData.state,
           zip: responseData.zip,
           id: responseData.id,
+          latitude: responseData.latitude,
+          longitude: responseData.longitude,
 
           bedrooms: responseData.features.bedrooms,
           bathrooms: responseData.features.bathrooms,
@@ -238,7 +233,10 @@ class ListingShowContainer extends Component {
           cooling: responseData.amenities.cooling,
           hud: responseData.amenities.hud,
           smoking: responseData.amenities.smoking,
-          image: [responseData.amenities.building_style],
+          image: [],
+
+          pictures: responseData.pictures,
+
           role: responseData.role
 
            })
@@ -594,7 +592,10 @@ render(){
 
 
         <MapShow
-          listingsall={this.state.listing}
+          latitude={this.state.latitude}
+          longitude={this.state.longitude}
+          id={this.state.id}
+          street={this.state.street}
         />
       {editPage}
 

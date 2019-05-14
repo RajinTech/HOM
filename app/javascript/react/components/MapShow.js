@@ -28,12 +28,12 @@ class MapShow extends Component {
         <InitialMap
           containerElement={<div className="map_container" />}
           mapElement={<div style={{ height: `100%` }} />}
-          center={{ lat: parseFloat(this.props.listingsall.latitude), lng: parseFloat(this.props.listingsall.longitude) }}
+          center={{ lat: parseFloat(this.props.latitude), lng: parseFloat(this.props.longitude) }}
         >
         <Marker
-        key={this.props.listingsall.id}
-        title={this.props.listingsall.street}
-        position={{ lat: parseFloat(this.props.listingsall.latitude), lng: parseFloat(this.props.listingsall.longitude) }}
+        key={this.props.id}
+        title={this.props.street}
+        position={{ lat: parseFloat(this.props.latitude), lng: parseFloat(this.props.longitude) }}
         />
         </InitialMap>
         <div className='triangle_bottom'></div>
