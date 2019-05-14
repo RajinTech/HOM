@@ -104,7 +104,7 @@ class ListingShowContainer extends Component {
     if(this.state.active == true){
       return(
         <div>
-          <h1 onClick={this.handleClick}>edit</h1>
+          <button onClick={this.handleClick}>View Listing</button>
 
         <div>
         {form}
@@ -113,7 +113,7 @@ class ListingShowContainer extends Component {
       )
     } else if(this.state.active == false){
       return(
-          <h1 onClick={this.handleClick}>edit</h1>
+          <button onClick={this.handleClick}>edit</button>
       )
     }
   }
