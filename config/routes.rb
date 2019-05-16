@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   namespace 'api' do
     namespace 'v1' do
+      post 'listings/search', to: 'listings#search'
       resources :listings, only: [:index, :create, :show, :destroy, :update]
       resources :amenities, only: [:show, :index, :create]
       resources :pictures, only: [:show, :index, :create]
