@@ -2,6 +2,7 @@ import ListingTile from '../components/ListingTile'
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import Map from '../components/Map'
+import SearchBar from '../components/SearchBar'
 
 
 class ListingIndexContainer extends Component {
@@ -58,6 +59,7 @@ class ListingIndexContainer extends Component {
       <div className='main'>
 
       <img className='rentals_logo' src='https://s3.amazonaws.com/hom-development/rentals_logo.png'></img>
+      <SearchBar/>
       <div className='vertical_container'>
 
             <div className='triangle_top'></div>
