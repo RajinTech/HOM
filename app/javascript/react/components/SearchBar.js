@@ -30,7 +30,6 @@ class SearchBar extends Component {
     })
     .then(response => response.json())
     .then(body => {
-      debugger;
       this.setState({ listings: body })
     })
   }
@@ -38,7 +37,7 @@ class SearchBar extends Component {
   render() {
     const searchedListings = this.state.listings.map(listing => {
       return(
-        <li>{listing.street}</li>
+        <li>{listing.street}{listing.unit}</li>
       )
     })
     return(
@@ -47,7 +46,7 @@ class SearchBar extends Component {
         <label>Search</label>
         <input type='text' name='searchString' value={this.state.searchString} onChange={this.handleChange} />
 
-        <input type='submit' value='Submit' />
+        <input type='submit' value='Search' />
       </form>
       <ul>{searchedListings}</ul>
     </div>
