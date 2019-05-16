@@ -4,7 +4,7 @@ class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      donutShops: [],
+      listings: [],
       searchString: ''
     }
 
@@ -19,7 +19,19 @@ class SearchBar extends Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    console.log(`Form submitted: ${this.state.searchString}`);
+    const body = JSON.stringify({
+      search_string: this.state.searchString
+    })
+    fetch('/api/v1/listings/search.json', {
+      method: 'POST',
+      body: body,
+      credentials: 'same-origin',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
+    })
+    .then(response => response.json())
+    .then(body => {
+      this.setState({ listings: body })
+    })
   }
 
   render() {
