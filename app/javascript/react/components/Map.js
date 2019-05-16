@@ -22,7 +22,7 @@ class Map extends Component {
 
   render() {
     return (
-      <div className='map_tile'>
+      <div className='vertical_container'>
         <div className='triangle_top'></div>
 
         <InitialMap

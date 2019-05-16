@@ -57,18 +57,19 @@ class ListingIndexContainer extends Component {
     return(
       <div className='main'>
 
-              <img className='rentals_logo' src='https://s3.amazonaws.com/hom-development/rentals_logo.png'></img>
-
-
-         <Map
-            listingsall={this.state.listings_all}
-          />
+      <img className='rentals_logo' src='https://s3.amazonaws.com/hom-development/rentals_logo.png'></img>
+      <div className='vertical_container'>
 
             <div className='triangle_top'></div>
               <div className="listing_container">
                {listings_display.reverse()}
              </div>
            <div className='triangle_bottom'></div>
+
+           <Map
+             listingsall={this.state.listings_all}
+             />
+         </div>
       </div>
   )}
 }
