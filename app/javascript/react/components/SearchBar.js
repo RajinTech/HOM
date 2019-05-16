@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 class SearchBar extends Component {
   constructor(props) {
@@ -37,7 +38,9 @@ class SearchBar extends Component {
   render() {
     const searchedListings = this.state.listings.map(listing => {
       return(
-        <li>{listing.street}{listing.unit}</li>
+        <Link to={`/listings/${listing.id}`}>
+          <li>{listing.street} {listing.unit}</li>
+        </Link>
       )
     })
     return(
