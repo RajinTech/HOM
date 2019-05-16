@@ -52,6 +52,10 @@
   border-width: 5px;
   border-color: #3C3C3C;
 }
+.search_results{
+  max-height: 300px;
+  overflow-y:scroll;
+}
 
 .bordered_listing_photo{
   border-radius: 8px;

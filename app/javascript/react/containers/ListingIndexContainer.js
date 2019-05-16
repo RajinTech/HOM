@@ -59,8 +59,8 @@ class ListingIndexContainer extends Component {
       <div className='main'>
 
       <img className='rentals_logo' src='https://s3.amazonaws.com/hom-development/rentals_logo.png'></img>
-      <SearchBar/>
       <div className='vertical_container'>
+        <SearchBar/>
 
             <div className='triangle_top'></div>
               <div className="listing_container">

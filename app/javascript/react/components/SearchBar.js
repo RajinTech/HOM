@@ -39,7 +39,13 @@ class SearchBar extends Component {
     const searchedListings = this.state.listings.map(listing => {
       return(
         <Link to={`/listings/${listing.id}`}>
-          <li>{listing.street} {listing.unit}</li>
+          <div className='horizontal_container'>
+          <div className='triangle_left_small'></div>
+          <div className='listing_show'>
+          <h5>{listing.street} {listing.unit}</h5>
+        </div>
+        <div className='triangle_right_small'></div>
+      </div>
         </Link>
       )
     })
@@ -51,7 +57,9 @@ class SearchBar extends Component {
 
         <input type='submit' value='Search' />
       </form>
-      <ul>{searchedListings}</ul>
+      <div className='horizontal_container search_results'>
+        <ul>{searchedListings}</ul>
+      </div>
     </div>
     )
   }
