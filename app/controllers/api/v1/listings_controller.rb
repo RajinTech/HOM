@@ -68,6 +68,11 @@ class Api::V1::ListingsController < ApiController
     end
   end
 
+  def search
+    @listings = Listing.where("name ILIKE ?", "%#{params['search_string']}%")
+    render json: @listings
+  end
+
   def show
     render json: Listing.find(params["id"]), serializer: ListingShowSerializer
   end
