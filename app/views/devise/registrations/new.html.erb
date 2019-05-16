@@ -36,16 +36,18 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
+</div>
+<div class='row'>
 
-  <div class="field columns profile-photo-uploader">
+  <div class="field columns">
      <%= f.label :profile_photo %><br />
      <%= f.file_field :profile_photo %>
    </div>
+   <div className="buttons columns horizontal_container form-submit">
+     <%= f.submit "Sign up" %>
+   </div>
+ </div>
 
-  <div className="button form-submit">
-    <%= f.submit "Sign up" %>
-  </div>
-</div>
 
   </fieldset>
     </div>

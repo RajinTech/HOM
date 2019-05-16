@@ -3,7 +3,7 @@ body{
 }
 div {
    border: 1px solid;
-   border-color: transparent;
+   border-color: red;
    padding: 1px;
 }
 h5 {
@@ -43,18 +43,25 @@ fieldset{
 input[type="submit"] {
     -webkit-appearance: none;
     -moz-appearance: none;
-    border-radius: 1;
     font-family: cursive;
     color: #3C3C3C;
+    background-color: #F7FFF7;
+    border-width: 5px;
+    border-color: #3C3C3C;
   }
 input[type="submit"]:hover {
     -webkit-appearance: none;
     -moz-appearance: none;
-    border-radius: 1;
-    background-color: #3C3C3C;
-    font-family: cursive;
     color: #F7FFF7;
+    background-color: #3C3C3C;
+    border-width: 5px;
+    border-color: #3C3C3C;
   }
+  a {
+    color: #3C3C3C;
+    line-height: inherit;
+    text-decoration: none;
+}
 
   /* width */
   ::-webkit-scrollbar {
