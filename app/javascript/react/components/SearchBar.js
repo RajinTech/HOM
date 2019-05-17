@@ -41,7 +41,7 @@ class SearchBar extends Component {
         <Link to={`/listings/${listing.id}`}>
           <div className='horizontal_container'>
           <div className='triangle_left_small'></div>
-          <div className='listing_show'>
+          <div className='listing_search'>
           <h5>{listing.street} {listing.unit}</h5>
         </div>
         <div className='triangle_right_small'></div>
@@ -52,9 +52,12 @@ class SearchBar extends Component {
     return(
       <div>
       <form onSubmit={this.handleSubmit}>
+        <div className='vertical_container'>
         <label>Search</label>
         <input type='text' name='searchString' value={this.state.searchString} onChange={this.handleChange} />
+
         <input type='submit' value='Search' />
+      </div>
       </form>
       <div className='horizontal_container search_results'>
         <ul>{searchedListings}</ul>

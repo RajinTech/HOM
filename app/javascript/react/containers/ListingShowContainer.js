@@ -105,7 +105,7 @@ class ListingShowContainer extends Component {
     if(this.state.active == true){
       return(
         <div className='vertical_container'>
-          <button className='button' onClick={this.handleClick}>View Listing</button>
+          <button className='button' onClick={this.handleClick}>Exit Edit Mode</button>
           {form}
 
     </div>
