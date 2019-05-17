@@ -69,7 +69,7 @@ class Api::V1::ListingsController < ApiController
   end
 
   def search
-    @listings = Listing.where("street ILIKE ?", "%#{params['search_string']}%")
+    @listings = Listing.where("street ILIKE ? OR city ILIKE ? OR state ILIKE ? OR zip ILIKE ?", "%#{params['search_string']}%", "%#{params['search_string']}%", "%#{params['search_string']}%", "%#{params['search_string']}%")
     render json: @listings
   end
 

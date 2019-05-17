@@ -40,6 +40,9 @@
   border-color: #3C3C3C;
   padding: 5px;
 }
+.listing_show:hover{
+  transform:scale(1.1);
+}
 .picture_gallery{
   display: flex;
   flex-direction: row;

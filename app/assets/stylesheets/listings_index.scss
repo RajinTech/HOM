@@ -56,6 +56,7 @@ input[type="submit"]:hover {
     background-color: #3C3C3C;
     border-width: 5px;
     border-color: #3C3C3C;
+    transform: scale(1.05)
   }
   a {
     color: #3C3C3C;
@@ -109,6 +110,9 @@ input[type="submit"]:hover {
   height: 397px;
   flex: 0 0 auto;
   padding: 5px;
+}
+.listing_tile:hover{
+  transform:scale(1.0125);
 }
 .listing_container {
   display: flex;

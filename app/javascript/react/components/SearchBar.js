@@ -52,12 +52,9 @@ class SearchBar extends Component {
     return(
       <div>
       <form onSubmit={this.handleSubmit}>
-        <div className=''>
         <label>Search</label>
         <input type='text' name='searchString' value={this.state.searchString} onChange={this.handleChange} />
-
         <input type='submit' value='Search' />
-      </div>
       </form>
       <div className='horizontal_container search_results'>
         <ul>{searchedListings}</ul>
