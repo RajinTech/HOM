@@ -3,7 +3,7 @@ import React from 'react';
 
 const ListingShow = (props) => {
   return (
-    <div className='listing_show'>
+    <div className='listing_show animate_entrance'>
       <Link to={`/listings/${props.id}`}>
 
         <h1>{props.street} {props.unit}</h1>

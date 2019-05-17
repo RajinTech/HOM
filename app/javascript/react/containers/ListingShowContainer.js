@@ -105,8 +105,10 @@ class ListingShowContainer extends Component {
     if(this.state.active == true){
       return(
         <div className='vertical_container'>
-          <button className='button' onClick={this.handleClick}>Exit Edit Mode</button>
-          {form}
+          <button className='button animate_entrance' onClick={this.handleClick}>Exit Edit Mode</button>
+          <div className='animate_dropdown'>
+            {form}
+          </div>
 
     </div>
       )
@@ -539,7 +541,7 @@ render(){
 
   let picture_gallery = this.state.pictures.map((picture) => {
     return(
-      <div className='horizontal_container'>
+      <div className='horizontal_container animate_entrance'>
         <div className='triangle_left_small'></div>
           <div className="bordered_listing_photo">
           <img src={picture.image}></img>

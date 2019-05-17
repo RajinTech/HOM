@@ -184,6 +184,7 @@ input[type="submit"]:hover {
   border-width: 5px;
   border-color: #3C3C3C;
 }
+
 .button:hover{
   color: #F7FFF7;
   background-color: #3C3C3C;
@@ -353,37 +354,25 @@ border-right: blue solid 5px;
 
 
 
-
-
-
-
-.editshow{
-  animation-name: editform;
-  animation-duration: 0.2s;
+.animate_entrance{
+  animation-name: entrance;
+  animation-duration: 1s;
   animation-fill-mode: both;
 }
-.editno{
-  transform: rotateY(80deg);
-}
-
-
-
-
-
-.edit-form{
-  transform: rotateY(80deg);
-
-}
-
-.edit-form:active{
-  animation-name: editform;
-  animation-duration: 0.2s;
+.animate_dropdown{
+  animation-name: dropdown;
+  animation-duration: 1s;
   animation-fill-mode: both;
-
 }
-@keyframes editform {
-  from {transform: rotateY(80deg);}
-  to {transform: rotateY(0deg);}
+
+
+@keyframes entrance {
+  from {transform: scale(0);}
+  to {transform: scale(1);}
+}
+@keyframes dropdown {
+  from { height: 0%;}
+  to { height: 100%;}
 }
 
 
