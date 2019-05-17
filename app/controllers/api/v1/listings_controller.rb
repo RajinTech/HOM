@@ -1,6 +1,6 @@
 class Api::V1::ListingsController < ApiController
 
-  before_action :authorize_user, except: [:index, :show]
+  before_action :authorize_user, except: [:index, :show, :search]
 
   def index
      render json: Listing.all
@@ -66,6 +66,11 @@ class Api::V1::ListingsController < ApiController
     else
       head 403
     end
+  end
+
+  def search
+    @listings = Listing.where("street ILIKE ? OR city ILIKE ? OR state ILIKE ? OR zip ILIKE ?", "%#{params['search_string']}%", "%#{params['search_string']}%", "%#{params['search_string']}%", "%#{params['search_string']}%")
+    render json: @listings
   end
 
   def show

@@ -13,33 +13,27 @@
 <body className="background-oh">
   <nav class="top-bar">
 
-    <section class="top-bar-section">
+    <section class="top-bar-section cursive_light">
+      <ul class="left">
+        <%- if current_user -%>
+        <li><%= link_to 'HOME', root_path %></li>
+          <% if current_user.admin? %>
+            <li><%= link_to 'NEW LISTING', new_listing_path %></li>
+          <% end %>
+        <%- else -%>
+        <li><%= link_to 'HOME', root_path %></li>
+        <%- end -%>
+        </ul>
+
       <ul class="right">
         <%- if current_user -%>
-<li class='profile_name'><%= current_user.first_name %>
-  </li>
-<li class='profile_name'><%= current_user.last_name %>
-  </li>
-
-
-
-
-
-
-            <li class="active picture"><img src="<%= current_user.profile_photo %>" width="25" height="25" /></li>
-            <li><%= link_to 'New Listing', new_listing_path %></li>
-            <li><%= link_to 'All Listings', listings_path %></li>
-            <li><%= link_to 'HOME', root_path %></li>
+            <li class='profile_name'><%= current_user.first_name %></li>
+            <li class='profile_name'><%= current_user.last_name %></li>
+            <li class="profile_photo"><img src="<%= current_user.profile_photo %>"  /></li>
             <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
 
-
         <%- else -%>
-        <li><%= link_to 'New Listing', new_listing_path %></li>
-        <li><%= link_to 'All Listings', listings_path %></li>
-          <li><%= link_to 'HOME', root_path %></li>
-
           <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-
           <li><%= link_to 'Sign In', new_user_session_path %></li>
         <%- end -%>
       </ul>
