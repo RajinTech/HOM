@@ -378,30 +378,48 @@ border-right: blue solid 5px;
   from { height: 0%;}
   to { height: 100%;}
 }
-
-
-@media screen and (max-width: 991px) {
-/* start of large tablet styles */
-
+@media screen and (max-width: 1024px) {
+  //iPad Pro
+.map_container{
+  width: 1000px;
+  height: 1000px;
+}
+}
+@media screen and (max-width: 768px) {
+  //iPad
+.map_container{
+  width: 734px;
+  height: 734px;
+}
+}
+@media screen and (max-width: 414px) {
+  //iPhone 6 7 8 Plus
+.map_container{
+  width: 390px;
+}
 }
 
-@media screen and (max-width: 767px) {
-/* start of medium tablet styles */
-
+@media screen and (max-width: 411px) {
+  //Pixel 2 2xl
+.map_container{
+  width: 383px;
 }
-
-@media screen and (max-width: 800px) {
-/* start of phone styles */
-// html, body {
-//     width: 153%;
-// }
-//   .picture_gallery{
-//     width: 515px;
-//   }
-  // .listing_show{
-  //   width: 515px;
-  // }
-  // .vertical_container{
-  //   width:590px;
-  // }
+}
+@media screen and (max-width: 375px) {
+  //iPhone 6 7 8 X
+  .map_container{
+    width: 352px;
+  }
+}
+@media screen and (max-width: 360px) {
+  //Galaxy S5
+  .map_container{
+    width: 335px;
+  }
+}
+@media screen and (max-width: 320px) {
+  //iPhone 5se
+  .map_container{
+    width: 296px;
+  }
 }
