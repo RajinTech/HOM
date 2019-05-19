@@ -65,10 +65,10 @@ input[type="submit"]:hover {
     border-color: #3C3C3C;
     transform: scale(1.05);
   }
-  a {
-    color: #3C3C3C;
-    line-height: inherit;
-    text-decoration: none;
+a {
+  color: #3C3C3C;
+  line-height: inherit;
+  text-decoration: none;
 }
 
 /* width */
@@ -95,7 +95,7 @@ input[type="submit"]:hover {
   box-shadow: 0 0 16px #49C1F9;
 }
 .main {
-  width: 90%;
+  width: 100%;
   height: 100%;
   left: 0;
   top: 0;
@@ -178,8 +178,8 @@ input[type="submit"]:hover {
   border-width: thick;
   background-color: #B9D8C2;
   overflow:hidden;
-  height: 600px;
-  width: 600px;
+  height: 580px;
+  width: 580px;
 }
 .button{
   font-family: cursive;
@@ -392,5 +392,16 @@ border-right: blue solid 5px;
 
 @media screen and (max-width: 800px) {
 /* start of phone styles */
-
+// html, body {
+//     width: 153%;
+// }
+//   .picture_gallery{
+//     width: 515px;
+//   }
+  // .listing_show{
+  //   width: 515px;
+  // }
+  // .vertical_container{
+  //   width:590px;
+  // }
 }
