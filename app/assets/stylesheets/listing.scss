@@ -155,7 +155,7 @@ a {
   overflow-y: hidden;
   overflow-x: scroll;
   padding:2px;
-  max-width: 600px;
+  max-width: 1000px;
   border-radius: 8px;
   border-width: 5px;
   border-color: #3C3C3C;
@@ -180,6 +180,9 @@ a {
   overflow:hidden;
   height: 580px;
   width: 580px;
+}
+.edit_container{
+  margin: auto;
 }
 .button{
   font-family: cursive;
@@ -380,21 +383,48 @@ border-right: blue solid 5px;
 }
 @media screen and (max-width: 1024px) {
   //iPad Pro
-.map_container{
-  width: 800px;
-  height: 800px;
-}
+  .map_container{
+    width: 800px;
+    height: 800px;
+  }
+  .picture_gallery{
+    width: 800px;
+  }
+  .listing_show{
+    width: 800px;
+  }
+  .edit_container{
+    width: 800px;
+  }
 }
 @media screen and (max-width: 768px) {
   //iPad
-.map_container{
-  width: 675px;
-  height: 675px;
-}
+  .map_container{
+    width: 675px;
+    height: 675px;
+  }
+  .picture_gallery{
+    width: 675px;
+  }
+  .listing_show{
+    width: 675px;
+  }
+  .edit_container{
+    width: 675px;
+  }
 }
 @media screen and (max-width: 414px) {
   //iPhone 6 7 8 Plus
 .map_container{
+  width: 390px;
+}
+.picture_gallery{
+  width: 390px;
+}
+.listing_show{
+  width: 390px;
+}
+.edit_container{
   width: 390px;
 }
 }
@@ -402,6 +432,15 @@ border-right: blue solid 5px;
 @media screen and (max-width: 411px) {
   //Pixel 2 2xl
 .map_container{
+  width: 383px;
+}
+.picture_gallery{
+  width: 383px;
+}
+.listing_show{
+  width: 383px;
+}
+.edit_container{
   width: 383px;
 }
 }
@@ -416,6 +455,9 @@ border-right: blue solid 5px;
   .listing_show{
     width: 352px;
   }
+  .edit_container{
+    width: 357px;
+  }
 }
 @media screen and (max-width: 360px) {
   //Galaxy S5
@@ -426,6 +468,16 @@ border-right: blue solid 5px;
 @media screen and (max-width: 320px) {
   //iPhone 5se
   .map_container{
+    width: 296px;
+    height: 500px;
+  }
+  .picture_gallery{
+    width: 296px;
+  }
+  .listing_show{
+    width: 296px;
+  }
+  .edit_container{
     width: 296px;
   }
 }

@@ -598,7 +598,9 @@ render(){
           id={this.state.id}
           street={this.state.street}
         />
+      <div className='edit_container'>
       {editPage}
+    </div>
 
       </div>
     </div>
