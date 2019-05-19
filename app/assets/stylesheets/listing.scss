@@ -175,6 +175,18 @@ a {
 .bordered_listing_photo:hover{
   transform:scale(1.05);
 }
+.zoomed_listing_photo{
+  position: relative;
+  height:300px;
+  width:300px;
+}
+.zoomed_background{
+  position:absolute;
+  height:100%;
+  width:100%;
+  background-color: red;
+  z-index: auto;
+}
 .map_container{
   border-color: #3C3C3C;
   border-radius: 5px;

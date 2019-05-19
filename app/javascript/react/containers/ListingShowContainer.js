@@ -48,7 +48,8 @@ class ListingShowContainer extends Component {
       error: false,
       submit_message: "",
       field_message: "",
-      role:""
+      role:"",
+      current_pic:"https://images.freeimages.com/images/large-previews/a0c/daffodil-1378489.jpg"
 
     }
     this.is_false = this.is_false.bind(this)
@@ -121,6 +122,7 @@ class ListingShowContainer extends Component {
       )
     }
   }
+
 
 
 
@@ -239,8 +241,7 @@ class ListingShowContainer extends Component {
 
           pictures: responseData.pictures,
 
-          role: responseData.role
-
+          role: responseData.role,
            })
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
@@ -592,7 +593,9 @@ render(){
           <div className='triangle_bottom'></div>
         </div>
 
-
+        <PictureViewer
+          image={this.state.current_pic}
+          />
         <MapShow
           latitude={this.state.latitude}
           longitude={this.state.longitude}
