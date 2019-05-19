@@ -381,15 +381,15 @@ border-right: blue solid 5px;
 @media screen and (max-width: 1024px) {
   //iPad Pro
 .map_container{
-  width: 1000px;
-  height: 1000px;
+  width: 800px;
+  height: 800px;
 }
 }
 @media screen and (max-width: 768px) {
   //iPad
 .map_container{
-  width: 734px;
-  height: 734px;
+  width: 675px;
+  height: 675px;
 }
 }
 @media screen and (max-width: 414px) {
@@ -408,6 +408,12 @@ border-right: blue solid 5px;
 @media screen and (max-width: 375px) {
   //iPhone 6 7 8 X
   .map_container{
+    width: 352px;
+  }
+  .picture_gallery{
+    width: 352px;
+  }
+  .listing_show{
     width: 352px;
   }
 }

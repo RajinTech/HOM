@@ -555,8 +555,8 @@ render(){
       <div className='vertical_container'>
 
 
-        <div className='horizontal_container'>
-          <div className='triangle_left'></div>
+        <div className='vertical_container'>
+          <div className='triangle_top'></div>
             <ListingShow
               key={this.state.id}
               bath={this.state.bathrooms}
@@ -580,15 +580,15 @@ render(){
               pets={this.is_false(this.state.pets)}
               hud={this.is_false(this.state.hud)}
             />
-          <div className='triangle_right'></div>
+          <div className='triangle_bottom'></div>
         </div>
 
-        <div className='horizontal_container'>
-          <div className='triangle_left'></div>
+        <div className='vertical_container'>
+          <div className='triangle_top'></div>
             <div className='picture_gallery'>
             {picture_gallery}
             </div>
-          <div className='triangle_right'></div>
+          <div className='triangle_bottom'></div>
         </div>
 
 
