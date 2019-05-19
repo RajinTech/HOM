@@ -172,6 +172,9 @@ a {
   height: auto;
   width: 450px;
 }
+.bordered_listing_photo:hover{
+  transform:scale(1.05);
+}
 .map_container{
   border-color: #3C3C3C;
   border-radius: 5px;
@@ -230,7 +233,9 @@ a {
 border-right: blue solid 5px;
 }
 
-
+.flex_direction{
+  flex-direction: row;
+}
 .container{
   display:flex;
   margin: auto;
@@ -412,6 +417,9 @@ border-right: blue solid 5px;
   .edit_container{
     width: 675px;
   }
+  .flex_direction{
+    flex-direction: column;
+  }
 }
 @media screen and (max-width: 414px) {
   //iPhone 6 7 8 Plus
@@ -441,19 +449,19 @@ border-right: blue solid 5px;
   width: 383px;
 }
 .edit_container{
-  width: 383px;
+  width: 387px;
 }
 }
 @media screen and (max-width: 375px) {
   //iPhone 6 7 8 X
   .map_container{
-    width: 352px;
+    width: 335px;
   }
   .picture_gallery{
-    width: 352px;
+    width: 335px;
   }
   .listing_show{
-    width: 352px;
+    width: 335px;
   }
   .edit_container{
     width: 357px;
@@ -463,8 +471,19 @@ border-right: blue solid 5px;
   //Galaxy S5
   .map_container{
     width: 335px;
+    height: 500px;
+  }
+  .picture_gallery{
+    width: 335;
+  }
+  .listing_show{
+    width: 335;
+  }
+  .edit_container{
+    width: 335px;
   }
 }
+
 @media screen and (max-width: 320px) {
   //iPhone 5se
   .map_container{
@@ -478,6 +497,6 @@ border-right: blue solid 5px;
     width: 296px;
   }
   .edit_container{
-    width: 296px;
+    width: 302px;
   }
 }

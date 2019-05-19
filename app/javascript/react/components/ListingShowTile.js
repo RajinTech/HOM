@@ -3,12 +3,12 @@ import React from 'react';
 
 const ListingShow = (props) => {
   return (
-    <div className='listing_show animate_entrance'>
+    <div className='listing_show animate_entrance '>
       <Link to={`/listings/${props.id}`}>
 
         <h1>{props.street} {props.unit}</h1>
         <h1>{props.city}, {props.state}{props.zip}</h1>
-      <div className='container'>
+      <div className='container flex_direction'>
         <div>
 
       <ul>

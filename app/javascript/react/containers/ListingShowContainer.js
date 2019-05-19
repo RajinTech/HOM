@@ -6,6 +6,7 @@ import RadioField from '../components/RadioField'
 import DateField from '../components/DateField';
 import ImageTile from '../components/ImageTile';
 import TextTile from '../components/TextTile';
+import PictureViewer from '../components/PictureViewer';
 import { browserHistory } from 'react-router'
 import MapShow from '../components/MapShow'
 import React, { Component } from 'react';
