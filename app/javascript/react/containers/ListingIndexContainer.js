@@ -69,7 +69,9 @@ class ListingIndexContainer extends Component {
              </div>
            <div className='triangle_bottom'></div>
 
-      
+           <Map
+             listingsall={this.state.listings_all}
+             />
          </div>
       </div>
   )}
