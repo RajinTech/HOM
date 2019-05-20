@@ -1,6 +1,7 @@
 import ListingEditContainer from './ListingEditContainer'
 import RadioFieldBool from '../components/RadioFieldBool'
 import ListingShow from '../components/ListingShowTile'
+import ListingImage from '../components/ListingImage'
 import RangeField from '../components/RangeField';
 import RadioField from '../components/RadioField'
 import DateField from '../components/DateField';
@@ -267,6 +268,15 @@ class ListingShowContainer extends Component {
     }
 
 render(){
+  let picture_gallery = this.state.pictures.map((picture, index) => {
+    return(
+      <ListingImage
+        key={index}
+        src={picture.image}
+        onClick={() => this.enterViewMode(this.state.pictures[index].image)}
+        id={picture.id}/>
+
+    )})
   let pictureViewer = this.viewMode(
     <div>
     <PictureViewer
@@ -275,22 +285,9 @@ render(){
     <button
       onClick={this.exitViewMode}
       className='zoomed_exit buttons'> Close </button>
-  </div>
+    </div>
   )
 
-  let picture_gallery = this.state.pictures.map((picture) => {
-    let counter = 0
-    return(
-      <div className='horizontal_container animate_entrance'>
-        <div className='triangle_left_small'></div>
-          <div className="bordered_listing_photo">
-          <img
-            src={picture.image}
-            onClick={() => this.enterViewMode(this.state.pictures[0].image)}></img>
-        </div>
-        <div className='triangle_right_small'></div>
-      </div>
-    )})
 
   let editPage = this.editMode(
             <div>
