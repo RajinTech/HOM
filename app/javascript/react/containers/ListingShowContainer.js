@@ -100,7 +100,7 @@ class ListingShowContainer extends Component {
   }
   enterViewMode(image){
     event.preventDefault();
-        this.setState({ current_pic: picture.image })
+        this.setState({ current_pic: image })
   }
 
   exitViewMode(){
@@ -277,6 +277,20 @@ render(){
       className='zoomed_exit buttons'> Close </button>
   </div>
   )
+
+  let picture_gallery = this.state.pictures.map((picture) => {
+    let counter = 0
+    return(
+      <div className='horizontal_container animate_entrance'>
+        <div className='triangle_left_small'></div>
+          <div className="bordered_listing_photo">
+          <img
+            src={picture.image}
+            onClick={() => this.enterViewMode(this.state.pictures[0].image)}></img>
+        </div>
+        <div className='triangle_right_small'></div>
+      </div>
+    )})
 
   let editPage = this.editMode(
             <div>
@@ -570,19 +584,7 @@ render(){
         </div>
   )
 
-  let picture_gallery = this.state.pictures.map((picture) => {
-    let counter = 0
-    return(
-      <div className='horizontal_container animate_entrance'>
-        <div className='triangle_left_small'></div>
-          <div className="bordered_listing_photo">
-          <img
-            src={picture.image}
-            onClick={this.toggleViewMode}></img>
-        </div>
-        <div className='triangle_right_small'></div>
-      </div>
-    )})
+
 
   return(
     <div className='main'>
