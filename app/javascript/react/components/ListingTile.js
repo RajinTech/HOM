@@ -3,7 +3,7 @@ import React from 'react';
 
 const ListingTile = (props) => {
   return (
-    <div className='listing_show_container'>
+    <div className='listing_show_container animate_entrance'>
     <div className='triangle_left_small'></div>
     <div className="listing_tile">
       <Link to={`/listings/${props.id}`}>
