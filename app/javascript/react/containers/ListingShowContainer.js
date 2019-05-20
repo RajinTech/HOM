@@ -54,7 +54,11 @@ class ListingShowContainer extends Component {
     }
     this.is_false = this.is_false.bind(this)
     this.editMode = this.editMode.bind(this)
-    this.handleClick = this.handleClick.bind(this);
+    this.viewMode = this.viewMode.bind(this)
+    this.enterViewMode = this.enterViewMode.bind(this)
+    this.exitViewMode = this.exitViewMode.bind(this)
+    this.toggleViewMode = this.toggleViewMode.bind(this);
+    this.toggleEditMode = this.toggleEditMode.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this)
     this.deleteListing = this.deleteListing.bind(this)
@@ -89,11 +93,28 @@ class ListingShowContainer extends Component {
       }
     }
 
-  handleClick(event) {
+  toggleEditMode(event) {
     this.setState({
         active: !this.state.active
     });
-}
+  }
+  enterViewMode(image){
+    event.preventDefault();
+        this.setState({ current_pic: picture.image })
+  }
+
+  exitViewMode(){
+    this.setState({ current_pic: ""})
+  }
+
+  toggleViewMode(image) {
+    event.preventDefault();
+    if(this.state.current_pic !== ""){
+      this.setState({ current_pic: "" })
+    } else if (this.state.current_pic == "") {
+      this.setState({ current_pic: image  })
+    }
+  }
 
   is_false(s){
     if(s === false){
@@ -102,29 +123,29 @@ class ListingShowContainer extends Component {
       return s
     }
   }
-
+  viewMode(e){
+    if(this.state.current_pic){
+      return(e)
+    }
+  }
   editMode(form){
     if(this.state.active == true){
       return(
         <div className='vertical_container'>
-          <button className='button animate_entrance' onClick={this.handleClick}>Exit Edit Mode</button>
+          <button className='button animate_entrance' onClick={this.toggleEditMode}>Exit Edit Mode</button>
           <div className='animate_dropdown'>
             {form}
           </div>
-
-    </div>
+        </div>
       )
     } else if(this.state.active == false && this.state.role == 'admin'){
       return(
         <div className='vertical_container'>
-          <button className='button' onClick={this.handleClick}>edit</button>
+          <button className='button' onClick={this.toggleEditMode}>edit</button>
         </div>
       )
     }
   }
-
-
-
 
   handleSubmit(event){
     event.preventDefault();
@@ -195,8 +216,6 @@ class ListingShowContainer extends Component {
   );
 }
 
-
-
   componentDidMount() {
     fetch(`/api/v1/listings/${this.props.params.id}`)
       .then(response => {
@@ -248,6 +267,16 @@ class ListingShowContainer extends Component {
     }
 
 render(){
+  let pictureViewer = this.viewMode(
+    <div>
+    <PictureViewer
+      image={this.state.current_pic}
+      />
+    <button
+      onClick={this.exitViewMode}
+      className='zoomed_exit buttons'> Close </button>
+  </div>
+  )
 
   let editPage = this.editMode(
             <div>
@@ -542,11 +571,14 @@ render(){
   )
 
   let picture_gallery = this.state.pictures.map((picture) => {
+    let counter = 0
     return(
       <div className='horizontal_container animate_entrance'>
         <div className='triangle_left_small'></div>
           <div className="bordered_listing_photo">
-          <img src={picture.image}></img>
+          <img
+            src={picture.image}
+            onClick={this.toggleViewMode}></img>
         </div>
         <div className='triangle_right_small'></div>
       </div>
@@ -592,10 +624,8 @@ render(){
             </div>
           <div className='triangle_bottom'></div>
         </div>
+        {pictureViewer}
 
-        <PictureViewer
-          image={this.state.current_pic}
-          />
         <MapShow
           latitude={this.state.latitude}
           longitude={this.state.longitude}

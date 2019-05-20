@@ -175,17 +175,32 @@ a {
 .bordered_listing_photo:hover{
   transform:scale(1.05);
 }
+.bordered_listing_photo:active{
+  transform:scale(2);
+}
 .zoomed_listing_photo{
-  position: relative;
-  height:300px;
-  width:300px;
+  position:fixed;
+  top:20px;
+  left: 25%;
+  right: 25%;
+  margin: 0 auto;
+  opacity: 1;
+  z-index: 2;
+  border: 10px solid rgba(255, 0, 0, .5);
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
 }
 .zoomed_background{
   position:absolute;
   height:100%;
   width:100%;
-  background-color: red;
-  z-index: auto;
+  background-color: transparent;
+  z-index: 2;
+}
+.zoomed_exit{
+  z-index: 2;
+  position:fixed;
+  bottom: 20px;
 }
 .map_container{
   border-color: #3C3C3C;
