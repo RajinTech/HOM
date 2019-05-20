@@ -294,6 +294,8 @@ render(){
               id={this.state.id}
               street={this.state.street}
               unit={this.state.unit}
+              city={this.state.city}
+              state={this.state.state}
               />
   )
 
