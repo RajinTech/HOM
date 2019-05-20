@@ -2,17 +2,25 @@ import { Link } from 'react-router';
 import React from 'react';
 
 const PictureViewer = (props) => {
-  return (
-    <div>
-      <div className='zoomed_background'>
+  if(props.src){
+    return (
+      <div className='horizontal_container'>
+        <div className='zoomed_listing_photo animate_picture_viewer'>
+          <img
+            src={props.src}>
+          </img>
         </div>
-      <div className='zoomed_listing_photo horizontal_container'>
-        <img
-          src={props.image}>
-        </img>
+        <button
+          onClick={props.onClick}
+          className='zoomed_exit buttons'> Close
+        </button>
       </div>
-    </div>
-  )
+    )
+  } else {
+    return (
+      <div></div>
+    )
+  }
 }
 
 export default PictureViewer

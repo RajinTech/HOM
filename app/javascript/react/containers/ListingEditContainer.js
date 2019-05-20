@@ -33,7 +33,6 @@ class ListingEditContainer extends Component {
       cooling: this.props.cooling,
       hud: this.props.hud,
       smoking: this.props.smoking,
-      image: [this.props.pictures],
       error: false,
       submit_message: "",
       field_message: "",
@@ -58,9 +57,7 @@ class ListingEditContainer extends Component {
     submit_message: "",
     })
   }
-  componentDidMount(){
-    debugger;
-  }
+
   validationError(field) {
     if (field === "") {
       return (
@@ -148,7 +145,7 @@ class ListingEditContainer extends Component {
 
   render(){
     return(
-      <div>
+      <div className='edit_container'>
       <div className="row">
         <div className="row"></div>
       <div>
@@ -408,23 +405,7 @@ class ListingEditContainer extends Component {
                   </div>
                 </div>
             </fieldset>
-            <fieldset><legend>Images</legend>
-            <div className="small-4 columns">
-              <div>
-                <TextTile
-                  label="Image URL"
-                  name="image"
-                  onChange={this.handleChange}
-                  value={this.state.image}
-                  placeholder={this.state.image}
-                />
-              </div>
-            </div>
 
-          <div>
-            <h5 className="slider-name" >{this.state.image} Your Image</h5>
-          </div>
-            </fieldset>
             <h6>{this.state.submit_message}</h6>
 
       <div className='horizontal_container'>

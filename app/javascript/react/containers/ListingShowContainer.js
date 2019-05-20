@@ -50,7 +50,7 @@ class ListingShowContainer extends Component {
       submit_message: "",
       field_message: "",
       role:"",
-      current_pic:"https://images.freeimages.com/images/large-previews/a0c/daffodil-1378489.jpg"
+      current_pic:""
 
     }
     this.is_false = this.is_false.bind(this)
@@ -60,39 +60,8 @@ class ListingShowContainer extends Component {
     this.exitViewMode = this.exitViewMode.bind(this)
     this.toggleViewMode = this.toggleViewMode.bind(this);
     this.toggleEditMode = this.toggleEditMode.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.deleteListing = this.deleteListing.bind(this)
-    this.validationError = this.validationError.bind(this)
-    this.validateSubmit = this.validateSubmit.bind(this)
   }
 
-  handleChange(event) {
-    if(event.target.value == ""){
-      this.setState({ [event.target.name.error]: "Cannot be blank" })
-    } else if (event.target.value !== "") {
-      this.setState({ [event.target.name.error]: "" })
-    }
-  this.setState({
-    [event.target.name]: event.target.value,
-    submit_message: "",
-  })
-}
-  validationError(field) {
-    if (field === "") {
-      return (
-        <h6> field cannot be blank</h6>
-      )
-    }
-  }
-
-  validateSubmit() {
-    if(this.state.role !== 'admin'){
-      this.setState({
-        submit_message: "Must log in as admin to alter listing",
-        error: true })
-      }
-    }
 
   toggleEditMode(event) {
     this.setState({
@@ -124,11 +93,13 @@ class ListingShowContainer extends Component {
       return s
     }
   }
+
   viewMode(e){
     if(this.state.current_pic){
       return(e)
     }
   }
+
   editMode(form){
     if(this.state.active == true){
       return(
@@ -148,75 +119,6 @@ class ListingShowContainer extends Component {
     }
   }
 
-  handleSubmit(event){
-    event.preventDefault();
-    this.validateSubmit();
-    let formPayload = this.state;
-    fetch(`/api/v1/listings/${this.state.id}`, {
-      credentials: 'same-origin',
-      method: 'PATCH',
-      body: JSON.stringify(formPayload),
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(response => {
-        if (response.ok) {
-          return response;
-        } else {
-
-          let errorMessage = `${response.status} (${response.statusText})`,
-              error = new Error(errorMessage);
-          throw(error);
-        }
-      })
-      .then(response => response.json())
-      .then(body => {
-        browserHistory.push(`/listings`);
-      })
-      .catch(error =>
-        {
-        console.error(`Error in fetch: ${error.message}`),
-            this.setState({ submit_message: 'Must be logged in as an admin to edit a listing' })
-
-    });
-  }
-
-  deleteListing() {
-  fetch(`/api/v1/listings/${this.state.id}`, {
-    'method': 'DELETE',
-    'headers': {
-      'Accept': 'application/json',
-      'Content-Type': "application/json"
-    },
-    'body': JSON.stringify({
-      'listing': { 'id': this.props.id }
-    })
-  })
-    .then(response => {
-      if (response.ok) {
-        return response;
-      } else {
-        let errorMessage = `${response.status} (${response.statusText})`,
-            error = new Error(errorMessage);
-        throw(error);
-      }
-    })
-    .then(response => response.json())
-    .then(body => {
-      if (body['successful']) {
-        browserHistory.push(`/listings`);
-      }
-    })
-    .catch(error => {
-
-      console.error(`Error in fetch: ${error.message}`),
-      this.setState({ submit_message: 'Must be logged in as an admin to delete a listing'})
-    }
-  );
-}
-
   componentDidMount() {
     fetch(`/api/v1/listings/${this.props.params.id}`)
       .then(response => {
@@ -231,7 +133,6 @@ class ListingShowContainer extends Component {
       .then((response) => response.json())
       .then((responseData) => {
         this.setState({
-
           street: responseData.street,
           city: responseData.city,
           unit: responseData.unit,
@@ -240,14 +141,12 @@ class ListingShowContainer extends Component {
           id: responseData.id,
           latitude: responseData.latitude,
           longitude: responseData.longitude,
-
           bedrooms: responseData.features.bedrooms,
           bathrooms: responseData.features.bathrooms,
           rent: responseData.features.rent,
           sq_ft: responseData.features.sq_ft,
           date_available: responseData.features.date_available,
           lease_length: responseData.features.lease_length,
-
           building_style: responseData.amenities.building_style,
           parking_spaces: responseData.amenities.parking_spaces,
           pets: responseData.amenities.pets,
@@ -258,11 +157,9 @@ class ListingShowContainer extends Component {
           hud: responseData.amenities.hud,
           smoking: responseData.amenities.smoking,
           image: [],
-
           pictures: responseData.pictures,
-
           role: responseData.role,
-           })
+          })
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
     }
@@ -273,20 +170,10 @@ render(){
       <ListingImage
         key={index}
         src={picture.image}
-        onClick={() => this.enterViewMode(this.state.pictures[index].image)}
+        onClick={() => this.toggleViewMode(this.state.pictures[index].image)}
         id={picture.id}/>
 
     )})
-  let pictureViewer = this.viewMode(
-    <div>
-    <PictureViewer
-      image={this.state.current_pic}
-      />
-    <button
-      onClick={this.exitViewMode}
-      className='zoomed_exit buttons'> Close </button>
-    </div>
-  )
 
 
   let editPage = this.editMode(
@@ -313,19 +200,12 @@ render(){
               hud={this.state.hud}
               smoking={this.state.smoking}
               id={this.state.id}
-              pictures={this.state.pictures}
               />
-  )
-
-
+          )
 
   return(
     <div className='main'>
       <div className='vertical_container'>
-
-
-        <div className='vertical_container'>
-          <div className='triangle_top'></div>
             <ListingShow
               key={this.state.id}
               bath={this.state.bathrooms}
@@ -349,8 +229,6 @@ render(){
               pets={this.is_false(this.state.pets)}
               hud={this.is_false(this.state.hud)}
             />
-          <div className='triangle_bottom'></div>
-        </div>
 
         <div className='vertical_container'>
           <div className='triangle_top'></div>
@@ -359,7 +237,11 @@ render(){
             </div>
           <div className='triangle_bottom'></div>
         </div>
-        {pictureViewer}
+
+        <PictureViewer
+          src={this.state.current_pic}
+          onClick={this.toggleViewMode}
+          />
 
         <MapShow
           latitude={this.state.latitude}
@@ -367,9 +249,8 @@ render(){
           id={this.state.id}
           street={this.state.street}
         />
-      <div className='edit_container'>
-      {editPage}
-    </div>
+
+        {editPage}
 
       </div>
     </div>

@@ -178,27 +178,19 @@ a {
 
 .zoomed_listing_photo{
   position:fixed;
-  top:20px;
-  left: 25%;
-  right: 25%;
+  top:5%;
   margin: 0 auto;
   opacity: 1;
   z-index: 2;
-  border: 10px solid rgba(255, 0, 0, .5);
+  border: 130px solid rgba(0, 0, 0, 0.8);
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
 }
-.zoomed_background{
-  position:absolute;
-  height:100%;
-  width:100%;
-  background-color: transparent;
-  z-index: 2;
-}
+
 .zoomed_exit{
-  z-index: 2;
   position:fixed;
-  bottom: 20px;
+  z-index: 2;
+  top: 2%;
 }
 .map_container{
   border-color: #3C3C3C;
@@ -383,16 +375,13 @@ border-right: blue solid 5px;
   width: 100%;
 }
 
-
-
-
-
-
-
-
-
 .animate_entrance{
   animation-name: entrance;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+.animate_picture_viewer{
+  animation-name: entrance_lg;
   animation-duration: 1s;
   animation-fill-mode: both;
 }
@@ -407,10 +396,17 @@ border-right: blue solid 5px;
   from {transform: scale(0);}
   to {transform: scale(1);}
 }
+
+@keyframes entrance_lg {
+  from {transform: scale(0);}
+  to {transform: scale(1.5);}
+}
+
 @keyframes dropdown {
   from { height: 0%;}
   to { height: 100%;}
 }
+
 @media screen and (max-width: 1024px) {
   //iPad Pro
   .map_container{

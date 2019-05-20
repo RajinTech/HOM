@@ -3,6 +3,8 @@ import React from 'react';
 
 const ListingShow = (props) => {
   return (
+    <div className='vertical_container'>
+      <div className='triangle_top'></div>
     <div className='listing_show animate_entrance '>
       <Link to={`/listings/${props.id}`}>
 
@@ -46,6 +48,8 @@ const ListingShow = (props) => {
     </div>
       </Link>
     </div>
+    <div className='triangle_bottom'></div>
+  </div>
   )
 }
 
