@@ -296,6 +296,24 @@ render(){
               unit={this.state.unit}
               city={this.state.city}
               state={this.state.state}
+              zip={this.state.zip}
+              bedrooms={this.state.bedrooms}
+              bathrooms={this.state.bathrooms}
+              rent={this.state.rent}
+              sqft={this.state.sq_ft}
+              dateavailable={this.state.date_available}
+              leaselength={this.state.lease_length}
+              buildingstyle={this.state.building_style}
+              parkingspaces={this.state.parking_spaces}
+              pets={this.state.pets}
+              zoning={this.state.zoning}
+              schooldistrict={this.state.school_district}
+              heating={this.state.heating}
+              cooling={this.state.cooling}
+              hud={this.state.hud}
+              smoking={this.state.smoking}
+              id={this.state.id}
+              pictures={this.state.pictures}
               />
   )
 

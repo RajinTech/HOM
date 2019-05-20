@@ -56,8 +56,11 @@ class ListingEditContainer extends Component {
   this.setState({
     [event.target.name]: event.target.value,
     submit_message: "",
-  })
-}
+    })
+  }
+  componentDidMount(){
+    debugger;
+  }
   validationError(field) {
     if (field === "") {
       return (
