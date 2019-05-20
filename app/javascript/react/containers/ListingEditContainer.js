@@ -12,26 +12,27 @@ class ListingEditContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      street: this.props.listing.street,
-      unit: this.props.listing.unit,
-      city: this.props.listing.city,
-      state: this.props.listing.state,
-      zip: this.props.listing.zip,
-      bedrooms: this.props.features.bedrooms,
-      bathrooms: this.props.features.bathrooms,
-      rent: this.props.features.rent,
-      sq_ft: this.props.features.sq_ft,
-      date_available: this.props.features.date_available,
-      lease_length: this.props.features.lease_length,
-      building_style: this.props.amenities.building_style,
-      parking_spaces: this.props.amenities.parking_spaces,
-      pets: this.props.amenities.pets,
-      zoning: this.props.amenities.zoning,
-      school_district: this.props.amenities.school_district,
-      heating: this.props.amenities.heating,
-      cooling: this.props.amenities.cooling,
-      hud: this.props.amenities.hud,
-      smoking: this.props.amenities.smoking,
+      id: this.props.id,
+      street: this.props.street,
+      unit: this.props.unit,
+      city: this.props.city,
+      state: this.props.state,
+      zip: this.props.zip,
+      bedrooms: this.props.bedrooms,
+      bathrooms: this.props.bathrooms,
+      rent: this.props.rent,
+      sq_ft: this.props.sqft,
+      date_available: this.props.date_available,
+      lease_length: this.props.lease_length,
+      building_style: this.props.building_style,
+      parking_spaces: this.props.parking_spaces,
+      pets: this.props.pets,
+      zoning: this.props.zoning,
+      school_district: this.props.school_district,
+      heating: this.props.heating,
+      cooling: this.props.cooling,
+      hud: this.props.hud,
+      smoking: this.props.smoking,
       image: [this.props.pictures],
       error: false,
       submit_message: "",
@@ -66,10 +67,12 @@ class ListingEditContainer extends Component {
   }
 
   validateSubmit() {
+    if(this.state.role !== 'admin'){
       this.setState({
         submit_message: "Must log in as admin to alter listing",
         error: true })
-  }
+      }
+    }
 
   handleSubmit(event){
     event.preventDefault();
@@ -139,14 +142,8 @@ class ListingEditContainer extends Component {
     }
   );
 }
-  componentDidMount(){
-    this.setState({ edit : true })
-  }
-
 
   render(){
-
-
     return(
       <div>
       <div className="row">
@@ -438,7 +435,7 @@ class ListingEditContainer extends Component {
     </div>
   </div>
       )
-    
+
   }
 }
 
