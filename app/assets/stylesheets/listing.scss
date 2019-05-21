@@ -504,10 +504,11 @@ border-right: blue solid 5px;
     width: 335px;
   }
   .zoomed_listing_photo{
-    border-right: 70px solid rgba(0, 0, 0, 0.8);
-    border-left: 70px solid rgba(0, 0, 0, 0.8);
+    border-right: 0px solid rgba(0, 0, 0, 0.8);
+    border-left: 0px solid rgba(0, 0, 0, 0.8);
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
+    top: 13%;
   }
 }
 
