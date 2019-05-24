@@ -1,11 +1,12 @@
 ![Build Status](https://codeship.com/projects/88820b80-0279-0137-674b-729c7a751547/status?branch=master)
 # HOM
 
+RECRUITERS: Use log in bford@gmail.com and pw brianford to log in as admin
+
 An app for managing real estate related tasks
     Allows a user to post a listing
     Allows a user to view a listing
 
-Currently switching to Foundation 6 so site is not responsive, best viewed with Macbook Air on fullscre a zoom level of 150%
 
 System dependencies:
     Must have Ruby 2.4.5
@@ -49,11 +50,5 @@ App walkthrough:
       Technologies: CSS animations, React States, onMouse event listeners
         added: image carousel, ability to click picture to update state
 
-Created to provide an easy way to upload a listing
 
-Eventual goals:
-  Payment portal with Stripe
-  Regional Comparisons with Zillow Api
-  Managment tools with Data Visualization
-  Social Media Integration
-  Responsive
+Created to provide an easy way to upload a listing
