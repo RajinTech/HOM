@@ -4,9 +4,6 @@
 RECRUITERS: Use log in bford@gmail.com and pw brianford to log in as admin
 
 An app for managing real estate related tasks
-    Allows a user to post a listing
-    Allows a user to view a listing
-
 
 System dependencies:
     Must have Ruby 2.4.5
