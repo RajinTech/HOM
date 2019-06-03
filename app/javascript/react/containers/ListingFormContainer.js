@@ -364,8 +364,10 @@ class ListingFormContainer extends Component {
             <h5 className="slider-name" >{this.state.image} Your Image</h5>
           </div>
             </fieldset>
+            <div className='vertical_container'>
             <h6>{this.state.submit_message}</h6>
         <input className="button" type="submit" value="Submit New Listing"/>
+            </div>
       </form>
     </div>
   </div>
