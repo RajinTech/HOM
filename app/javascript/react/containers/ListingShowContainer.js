@@ -124,6 +124,7 @@ class ListingShowContainer extends Component {
       )
     }
   }
+  
   previousImage(){
     if(this.state.current_pic_index == 0){
       let previousIndex = this.state.pictures.length - 1
@@ -133,6 +134,7 @@ class ListingShowContainer extends Component {
       this.setState({current_pic: this.state.pictures[previousIndex].image, current_pic_index: previousIndex})
     }
   }
+
   nextImage(){
     if(this.state.current_pic == this.state.pictures.slice(-1)[0].image){
       let previousIndex = 0
@@ -141,8 +143,8 @@ class ListingShowContainer extends Component {
       let previousIndex = this.state.current_pic_index + 1
       this.setState({current_pic: this.state.pictures[previousIndex].image, current_pic_index: previousIndex})
       }
-
   }
+
   componentDidMount() {
     fetch(`/api/v1/listings/${this.props.params.id}`)
       .then(response => {
