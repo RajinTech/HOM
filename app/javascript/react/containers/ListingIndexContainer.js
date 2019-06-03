@@ -13,7 +13,10 @@ class ListingIndexContainer extends Component {
       listings_show: [],
       first_pictures:[]
     }
+  }
 
+  componentDidMount() {
+    window.scrollTo(0, 0)
   }
 
   componentWillMount() {

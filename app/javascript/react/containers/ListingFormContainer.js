@@ -35,13 +35,14 @@ class ListingFormContainer extends Component {
       image: [],
       error: false,
       submit_message: "",
-      field_message: "",
+
+
 
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this)
     this.validationError = this.validationError.bind(this)
-    this.validateSubmit = this.validateSubmit.bind(this)
+
   }
 
   handleChange(event) {
@@ -49,26 +50,21 @@ class ListingFormContainer extends Component {
   this.setState({
     [event.target.name]: event.target.value,
     submit_message: "",
-  })
-}
+    })
+  }
   validationError(field) {
     if (field === "" && this.state.error == true ) {
       return (
-        <h6> field cannot be blank</h6>
+        <h6>field cannot be blank</h6>
       )
     }
   }
 
-  validateSubmit() {
 
-      this.setState({
-        submit_message: "Some required fields are empty",
-        error: true })
-  }
 
   handleSubmit(event){
     event.preventDefault();
-    this.validateSubmit();
+
     let formPayload = this.state;
     fetch('/api/v1/listings', {
       credentials: 'same-origin',
@@ -94,6 +90,7 @@ class ListingFormContainer extends Component {
         browserHistory.push(`/listings`);
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
+      this.setState({submit_message:"Some required fields are empty", error: true})
   }
 
 

@@ -62,11 +62,9 @@ class ListingEditContainer extends Component {
   }
 
   validateSubmit() {
-    if(this.state.role !== 'admin'){
       this.setState({
-        submit_message: "Must log in as admin to alter listing",
+        submit_message: "Some required fields are empty",
         error: true })
-      }
     }
 
   handleSubmit(event){
