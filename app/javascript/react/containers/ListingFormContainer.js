@@ -359,7 +359,7 @@ class ListingFormContainer extends Component {
             </div>
 
           <div>
-            <h5 className="slider-name" >{this.state.image} Your Image</h5>
+            <h5 className="slider-name">Your Image URL: {this.state.image}</h5>
           </div>
             </fieldset>
             <div className='vertical_container'>
