@@ -132,11 +132,15 @@ class ListingShowContainer extends Component {
       let previousIndex = this.state.current_pic_index - 1
       this.setState({current_pic: this.state.pictures[previousIndex].image, current_pic_index: previousIndex})
       }
-
-
   }
   nextImage(){
-    console.log('next');
+    if(this.state.current_pic_index == this.state.pictures.length - 1){
+      let previousIndex = 0
+      this.setState({current_pic: this.state.pictures[previousIndex].image, current_pic_index: previousIndex})
+    } else{
+      let previousIndex = this.state.current_pic_index + 1
+      this.setState({current_pic: this.state.pictures[previousIndex].image, current_pic_index: previousIndex})
+      }
 
   }
   componentDidMount() {
