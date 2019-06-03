@@ -189,8 +189,20 @@ a {
 
 .zoomed_exit{
   position:fixed;
-  z-index: 2;
-  top: 2%;
+  z-index: 3;
+  top: 4%;
+}
+.previous_image{
+  position:fixed;
+  z-index: 3;
+  top: 4%;
+  left: 3%;
+
+}.next_image{
+  position:fixed;
+  z-index: 3;
+  top: 4%;
+  right: 3%;
 }
 .map_container{
   border-color: #3C3C3C;

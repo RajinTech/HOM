@@ -7,7 +7,6 @@ class Api::V1::ListingsController < ApiController
   end
 
   def create
-    binding.pry
     @listing = Listing.new(location_params)
     @listing.user = current_user
     if @listing.save

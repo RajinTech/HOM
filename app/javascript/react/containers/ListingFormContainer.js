@@ -35,43 +35,36 @@ class ListingFormContainer extends Component {
       image: [],
       error: false,
       submit_message: "",
-      field_message: "",
+
+
 
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this)
     this.validationError = this.validationError.bind(this)
-    this.validateSubmit = this.validateSubmit.bind(this)
+
   }
 
   handleChange(event) {
-    if(event.target.value == ""){
-      this.setState({ [event.target.name.error]: "Cannot be blank" })
-    } else if (event.target.value !== "") {
-      this.setState({ [event.target.name.error]: "" })
-    }
+
   this.setState({
     [event.target.name]: event.target.value,
     submit_message: "",
-  })
-}
+    })
+  }
   validationError(field) {
     if (field === "" && this.state.error == true ) {
       return (
-        <h6> field cannot be blank</h6>
+        <h6>field cannot be blank</h6>
       )
     }
   }
 
-  validateSubmit() {
-      this.setState({
-        submit_message: "Some required fields are empty",
-        error: true })
-  }
+
 
   handleSubmit(event){
     event.preventDefault();
-    this.validateSubmit();
+
     let formPayload = this.state;
     fetch('/api/v1/listings', {
       credentials: 'same-origin',
@@ -97,6 +90,7 @@ class ListingFormContainer extends Component {
         browserHistory.push(`/listings`);
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
+      this.setState({submit_message:"Some required fields are empty", error: true})
   }
 
 
@@ -365,11 +359,13 @@ class ListingFormContainer extends Component {
             </div>
 
           <div>
-            <h5 className="slider-name" >{this.state.image} Your Image</h5>
+            <h5 className="slider-name">Your Image URL: {this.state.image}</h5>
           </div>
             </fieldset>
+            <div className='vertical_container'>
             <h6>{this.state.submit_message}</h6>
         <input className="button" type="submit" value="Submit New Listing"/>
+            </div>
       </form>
     </div>
   </div>

@@ -50,7 +50,8 @@ class ListingShowContainer extends Component {
       submit_message: "",
       field_message: "",
       role:"",
-      current_pic:""
+      current_pic:"",
+      current_pic_index:"",
 
     }
     this.is_false = this.is_false.bind(this)
@@ -60,6 +61,8 @@ class ListingShowContainer extends Component {
     this.exitViewMode = this.exitViewMode.bind(this)
     this.toggleViewMode = this.toggleViewMode.bind(this);
     this.toggleEditMode = this.toggleEditMode.bind(this);
+    this.nextImage = this.nextImage.bind(this);
+    this.previousImage = this.previousImage.bind(this);
   }
 
 
@@ -77,12 +80,15 @@ class ListingShowContainer extends Component {
     this.setState({ current_pic: ""})
   }
 
-  toggleViewMode(image) {
+  toggleViewMode(image, index) {
     event.preventDefault();
     if(this.state.current_pic !== ""){
-      this.setState({ current_pic: "" })
+      this.setState({ current_pic: "", current_pic_index: index })
+      console.log(this.state.current_pic_index);
+
     } else if (this.state.current_pic == "") {
-      this.setState({ current_pic: image  })
+      this.setState({ current_pic: image, current_pic_index: index  })
+      console.log(this.state.current_pic_index);
     }
   }
 
@@ -117,6 +123,26 @@ class ListingShowContainer extends Component {
         </div>
       )
     }
+  }
+  
+  previousImage(){
+    if(this.state.current_pic_index == 0){
+      let previousIndex = this.state.pictures.length - 1
+      this.setState({current_pic: this.state.pictures.slice(-1)[0].image, current_pic_index: previousIndex})
+    } else{
+      let previousIndex = this.state.current_pic_index - 1
+      this.setState({current_pic: this.state.pictures[previousIndex].image, current_pic_index: previousIndex})
+    }
+  }
+
+  nextImage(){
+    if(this.state.current_pic == this.state.pictures.slice(-1)[0].image){
+      let previousIndex = 0
+      this.setState({current_pic: this.state.pictures[previousIndex].image, current_pic_index: previousIndex})
+    } else{
+      let previousIndex = this.state.current_pic_index + 1
+      this.setState({current_pic: this.state.pictures[previousIndex].image, current_pic_index: previousIndex})
+      }
   }
 
   componentDidMount() {
@@ -170,7 +196,7 @@ render(){
       <ListingImage
         key={index}
         src={picture.image}
-        onClick={() => this.toggleViewMode(this.state.pictures[index].image)}
+        onClick={() => this.toggleViewMode(this.state.pictures[index].image, index)}
         id={picture.id}/>
 
     )})
@@ -241,6 +267,8 @@ render(){
         <PictureViewer
           src={this.state.current_pic}
           onClick={this.toggleViewMode}
+          onClickNextImage={this.nextImage}
+          onClickPreviousImage={this.previousImage}
           />
 
         <MapShow
