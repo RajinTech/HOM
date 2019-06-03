@@ -45,11 +45,7 @@ class ListingFormContainer extends Component {
   }
 
   handleChange(event) {
-    if(event.target.value == ""){
-      this.setState({ [event.target.name.error]: "Cannot be blank" })
-    } else if (event.target.value !== "") {
-      this.setState({ [event.target.name.error]: "" })
-    }
+
   this.setState({
     [event.target.name]: event.target.value,
     submit_message: "",

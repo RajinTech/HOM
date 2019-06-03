@@ -36,7 +36,7 @@ class ListingEditContainer extends Component {
       error: false,
       submit_message: "",
       field_message: "",
-      edit: false
+
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -47,11 +47,6 @@ class ListingEditContainer extends Component {
   }
 
   handleChange(event) {
-    if(event.target.value == ""){
-      this.setState({ [event.target.name.error]: "Cannot be blank" })
-    } else if (event.target.value !== "") {
-      this.setState({ [event.target.name.error]: "" })
-    }
   this.setState({
     [event.target.name]: event.target.value,
     submit_message: "",
