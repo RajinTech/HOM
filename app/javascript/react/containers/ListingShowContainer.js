@@ -121,9 +121,10 @@ class ListingShowContainer extends Component {
     }
   }
   previousImage(){
-
+    console.log('previous');
   }
   nextImage(){
+    console.log('next');
 
   }
   componentDidMount() {
