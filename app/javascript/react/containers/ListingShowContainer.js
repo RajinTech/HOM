@@ -60,6 +60,8 @@ class ListingShowContainer extends Component {
     this.exitViewMode = this.exitViewMode.bind(this)
     this.toggleViewMode = this.toggleViewMode.bind(this);
     this.toggleEditMode = this.toggleEditMode.bind(this);
+    this.nextImage = this.nextImage.bind(this);
+    this.previousImage = this.previousImage.bind(this);
   }
 
 
@@ -118,7 +120,12 @@ class ListingShowContainer extends Component {
       )
     }
   }
+  previousImage(){
 
+  }
+  nextImage(){
+
+  }
   componentDidMount() {
     fetch(`/api/v1/listings/${this.props.params.id}`)
       .then(response => {
@@ -241,6 +248,8 @@ render(){
         <PictureViewer
           src={this.state.current_pic}
           onClick={this.toggleViewMode}
+          onClickNextImage={this.nextImage}
+          onClickPreviousImage={this.previousImage}
           />
 
         <MapShow
