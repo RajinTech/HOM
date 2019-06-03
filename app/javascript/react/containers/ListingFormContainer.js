@@ -60,6 +60,7 @@ class ListingFormContainer extends Component {
   }
 
   validateSubmit() {
+
       this.setState({
         submit_message: "Some required fields are empty",
         error: true })
