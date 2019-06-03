@@ -127,14 +127,14 @@ class ListingShowContainer extends Component {
   previousImage(){
     if(this.state.current_pic_index == 0){
       let previousIndex = this.state.pictures.length - 1
-      this.setState({current_pic: this.state.pictures[previousIndex].image, current_pic_index: previousIndex})
+      this.setState({current_pic: this.state.pictures.slice(-1)[0].image, current_pic_index: previousIndex})
     } else{
       let previousIndex = this.state.current_pic_index - 1
       this.setState({current_pic: this.state.pictures[previousIndex].image, current_pic_index: previousIndex})
-      }
+    }
   }
   nextImage(){
-    if(this.state.current_pic_index == this.state.pictures.length - 1){
+    if(this.state.current_pic == this.state.pictures.slice(-1)[0].image){
       let previousIndex = 0
       this.setState({current_pic: this.state.pictures[previousIndex].image, current_pic_index: previousIndex})
     } else{
