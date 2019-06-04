@@ -40,11 +40,9 @@ class SearchBar extends Component {
       return(
         <Link to={`/listings/${listing.id}`}>
           <div className='horizontal_container'>
-          <div className='triangle_left_small'></div>
           <div className='listing_search'>
           <h5>{listing.street} {listing.unit}</h5>
         </div>
-        <div className='triangle_right_small'></div>
       </div>
         </Link>
       )
