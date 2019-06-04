@@ -124,7 +124,7 @@ class ListingShowContainer extends Component {
       )
     }
   }
-  
+
   previousImage(){
     if(this.state.current_pic_index == 0){
       let previousIndex = this.state.pictures.length - 1
@@ -200,7 +200,6 @@ render(){
         id={picture.id}/>
 
     )})
-
 
   let editPage = this.editMode(
             <ListingEditContainer
