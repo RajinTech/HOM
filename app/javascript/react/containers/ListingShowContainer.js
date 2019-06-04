@@ -124,7 +124,7 @@ class ListingShowContainer extends Component {
       )
     }
   }
-  
+
   previousImage(){
     if(this.state.current_pic_index == 0){
       let previousIndex = this.state.pictures.length - 1
@@ -198,7 +198,6 @@ render(){
         src={picture.image}
         onClick={() => this.toggleViewMode(this.state.pictures[index].image, index)}
         id={picture.id}/>
-
     )})
 
 
