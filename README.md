@@ -40,7 +40,7 @@ App walkthrough:
 
  2)
     "User can see a list of rental listings and view listing pins on a map."
-      Technologies: CSS animations, Google Maps API
+      Technologies: CSS animations, Google Maps API Javascript
 
  3)
     "User can view details and pictures on a specific listing"
