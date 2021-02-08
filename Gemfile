@@ -58,7 +58,7 @@ gem 'valid_attribute', group: [:development, :test]
 gem 'shoulda-matchers', group: [:development, :test], require: true
 gem 'devise'
 gem 'dotenv-rails', group: [:development, :test]
-gem 'carrierwave', '~>1.0'
+gem 'carrierwave', '~>1.3'
 gem 'fog'
 gem 'fog-aws'
 gem 'foundation-rails', '~> 5.0'
